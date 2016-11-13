@@ -28,10 +28,8 @@
             </Label>
             <MenuBar fx:id="MasterMenuBar">
                 <Menu fx:id="Customer" mnemonicParsing="false" text="Customer">
-                    <Menu>
-                        <MenuItem id="CustomerMenuItem1" fx:id="CustomerMenuItem1" mnemonicParsing="false"
-                                  onAction="#TestPaneClick" text="Test"/>
-                    </Menu>
+                    <MenuItem id="CustomerMenuItem1" fx:id="CustomerMenuItem1" mnemonicParsing="false"
+                              onAction="#TestPaneClick" text="Test"/>
                 </Menu>
                 <Menu fx:id="Teller" mnemonicParsing="false" text="Teller">
                     <MenuItem id="TellerMenuItem1" fx:id="TellerMenuItem1" mnemonicParsing="false"
