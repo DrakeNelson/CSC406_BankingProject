@@ -1,0 +1,49 @@
+/**
+* Style information for the Master Scene #MasterBorderPane
+*/
+#MasterBorderPane {
+    -fx-background-color: #111111;
+    -fx-border-insets: 10, 10, 10, 10;
+    -fx-border-color: #111111;
+}
+
+#MasterMenuBar {
+    -fx-background-color: #b8d4ef;
+}
+
+#MasterLabel {
+    -fx-text-fill: #c8e4ff;
+}
+
+.menu {
+    -fx-border-insets: 5, 4, 4, 4;
+    -fx-border-color: d8f4ff;
+}
+
+.menu-item {
+    -fx-background-color: #c8e4ff;
+    -fx-border-insets: 5, 4, 4, 4;
+    -fx-border-color: d8f4ff;
+}
+
+.menu-item:hover {
+    -fx-borde-color: #08a4ff;
+}
+
+.menu-item:focused {
+    -fx-background-color: #08a4ff;
+}
+
+#ProjectChoiceLabel {
+    -fx-text-fill: #c8e4ff;
+}
+
+#MasterContentPane {
+    -fx-background-color: #999999;
+}
+
+.menu:hover,
+.menu:showing, /* selects Menu in MenuBar, if shown */
+.menu-item:focused {
+    -fx-background-color: #08a4ff;
+}
