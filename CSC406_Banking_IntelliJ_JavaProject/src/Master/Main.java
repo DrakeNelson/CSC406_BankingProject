@@ -17,7 +17,6 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.*;
-
 //main class pretty much starts up the app
 //the basic plan is to use the root as a constant container for the app
 //with a bar that has methods in the controller

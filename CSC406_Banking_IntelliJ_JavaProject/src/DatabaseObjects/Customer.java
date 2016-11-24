@@ -20,7 +20,7 @@ public class Customer
     String state;
     @SerializedName("Zip")
     @Expose
-    Object zip;
+    String zip;
     @SerializedName("FirstName")
     @Expose
     String firstName;
@@ -39,10 +39,10 @@ public class Customer
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-    public Object getZip() {
+    public String getZip() {
         return this.zip;
     }
-    public void setZip(Object zip) {
+    public void setZip(String zip) {
         this.zip = zip;
     }
     public String getState() {

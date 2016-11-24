@@ -24,6 +24,16 @@ public class Database
     @Expose
     public List<TermLoan> termLoans;
 
+    public Customer getCustomerBySSN(String SSN){
+        Customer result = null;
+        for (Customer customer : customers){
+            if(Integer.toString(customer.getSocial()).equals(SSN)){
+                return customer;
+            }
+        }
+        return result;
+    }
+
     public List<TermLoan> getTermLoans() {
         return this.termLoans;
     }

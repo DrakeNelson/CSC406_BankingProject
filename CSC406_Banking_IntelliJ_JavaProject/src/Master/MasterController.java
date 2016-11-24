@@ -6,7 +6,10 @@ package Master;
  * Created by Drake Nelson 11/13/2016
  */
 
+import ContentPanes.TellerCustomerSearchPane;
+import ContentPanes.TellerCustomerServicePane;
 import ContentPanes.TestPane;
+import DatabaseObjects.Customer;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.layout.BorderPane;
@@ -30,6 +33,19 @@ public class MasterController extends Master.Main {
         //add the new window to the mastercontentpane
         MasterContentPane.getChildren().add(new TestPane());
         //set it to the correct position
+        root.setCenter(MasterContentPane);
+    }
+    public void TellerMainPaneClick() {
+        MasterContentPane = new StackPane();
+        window.setTitle("Teller");
+        MasterContentPane.getChildren().add(new TellerCustomerSearchPane());
+        root.setCenter(MasterContentPane);
+    }
+    public static void TellerSearchClick(String SSN) {
+        MasterContentPane = new StackPane();
+        window.setTitle("Teller");
+        Customer searchedCustomer = Main.database.getCustomerBySSN(SSN);
+        MasterContentPane.getChildren().add(new TellerCustomerServicePane(searchedCustomer));
         root.setCenter(MasterContentPane);
     }
 
