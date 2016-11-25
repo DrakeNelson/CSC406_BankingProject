@@ -16,10 +16,11 @@ import javafx.scene.text.Text;
 
 /**
  * Created by Drake on 9/5/2016.
+ * this page should be pretty much complete
  */
 public class TellerCustomerSearchPane extends GridPane {
     private String welcomeLine="Welcome Teller";
-    public TellerCustomerSearchPane(String line){
+    TellerCustomerSearchPane(String line){
         welcomeLine=line;
         initializePane(this);
     }

@@ -37,11 +37,7 @@ public class MasterController extends Master.Main {
         root.setCenter(MasterContentPane);
     }
     public void TellerMainPaneClick() {
-        MasterContentPane = new ScrollPane();
-        MasterContentPane.setStyle("-fx-background: rgb(0,0,0);");
-        window.setTitle("Teller");
-        MasterContentPane.setContent(new TellerCustomerSearchPane());
-        root.setCenter(MasterContentPane);
+        landing();
     }
     public static void TellerSearchClick(String SSN) {
         MasterContentPane = new ScrollPane();
@@ -49,6 +45,13 @@ public class MasterController extends Master.Main {
         window.setTitle("Teller");
         Customer searchedCustomer = Main.database.getCustomerBySSN(SSN);
         MasterContentPane.setContent(new TellerCustomerServicePane(searchedCustomer));
+        root.setCenter(MasterContentPane);
+    }
+    public static void landing() {
+        MasterContentPane = new ScrollPane();
+        MasterContentPane.setStyle("-fx-background: rgb(0,0,0);");
+        window.setTitle("Teller");
+        MasterContentPane.setContent(new TellerCustomerSearchPane());
         root.setCenter(MasterContentPane);
     }
 

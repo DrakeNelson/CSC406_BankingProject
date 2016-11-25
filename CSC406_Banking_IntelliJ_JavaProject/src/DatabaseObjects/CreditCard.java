@@ -43,6 +43,7 @@ public class CreditCard
     @SerializedName("Database.PurchasesThisMonth")
     @Expose
     List<PurchasesThisMonth> purchasesThisMonth;
+
     public void setCustomerSocial(int customerSocial) {
         this.customerSocial = customerSocial;
     }

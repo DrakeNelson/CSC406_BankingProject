@@ -56,6 +56,26 @@ public class Database
         }
         return result;
     }
+    public List<TermLoan> getTermLoansBySSN(String SSN) {
+        List<TermLoan> result = new ArrayList<>();
+        for(TermLoan loan : termLoans){
+            if (Integer.toString(loan.getCustomerSocial()).equals(SSN)) {
+                result.add(loan);
+            }
+        }
+        return result;
+    }
+    public List<CreditCard> getCreditCardsBySSN(String SSN) {
+        List<CreditCard> result = new ArrayList<>();
+        for(CreditCard card : creditCards){
+            if (Integer.toString(card.getCustomerSocial()).equals(SSN)) {
+                result.add(card);
+            }
+        }
+        return result;
+    }
+
+
     public List<TermLoan> getTermLoans() {
         return this.termLoans;
     }

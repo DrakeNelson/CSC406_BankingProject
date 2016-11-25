@@ -36,6 +36,7 @@ public class Main extends Application {
         //it will hold the menu bar and all of the items in it
         //the title header and subtitle at the top left of screen
         root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        root.setStyle("-fx-background-color: rgb(0,0,0);");
         window.setOnCloseRequest(e -> {
             try {
                 gson = new GsonBuilder().setPrettyPrinting().create();
@@ -57,6 +58,7 @@ public class Main extends Application {
         window.setResizable(true);
         window.sizeToScene();
         window.show();
+        MasterController.landing();
     }
 
     public static void main(String[] args) {
@@ -68,8 +70,6 @@ public class Main extends Application {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
-
         launch(args);
     }
 }

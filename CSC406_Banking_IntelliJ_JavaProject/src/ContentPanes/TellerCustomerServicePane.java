@@ -19,19 +19,18 @@ import javafx.scene.text.Text;
 
 import java.util.List;
 
-/**
- * Created by user on 11/24/2016.
+/*
+ * Created by drake on 11/24/2016.
+ * all of the buttons on this page have no functionality
  */
 public class TellerCustomerServicePane extends GridPane {
 
     private Customer customer;
-    private List<SavingAccount> traditionalSavingsAccounts;
-    private List<CheckingAccount> checkingAccounts;
 
     public TellerCustomerServicePane(Customer searchedCustomer) {
         customer = searchedCustomer;
-        traditionalSavingsAccounts = Main.database.getTraditionalSavingsBySSN(Integer.toString(customer.getSocial()));
-        checkingAccounts = Main.database.getCheckingAccountsBySSN(Integer.toString(customer.getSocial()));
+        List<SavingAccount> traditionalSavingsAccounts = Main.database.getTraditionalSavingsBySSN(Integer.toString(customer.getSocial()));
+        List<CheckingAccount> checkingAccounts = Main.database.getCheckingAccountsBySSN(Integer.toString(customer.getSocial()));
         HBox custBox = new HBox();
         custBox.getChildren().add(new customerInfoTellerView());
         custBox.getChildren().add(new TellerCustomerSearchPane("Search New Customer"));
@@ -138,7 +137,7 @@ public class TellerCustomerServicePane extends GridPane {
     }
 
     private class customerCheckingAccountsTellerView extends GridPane {
-        public customerCheckingAccountsTellerView(CheckingAccount account) {
+        private customerCheckingAccountsTellerView(CheckingAccount account) {
             setHgap(10);
             setVgap(10);
             setPadding(new Insets(25, 25, 25, 25));
