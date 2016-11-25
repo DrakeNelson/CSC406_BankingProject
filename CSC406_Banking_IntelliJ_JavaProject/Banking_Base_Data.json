@@ -466,11 +466,25 @@
       "CurrentPaymentDueAmt": "405.00",
       "DateLastPaymentMade": "10/29/2016",
       "MissedPaymentFlag": 0,
-      "CreditLimit": 15000.0
+      "CreditLimit": 15000.0,
+      "PurchasesThisMonth": [
+        {
+          "PurchaseID": "1234512",
+          "PurchaseTitle": "Merchandise",
+          "PurchaseLocation": "Target",
+          "PurchaseAmt": 200.0
+        },
+        {
+          "PurchaseID": "45658752",
+          "PurchaseTitle": "Gas",
+          "PurchaseLocation": "BP",
+          "PurchaseAmt": 50.0
+        }
+      ]
     },
     {
       "CreditCardID": "2222222222222222",
-      "CustomerSocial": 345812332,
+      "CustomerSocial": 233435656,
       "CurrentBalance": 1500.0,
       "CurrentInterestRate": 0.17,
       "DatePaymentDue": "11/29/2016",
@@ -478,7 +492,21 @@
       "CurrentPaymentDueAmt": "255.00",
       "DateLastPaymentMade": "10/29/2016",
       "MissedPaymentFlag": 0,
-      "CreditLimit": 5000.0
+      "CreditLimit": 5000.0,
+      "PurchasesThisMonth": [
+        {
+          "PurchaseID": "124565",
+          "PurchaseTitle": "Merchandise",
+          "PurchaseLocation": "Walmart",
+          "PurchaseAmt": 35.0
+        },
+        {
+          "PurchaseID": "124556",
+          "PurchaseTitle": "Gas",
+          "PurchaseLocation": "Caseys",
+          "PurchaseAmt": 30.0
+        }
+      ]
     },
     {
       "CreditCardID": "3333333333333333",
@@ -490,7 +518,21 @@
       "CurrentPaymentDueAmt": "200",
       "DateLastPaymentMade": "10/29/2016",
       "MissedPaymentFlag": 0,
-      "CreditLimit": 15000.0
+      "CreditLimit": 15000.0,
+      "PurchasesThisMonth": [
+        {
+          "PurchaseID": "2341234",
+          "PurchaseTitle": "Gas",
+          "PurchaseLocation": "Quick Trip",
+          "PurchaseAmt": 43.56
+        },
+        {
+          "PurchaseID": "121234",
+          "PurchaseTitle": "Grocery",
+          "PurchaseLocation": "Walmart",
+          "PurchaseAmt": 200.56
+        }
+      ]
     },
     {
       "CreditCardID": "4444444444444444",
@@ -502,7 +544,21 @@
       "CurrentPaymentDueAmt": "75",
       "DateLastPaymentMade": "10/29/2016",
       "MissedPaymentFlag": 0,
-      "CreditLimit": 750.0
+      "CreditLimit": 750.0,
+      "PurchasesThisMonth": [
+        {
+          "PurchaseID": "5343123",
+          "PurchaseTitle": "Gas",
+          "PurchaseLocation": "BP",
+          "PurchaseAmt": 35.64
+        },
+        {
+          "PurchaseID": "1234988",
+          "PurchaseTitle": "Food",
+          "PurchaseLocation": "Dominoes",
+          "PurchaseAmt": 78.56
+        }
+      ]
     },
     {
       "CreditCardID": "5555555555555555",
@@ -514,7 +570,21 @@
       "CurrentPaymentDueAmt": "65.00",
       "DateLastPaymentMade": "10/29/2016",
       "MissedPaymentFlag": 0,
-      "CreditLimit": 500.0
+      "CreditLimit": 500.0,
+      "PurchasesThisMonth": [
+        {
+          "PurchaseID": "9998989",
+          "PurchaseTitle": "Grocery",
+          "PurchaseLocation": "Walmart",
+          "PurchaseAmt": 125.36
+        },
+        {
+          "PurchaseID": "7878455",
+          "PurchaseTitle": "Food",
+          "PurchaseLocation": "IHOP",
+          "PurchaseAmt": 64.25
+        }
+      ]
     },
     {
       "CreditCardID": "6666666666666666",
@@ -526,7 +596,21 @@
       "CurrentPaymentDueAmt": "200.00",
       "DateLastPaymentMade": "10/29/2016",
       "MissedPaymentFlag": 0,
-      "CreditLimit": 500.0
+      "CreditLimit": 500.0,
+      "PurchasesThisMonth": [
+        {
+          "PurchaseID": "3245325",
+          "PurchaseTitle": "Food",
+          "PurchaseLocation": "IHOP",
+          "PurchaseAmt": 43.25
+        },
+        {
+          "PurchaseID": "6546543",
+          "PurchaseTitle": "Food",
+          "PurchaseLocation": "Waffle House",
+          "PurchaseAmt": 23.56
+        }
+      ]
     }
   ],
   "TermLoans": [

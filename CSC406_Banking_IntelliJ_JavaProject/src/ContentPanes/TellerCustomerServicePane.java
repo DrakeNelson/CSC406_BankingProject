@@ -1,8 +1,6 @@
 package ContentPanes;
 
-import DatabaseObjects.CheckingAccount;
-import DatabaseObjects.Customer;
-import DatabaseObjects.SavingAccount;
+import DatabaseObjects.*;
 import Master.Main;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -28,12 +26,16 @@ public class TellerCustomerServicePane extends GridPane {
     private Customer customer;
 
     public TellerCustomerServicePane(Customer searchedCustomer) {
+        //get all customer info
         customer = searchedCustomer;
         List<SavingAccount> traditionalSavingsAccounts = Main.database.getTraditionalSavingsBySSN(Integer.toString(customer.getSocial()));
         List<CheckingAccount> checkingAccounts = Main.database.getCheckingAccountsBySSN(Integer.toString(customer.getSocial()));
+        List<TermLoan> termLoans = Main.database.getTermLoansBySSN(Integer.toString(customer.getSocial()));
+        List<CreditCard> creditCards = Main.database.getCreditCardsBySSN(Integer.toString(customer.getSocial()));
+
+        //start working on interface stuff
         HBox custBox = new HBox();
-        custBox.getChildren().add(new customerInfoTellerView());
-        custBox.getChildren().add(new TellerCustomerSearchPane("Search New Customer"));
+        custBox.getChildren().addAll(new customerInfoTellerView(),new TellerCustomerSearchPane("Search New Customer"));
 
         VBox outerBox = new VBox();
         outerBox.getChildren().add(custBox);
@@ -52,6 +54,20 @@ public class TellerCustomerServicePane extends GridPane {
         outerBox.getChildren().add(checkingAccountListEzLabel);
         for (CheckingAccount account : checkingAccounts) {
             outerBox.getChildren().add(new customerCheckingAccountsTellerView(account));
+        }
+        //list Loans
+        EzText loanListEzLabel = new EzText("Term Loans:");
+        loanListEzLabel.setFont(Font.font("Gabriola", FontWeight.BLACK, 24));
+        outerBox.getChildren().add(loanListEzLabel);
+        for (TermLoan loan : termLoans) {
+            outerBox.getChildren().add(new customerTermLoansTellerView(loan));
+        }
+        //list creditCards
+        EzText cardListEzLabel = new EzText("Credit Cards:");
+        cardListEzLabel.setFont(Font.font("Gabriola", FontWeight.BLACK, 24));
+        outerBox.getChildren().add(cardListEzLabel);
+        for (CreditCard card : creditCards) {
+            outerBox.getChildren().add(new customerCreditCardTellerView(card));
         }
 
         getChildren().add(outerBox);
@@ -111,7 +127,6 @@ public class TellerCustomerServicePane extends GridPane {
 
         }
     }
-
     //this pane shows the basic customer information in the uppler left
     private class customerInfoTellerView extends GridPane {
         private customerInfoTellerView() {
@@ -135,7 +150,7 @@ public class TellerCustomerServicePane extends GridPane {
             add(new EzText(customer.getZip()), 5, 2);
         }
     }
-
+    //formatted view of each checking account
     private class customerCheckingAccountsTellerView extends GridPane {
         private customerCheckingAccountsTellerView(CheckingAccount account) {
             setHgap(10);
@@ -171,6 +186,102 @@ public class TellerCustomerServicePane extends GridPane {
             Button closeButton = new Button("Close Account");
             add(closeButton, 6, 2);
             closeButton.setOnAction(e -> {
+            });
+        }
+    }
+    //formatted view of each TermLoan
+    private class customerTermLoansTellerView extends GridPane {
+        private customerTermLoansTellerView(TermLoan loan) {
+            setHgap(10);
+            setVgap(10);
+            setPadding(new Insets(25, 25, 25, 25));
+            EzText scenetitle = new EzText("Account # : " + loan.getLoanID());
+            scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+            add(scenetitle, 0, 0, 4, 1);
+
+            add(new EzLabel("Current Balance:"), 0, 1);
+            add(new EzText(Double.toString(loan.getCurrentBalance())), 1, 1);
+            add(new EzLabel("Interest Rate:"), 2, 1);
+            add(new EzText(Double.toString(loan.getFixedInterestRate() * 100) + "%"), 3, 1);
+            add(new EzLabel("Payment Due:"), 4, 1);
+            add(new EzText(loan.getDatePaymentDue()), 5, 1);
+            add(new EzLabel("Length Of Loan:"), 6, 1);
+            add(new EzText(loan.getTermLoanType()), 7, 1);
+
+            add(new EzLabel("Flag:"), 0, 2);
+            add(new EzText(Double.toString(loan.getMissedPaymentFlag())), 1, 2);
+            add(new EzLabel("Last Paid:"), 2, 2);
+            add(new EzText(loan.getDateLastPaymentMade()), 3, 2);
+            add(new EzLabel("Payment Due:"), 4, 2);
+            add(new EzText(Double.toString(loan.getCurrentPaymentDueAmt())), 5, 2);
+            add(new EzLabel("Fixed Payment:"), 6, 2);
+            add(new EzText(Double.toString(loan.getFixedPaymentAmount())), 7, 2);
+
+            TextField payField = new TextField();
+            add(payField, 0, 3);
+            Button payButton = new Button("Pay Amt");
+            add(payButton, 1, 3);
+            payButton.setOnAction(e -> {
+            });
+
+            Button payFixedButton = new Button("Pay Fixed Amt");
+            add(payFixedButton, 6, 2);
+            payFixedButton.setOnAction(e -> {
+            });
+
+        }
+    }
+    //formatted view of each credit card
+    private class customerCreditCardTellerView extends GridPane {
+        private customerCreditCardTellerView(CreditCard card) {
+            setHgap(10);
+            setVgap(10);
+            setPadding(new Insets(25, 25, 25, 25));
+            EzText scenetitle = new EzText("Account # : " + card.getCreditCardID());
+            scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+            add(scenetitle, 0, 0, 4, 1);
+
+            add(new EzLabel("Current Balance:"), 0, 1);
+            add(new EzText(Double.toString(card.getCurrentBalance())), 1, 1);
+            add(new EzLabel("Interest Rate:"), 2, 1);
+            add(new EzText(Double.toString(card.getCurrentInterestRate() * 100) + "%"), 3, 1);
+            add(new EzLabel("Payment Due:"), 4, 1);
+            add(new EzText(card.getDatePaymentDue()), 5, 1);
+            add(new EzLabel("Flag:"), 6, 1);
+            add(new EzText(Integer.toString(card.getMissedPaymentFlag())), 7, 1);
+
+            add(new EzLabel("Credit Limit:"), 0, 2);
+            add(new EzText(Double.toString(card.getCreditLimit())), 1, 2);
+            add(new EzLabel("Interest Rate:"), 2, 2);
+            add(new EzText(card.getDateLastPaymentMade()), 3, 2);
+            add(new EzLabel("Due amt:"), 4, 2);
+            add(new EzText(card.getCurrentPaymentDueAmt()), 5, 2);
+            EzLabel recentPurchasesText = new EzLabel("Recent Purchases: ");
+
+            add(recentPurchasesText,0,3);
+            int i=4;
+            for (PurchasesThisMonth purchase : card.getPurchasesThisMonth()) {
+                add(new EzLabel("ID:"), 0, i);
+                add(new EzText(purchase.getPurchaseID()), 1, i);
+                add(new EzLabel("Title:"), 2, i);
+                add(new EzText(purchase.getPurchaseTitle()), 3, i);
+                add(new EzLabel("Location:"), 4, i);
+                add(new EzText(purchase.getPurchaseLocation()), 5, i);
+                add(new EzLabel("Purchase Amt:"), 6, i);
+                add(new EzText(Double.toString(purchase.getPurchaseAmt())), 7, i);
+                i++;
+            }
+
+            TextField payField = new TextField();
+            add(payField, 0, i);
+            Button payButton = new Button("Pay Amt");
+            add(payButton, 1, i);
+            payButton.setOnAction(e -> {
+            });
+
+            Button payFixedButton = new Button("Pay Fixed Amt");
+            add(payFixedButton, 6, i);
+            payFixedButton.setOnAction(e -> {
             });
         }
     }
