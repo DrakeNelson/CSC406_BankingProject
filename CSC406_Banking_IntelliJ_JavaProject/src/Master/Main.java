@@ -8,12 +8,12 @@ package Master;
 
 import DatabaseObjects.Database;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -24,7 +24,7 @@ import java.io.*;
 public class Main extends Application {
     //the mastercontentpane is the container of the main window that will hold
     //the different windows as they are created
-    public static Pane MasterContentPane;
+    public static ScrollPane MasterContentPane;
     static BorderPane root;
     static Stage window;
     public static Database database;
@@ -38,6 +38,7 @@ public class Main extends Application {
         root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
         window.setOnCloseRequest(e -> {
             try {
+                gson = new GsonBuilder().setPrettyPrinting().create();
                 File file = new File("Banking_Base_Data.json");
                 FileWriter w = new FileWriter(file);
                 gson.toJson(database, w);
@@ -50,7 +51,7 @@ public class Main extends Application {
             window.close();
         });
         window.setTitle("CSC406 Banking Project Team 2");
-        MasterContentPane = new StackPane();
+        MasterContentPane = new ScrollPane();
         root.setCenter(MasterContentPane);
         window.setScene(new Scene(root, 900, 700));
         window.setResizable(true);
@@ -67,7 +68,8 @@ public class Main extends Application {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        System.out.println(database);
+
+
         launch(args);
     }
 }

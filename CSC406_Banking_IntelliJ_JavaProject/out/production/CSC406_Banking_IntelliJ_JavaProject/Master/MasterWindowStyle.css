@@ -38,10 +38,6 @@
     -fx-text-fill: #c8e4ff;
 }
 
-#MasterContentPane {
-    -fx-background-color: #999999;
-}
-
 .menu:hover,
 .menu:showing, /* selects Menu in MenuBar, if shown */
 .menu-item:focused {

@@ -3,6 +3,7 @@ package DatabaseObjects;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Database
@@ -23,6 +24,19 @@ public class Database
     @SerializedName("TermLoans")
     @Expose
     public List<TermLoan> termLoans;
+    @SerializedName("DatabaseTime")
+    @Expose
+    public String databaseTime;
+
+    public List<SavingAccount> getTraditionalSavingsBySSN(String SSN){
+        List<SavingAccount> result = new ArrayList<>();
+        for(SavingAccount account : savingAccounts){
+            if (Integer.toString(account.getCustomerSocial()).equals(SSN) && account.getSavingsAccountType().equalsIgnoreCase("Traditional")) {
+                result.add(account);
+            }
+        }
+        return result;
+    }
 
     public Customer getCustomerBySSN(String SSN){
         Customer result = null;
@@ -33,7 +47,15 @@ public class Database
         }
         return result;
     }
-
+    public List<CheckingAccount> getCheckingAccountsBySSN(String SSN) {
+        List<CheckingAccount> result = new ArrayList<>();
+        for(CheckingAccount account : checkingAccounts){
+            if (Integer.toString(account.getCustomerSocial()).equals(SSN)) {
+                result.add(account);
+            }
+        }
+        return result;
+    }
     public List<TermLoan> getTermLoans() {
         return this.termLoans;
     }
@@ -64,4 +86,6 @@ public class Database
     public void setCustomers(List<Customer> customers) {
         this.customers = customers;
     }
+
+
 }
