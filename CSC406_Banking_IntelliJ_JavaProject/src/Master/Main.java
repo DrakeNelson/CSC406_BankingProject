@@ -8,16 +8,15 @@ package Master;
 
 import DatabaseObjects.Database;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.*;
-
 //main class pretty much starts up the app
 //the basic plan is to use the root as a constant container for the app
 //with a bar that has methods in the controller
@@ -25,7 +24,7 @@ import java.io.*;
 public class Main extends Application {
     //the mastercontentpane is the container of the main window that will hold
     //the different windows as they are created
-    public static Pane MasterContentPane;
+    public static ScrollPane MasterContentPane;
     static BorderPane root;
     static Stage window;
     public static Database database;
@@ -37,8 +36,10 @@ public class Main extends Application {
         //it will hold the menu bar and all of the items in it
         //the title header and subtitle at the top left of screen
         root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        root.setStyle("-fx-background-color: rgb(0,0,0);");
         window.setOnCloseRequest(e -> {
             try {
+                gson = new GsonBuilder().setPrettyPrinting().create();
                 File file = new File("Banking_Base_Data.json");
                 FileWriter w = new FileWriter(file);
                 gson.toJson(database, w);
@@ -51,12 +52,13 @@ public class Main extends Application {
             window.close();
         });
         window.setTitle("CSC406 Banking Project Team 2");
-        MasterContentPane = new StackPane();
+        MasterContentPane = new ScrollPane();
         root.setCenter(MasterContentPane);
         window.setScene(new Scene(root, 900, 700));
         window.setResizable(true);
         window.sizeToScene();
         window.show();
+        MasterController.landing();
     }
 
     public static void main(String[] args) {
@@ -68,7 +70,6 @@ public class Main extends Application {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        System.out.println(database);
         launch(args);
     }
 }

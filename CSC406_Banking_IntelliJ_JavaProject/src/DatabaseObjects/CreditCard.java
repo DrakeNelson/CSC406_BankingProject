@@ -40,9 +40,10 @@ public class CreditCard
     @SerializedName("CreditLimit")
     @Expose
     double creditLimit;
-    @SerializedName("Database.PurchasesThisMonth")
+    @SerializedName("PurchasesThisMonth")
     @Expose
     List<PurchasesThisMonth> purchasesThisMonth;
+
     public void setCustomerSocial(int customerSocial) {
         this.customerSocial = customerSocial;
     }
