@@ -8,19 +8,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 /*
-as it pertains to the banking project this is pointless
-it was a little practice pane when i was teaching myself gui
-i just chose to use it as a test pane because of it's simplicity
-it's only purpose is to illustrate how i will be setting new panes to the main window
- */
-/**
- * Created by Drake on 9/5/2016.
- * Create scene with some labels and a button that changes the font color of the labels
+THIS CLASS IS POINTLESS AND WILL BE REMOVED
+CURRENT FUNCTION IS ONLY AS A PLACEHOLDER FOR
+CONTENT THAT NEEDS TO BE ADDED
  */
 public class TestPane extends BorderPane{
-    //any of the classes in this directory should have some public pane available to slap on the MasterContentPane
-    //public BorderPane pane;
-
     public TestPane(){
         font = new Font("Times New Roman", 15);
         labels = new Label[5];

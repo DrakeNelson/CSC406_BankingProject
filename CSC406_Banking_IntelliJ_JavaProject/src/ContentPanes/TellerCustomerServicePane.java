@@ -71,7 +71,6 @@ public class TellerCustomerServicePane extends GridPane {
         }
 
         getChildren().add(outerBox);
-        setStyle("-fx-background-color: #000000");
     }
 
     //couple custom items to save space
@@ -195,7 +194,7 @@ public class TellerCustomerServicePane extends GridPane {
             setHgap(10);
             setVgap(10);
             setPadding(new Insets(25, 25, 25, 25));
-            EzText scenetitle = new EzText("Account # : " + loan.getLoanID());
+            EzText scenetitle = new EzText("Loan # : " + loan.getLoanID());
             scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
             add(scenetitle, 0, 0, 4, 1);
 
@@ -237,7 +236,7 @@ public class TellerCustomerServicePane extends GridPane {
             setHgap(10);
             setVgap(10);
             setPadding(new Insets(25, 25, 25, 25));
-            EzText scenetitle = new EzText("Account # : " + card.getCreditCardID());
+            EzText scenetitle = new EzText("Card # : " + card.getCreditCardID());
             scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
             add(scenetitle, 0, 0, 4, 1);
 
