@@ -6,9 +6,7 @@ package Master;
  * Created by Drake Nelson 11/13/2016
  */
 
-import ContentPanes.TellerCustomerSearchPane;
-import ContentPanes.TellerCustomerServicePane;
-import ContentPanes.TestPane;
+import ContentPanes.*;
 import DatabaseObjects.Customer;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
@@ -47,12 +45,26 @@ public class MasterController extends Master.Main {
         MasterContentPane.setContent(new TellerCustomerServicePane(searchedCustomer));
         root.setCenter(MasterContentPane);
     }
-    public static void landing() {
+    static void landing() {
         MasterContentPane = new ScrollPane();
         MasterContentPane.setStyle("-fx-background: rgb(0,0,0);");
         window.setTitle("Teller");
         MasterContentPane.setContent(new TellerCustomerSearchPane());
         root.setCenter(MasterContentPane);
     }
-
+    public  void ManagerMainPaneClick() {
+        MasterContentPane = new ScrollPane();
+        MasterContentPane.setStyle("-fx-background: rgb(0,0,0);");
+        window.setTitle("Manager");
+        MasterContentPane.setContent(new ManagerCustomerSearchPane());
+        root.setCenter(MasterContentPane);
+    }
+    public static void ManagerSearchClick(String SSN) {
+        MasterContentPane = new ScrollPane();
+        MasterContentPane.setStyle("-fx-background: rgb(0,0,0);");
+        window.setTitle("Manager");
+        Customer searchedCustomer = Main.database.getCustomerBySSN(SSN);
+        MasterContentPane.setContent(new ManagerCustomerServicePane(searchedCustomer));
+        root.setCenter(MasterContentPane);
+    }
 }

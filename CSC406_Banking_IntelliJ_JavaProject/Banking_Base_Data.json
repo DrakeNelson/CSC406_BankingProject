@@ -230,6 +230,8 @@
   ],
   "CheckingAccounts": [
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "263748593021",
       "CustomerSocial": 345653425,
       "AccountType": "Gold",
@@ -239,6 +241,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "235462738492",
       "CustomerSocial": 345653425,
       "AccountType": "Diamond",
@@ -248,6 +252,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "327162536427",
       "CustomerSocial": 423148894,
       "AccountType": "TMB",
@@ -257,6 +263,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "326263748219",
       "CustomerSocial": 677879013,
       "AccountType": "TMB",
@@ -266,6 +274,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "154678946425",
       "CustomerSocial": 345599870,
       "AccountType": "Gold",
@@ -275,6 +285,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "564589462154",
       "CustomerSocial": 423567890,
       "AccountType": "Diamond",
@@ -284,6 +296,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "978549836213",
       "CustomerSocial": 423567890,
       "AccountType": "TMB",
@@ -293,6 +307,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "654894782130",
       "CustomerSocial": 345812332,
       "AccountType": "TMB",
@@ -302,6 +318,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "171117456788",
       "CustomerSocial": 345812332,
       "AccountType": "TMB",
@@ -311,6 +329,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "583174582288",
       "CustomerSocial": 233435656,
       "AccountType": "TMB",
@@ -320,6 +340,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "124274586958",
       "CustomerSocial": 233435656,
       "AccountType": "Diamond",
@@ -329,6 +351,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "543294870433",
       "CustomerSocial": 34567989,
       "AccountType": "Gold",
@@ -338,6 +362,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2334356561525",
       "CustomerSocial": 34567989,
       "AccountType": "Gold",
@@ -347,6 +373,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2334356565555",
       "CustomerSocial": 345879912,
       "AccountType": "TMB",
@@ -356,6 +384,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2334356566666",
       "CustomerSocial": 345879912,
       "AccountType": "TMB",
@@ -365,6 +395,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2335456565555",
       "CustomerSocial": 423168945,
       "AccountType": "TMB",
@@ -374,6 +406,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2331256566666",
       "CustomerSocial": 423168945,
       "AccountType": "DIAMOND",
@@ -383,6 +417,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2444456565555",
       "CustomerSocial": 235445789,
       "AccountType": "TMB",
@@ -392,6 +428,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2331244446666",
       "CustomerSocial": 235445789,
       "AccountType": "DIAMOND",
@@ -401,6 +439,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2444456544455",
       "CustomerSocial": 436789213,
       "AccountType": "TMB",
@@ -410,6 +450,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2331244336666",
       "CustomerSocial": 436789213,
       "AccountType": "DIAMOND",
@@ -419,6 +461,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2444234565555",
       "CustomerSocial": 435678787,
       "AccountType": "TMB",
@@ -428,6 +472,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2331244442346",
       "CustomerSocial": 435678787,
       "AccountType": "DIAMOND",
@@ -437,6 +483,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "244111165555",
       "CustomerSocial": 563432913,
       "AccountType": "TMB",
@@ -446,6 +494,8 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "GOLDINTERESTRATE": 0.01,
+      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2331241111346",
       "CustomerSocial": 563432913,
       "AccountType": "DIAMOND",

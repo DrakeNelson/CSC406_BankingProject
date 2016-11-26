@@ -37,7 +37,7 @@
                 </Menu>
                 <Menu fx:id="Manager" mnemonicParsing="false" text="Manager">
                     <MenuItem id="ManagerMenuItem1" fx:id="ManagerMenuItem1" mnemonicParsing="false"
-                              onAction="#TestPaneClick" text="Test"/>
+                              onAction="#ManagerMainPaneClick" text="Find Customer"/>
                 </Menu>
                 <Menu fx:id="TimeMachine" mnemonicParsing="false" text="Time Machine">
                     <MenuItem id="TimeMachineMenuItem1" fx:id="TimeMachineMenuItem1" mnemonicParsing="false"

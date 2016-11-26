@@ -224,7 +224,7 @@ public class TellerCustomerServicePane extends GridPane {
             });
 
             Button payFixedButton = new Button("Pay Fixed Amt");
-            add(payFixedButton, 6, 2);
+            add(payFixedButton, 6, 3);
             payFixedButton.setOnAction(e -> {
             });
 
