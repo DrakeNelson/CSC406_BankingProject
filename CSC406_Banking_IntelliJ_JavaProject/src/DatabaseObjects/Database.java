@@ -8,6 +8,12 @@ import java.util.stream.Collectors;
 
 public class Database
 {
+    @SerializedName("GoldInterestRate")
+    @Expose
+    private final double GOLDINTERESTRATE =0.01;
+    @SerializedName("DiamondInterestRate")
+    @Expose
+    private final double DIAMONDINTERESTRATE =0.013;
 
     @SerializedName("Customers")
     @Expose

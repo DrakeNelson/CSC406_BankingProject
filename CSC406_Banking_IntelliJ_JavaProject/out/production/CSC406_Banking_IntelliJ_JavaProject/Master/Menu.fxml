@@ -29,7 +29,11 @@
             <MenuBar fx:id="MasterMenuBar">
                 <Menu fx:id="Customer" mnemonicParsing="false" text="Customer">
                     <MenuItem id="CustomerMenuItem1" fx:id="CustomerMenuItem1" mnemonicParsing="false"
-                              onAction="#TestPaneClick" text="Test"/>
+                              onAction="#CheckWriteClick" text="Write Check"/>
+                    <MenuItem id="CustomerMenuItem2" fx:id="CustomerMenuItem2" mnemonicParsing="false"
+                              onAction="#PurchaseClick" text="Credit Card Purchase"/>
+                    <MenuItem id="CustomerMenuItem3" fx:id="CustomerMenuItem3" mnemonicParsing="false"
+                              onAction="#AtmClick" text="ATM Withdrawal"/>
                 </Menu>
                 <Menu fx:id="Teller" mnemonicParsing="false" text="Teller">
                     <MenuItem id="TellerMenuItem1" fx:id="TellerMenuItem1" mnemonicParsing="false"
@@ -38,10 +42,12 @@
                 <Menu fx:id="Manager" mnemonicParsing="false" text="Manager">
                     <MenuItem id="ManagerMenuItem1" fx:id="ManagerMenuItem1" mnemonicParsing="false"
                               onAction="#ManagerMainPaneClick" text="Find Customer"/>
+                    <MenuItem id="ManagerMenuItem2" fx:id="ManagerMenuItem2" mnemonicParsing="false"
+                              onAction="#ManagerFunctionPaneClick" text="Manager Functions"/>
                 </Menu>
-                <Menu fx:id="TimeMachine" mnemonicParsing="false" text="Time Machine">
+                <Menu fx:id="TimeMachine" mnemonicParsing="false" text="Tardis">
                     <MenuItem id="TimeMachineMenuItem1" fx:id="TimeMachineMenuItem1" mnemonicParsing="false"
-                              onAction="#TestPaneClick" text="Time Machine"/>
+                              onAction="#TimeMachineClick" text="Change Time"/>
                 </Menu>
             </MenuBar>
         </VBox>

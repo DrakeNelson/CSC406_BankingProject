@@ -22,18 +22,18 @@ public class MasterController extends Master.Main {
     public Label MasterProjectChoiceLabel;
     public MenuBar MasterMenuBar;
 
-    //This is just a test of the controller to make sure my menu items are working properly
-    public void TestPaneClick() {
-        //reinitialize the master content pane so a new window can be set to it
-        MasterContentPane = new ScrollPane();
-        //change the title of the window set background color
-        window.setTitle("TestPaneTest");
-        MasterContentPane.setStyle("-fx-background: rgb(0,0,0);");
-        //add the new window to the mastercontentpane
-        MasterContentPane.setContent(new TestPane());
-        //set it to the correct position
-        root.setCenter(MasterContentPane);
-    }
+//    //This is just a test of the controller to make sure my menu items are working properly
+//    public void TestPaneClick() {
+//        //reinitialize the master content pane so a new window can be set to it
+//        MasterContentPane = new ScrollPane();
+//        //change the title of the window set background color
+//        window.setTitle("TestPaneTest");
+//        MasterContentPane.setStyle("-fx-background: rgb(0,0,0);");
+//        //add the new window to the mastercontentpane
+//        MasterContentPane.setContent(new TestPane());
+//        //set it to the correct position
+//        root.setCenter(MasterContentPane);
+//    }
     public void TellerMainPaneClick() {
         landing();
     }
@@ -65,6 +65,46 @@ public class MasterController extends Master.Main {
         window.setTitle("Manager");
         Customer searchedCustomer = Main.database.getCustomerBySSN(SSN);
         MasterContentPane.setContent(new ManagerCustomerServicePane(searchedCustomer));
+        root.setCenter(MasterContentPane);
+    }
+
+    public void ManagerFunctionPaneClick() {
+        MasterContentPane = new ScrollPane();
+        MasterContentPane.setStyle("-fx-background: rgb(0,0,0);");
+        window.setTitle("Manager");
+        MasterContentPane.setContent(new ManagerFunctionsPane());
+        root.setCenter(MasterContentPane);
+    }
+
+    public void TimeMachineClick() {
+        MasterContentPane = new ScrollPane();
+        MasterContentPane.setStyle("-fx-background: rgb(0,0,0);");
+        window.setTitle("T.A.R.D.I.S.");
+        MasterContentPane.setContent(new TimeMachinePane());
+        root.setCenter(MasterContentPane);
+    }
+
+    public void CheckWriteClick() {
+        MasterContentPane = new ScrollPane();
+        MasterContentPane.setStyle("-fx-background: rgb(0,0,0);");
+        window.setTitle("Customer");
+        MasterContentPane.setContent(new CustomerCheckWriterPane());
+        root.setCenter(MasterContentPane);
+    }
+
+    public void PurchaseClick() {
+        MasterContentPane = new ScrollPane();
+        MasterContentPane.setStyle("-fx-background: rgb(0,0,0);");
+        window.setTitle("Customer");
+        MasterContentPane.setContent(new CustomerCreditCardPurchase());
+        root.setCenter(MasterContentPane);
+    }
+
+    public void AtmClick() {
+        MasterContentPane = new ScrollPane();
+        MasterContentPane.setStyle("-fx-background: rgb(0,0,0);");
+        window.setTitle("Customer");
+        MasterContentPane.setContent(new CustomerAtmWithdraw());
         root.setCenter(MasterContentPane);
     }
 }

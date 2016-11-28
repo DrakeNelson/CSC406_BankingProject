@@ -5,9 +5,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class CheckingAccount
 {
-    private final double GOLDINTERESTRATE =0.01;
-    private final double DIAMONDINTERESTRATE =0.013;
-
     @SerializedName("AccountID")
     @Expose
     String accountID;
@@ -71,11 +68,5 @@ public class CheckingAccount
     }
     public void setAccountID(String accountID) {
         this.accountID = accountID;
-    }
-    public double getGOLDINTERESTRATE() {
-        return GOLDINTERESTRATE;
-    }
-    public double getDIAMONDINTERESTRATE() {
-        return DIAMONDINTERESTRATE;
     }
 }

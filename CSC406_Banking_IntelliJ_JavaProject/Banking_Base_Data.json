@@ -1,4 +1,6 @@
 {
+  "GoldInterestRate": 0.01,
+  "DiamondInterestRate": 0.013,
   "Customers": [
     {
       "Social": 423453245,
@@ -230,8 +232,6 @@
   ],
   "CheckingAccounts": [
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "263748593021",
       "CustomerSocial": 345653425,
       "AccountType": "Gold",
@@ -241,8 +241,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "235462738492",
       "CustomerSocial": 345653425,
       "AccountType": "Diamond",
@@ -252,8 +250,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "327162536427",
       "CustomerSocial": 423148894,
       "AccountType": "TMB",
@@ -263,8 +259,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "326263748219",
       "CustomerSocial": 677879013,
       "AccountType": "TMB",
@@ -274,8 +268,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "154678946425",
       "CustomerSocial": 345599870,
       "AccountType": "Gold",
@@ -285,8 +277,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "564589462154",
       "CustomerSocial": 423567890,
       "AccountType": "Diamond",
@@ -296,8 +286,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "978549836213",
       "CustomerSocial": 423567890,
       "AccountType": "TMB",
@@ -307,8 +295,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "654894782130",
       "CustomerSocial": 345812332,
       "AccountType": "TMB",
@@ -318,8 +304,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "171117456788",
       "CustomerSocial": 345812332,
       "AccountType": "TMB",
@@ -329,8 +313,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "583174582288",
       "CustomerSocial": 233435656,
       "AccountType": "TMB",
@@ -340,8 +322,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "124274586958",
       "CustomerSocial": 233435656,
       "AccountType": "Diamond",
@@ -351,8 +331,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "543294870433",
       "CustomerSocial": 34567989,
       "AccountType": "Gold",
@@ -362,8 +340,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2334356561525",
       "CustomerSocial": 34567989,
       "AccountType": "Gold",
@@ -373,8 +349,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2334356565555",
       "CustomerSocial": 345879912,
       "AccountType": "TMB",
@@ -384,8 +358,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2334356566666",
       "CustomerSocial": 345879912,
       "AccountType": "TMB",
@@ -395,8 +367,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2335456565555",
       "CustomerSocial": 423168945,
       "AccountType": "TMB",
@@ -406,8 +376,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2331256566666",
       "CustomerSocial": 423168945,
       "AccountType": "DIAMOND",
@@ -417,8 +385,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2444456565555",
       "CustomerSocial": 235445789,
       "AccountType": "TMB",
@@ -428,8 +394,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2331244446666",
       "CustomerSocial": 235445789,
       "AccountType": "DIAMOND",
@@ -439,8 +403,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2444456544455",
       "CustomerSocial": 436789213,
       "AccountType": "TMB",
@@ -450,8 +412,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2331244336666",
       "CustomerSocial": 436789213,
       "AccountType": "DIAMOND",
@@ -461,8 +421,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2444234565555",
       "CustomerSocial": 435678787,
       "AccountType": "TMB",
@@ -472,8 +430,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2331244442346",
       "CustomerSocial": 435678787,
       "AccountType": "DIAMOND",
@@ -483,8 +439,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "244111165555",
       "CustomerSocial": 563432913,
       "AccountType": "TMB",
@@ -494,8 +448,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "GOLDINTERESTRATE": 0.01,
-      "DIAMONDINTERESTRATE": 0.013,
       "AccountID": "2331241111346",
       "CustomerSocial": 563432913,
       "AccountType": "DIAMOND",
@@ -513,7 +465,7 @@
       "CurrentInterestRate": 0.15,
       "DatePaymentDue": "11/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": "405.00",
+      "CurrentPaymentDueAmt": 405.0,
       "DateLastPaymentMade": "10/29/2016",
       "MissedPaymentFlag": 0,
       "CreditLimit": 15000.0,
@@ -539,7 +491,7 @@
       "CurrentInterestRate": 0.17,
       "DatePaymentDue": "11/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": "255.00",
+      "CurrentPaymentDueAmt": 255.0,
       "DateLastPaymentMade": "10/29/2016",
       "MissedPaymentFlag": 0,
       "CreditLimit": 5000.0,
@@ -565,7 +517,7 @@
       "CurrentInterestRate": 5.0,
       "DatePaymentDue": "11/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": "200",
+      "CurrentPaymentDueAmt": 200.0,
       "DateLastPaymentMade": "10/29/2016",
       "MissedPaymentFlag": 0,
       "CreditLimit": 15000.0,
@@ -591,7 +543,7 @@
       "CurrentInterestRate": 12.0,
       "DatePaymentDue": "11/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": "75",
+      "CurrentPaymentDueAmt": 75.0,
       "DateLastPaymentMade": "10/29/2016",
       "MissedPaymentFlag": 0,
       "CreditLimit": 750.0,
@@ -617,7 +569,7 @@
       "CurrentInterestRate": 9.5,
       "DatePaymentDue": "11/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": "65.00",
+      "CurrentPaymentDueAmt": 65.0,
       "DateLastPaymentMade": "10/29/2016",
       "MissedPaymentFlag": 0,
       "CreditLimit": 500.0,
@@ -643,7 +595,7 @@
       "CurrentInterestRate": 8.0,
       "DatePaymentDue": "11/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": "200.00",
+      "CurrentPaymentDueAmt": 200.0,
       "DateLastPaymentMade": "10/29/2016",
       "MissedPaymentFlag": 0,
       "CreditLimit": 500.0,
@@ -675,7 +627,8 @@
       "DateNotifiedOfPayment": "11/01/2016",
       "CurrentPaymentDueAmt": 1593.0,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 1
+      "MissedPaymentFlag": 1,
+      "OpenDate": "10/01/2016"
     },
     {
       "LoanID": "234567891",
@@ -688,7 +641,8 @@
       "DateNotifiedOfPayment": "11/01/2016",
       "CurrentPaymentDueAmt": 614.0,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0
+      "MissedPaymentFlag": 0,
+      "OpenDate": "10/01/2016"
     },
     {
       "LoanID": "345678912",
@@ -701,7 +655,8 @@
       "DateNotifiedOfPayment": "11/01/2016",
       "CurrentPaymentDueAmt": 200.0,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0
+      "MissedPaymentFlag": 0,
+      "OpenDate": "10/01/2016"
     },
     {
       "LoanID": "456789123",
@@ -714,7 +669,8 @@
       "DateNotifiedOfPayment": "11/01/2016",
       "CurrentPaymentDueAmt": 225.0,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0
+      "MissedPaymentFlag": 0,
+      "OpenDate": "10/01/2016"
     },
     {
       "LoanID": "567891234",
@@ -727,7 +683,8 @@
       "DateNotifiedOfPayment": "11/01/2016",
       "CurrentPaymentDueAmt": 614.0,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0
+      "MissedPaymentFlag": 0,
+      "OpenDate": "10/01/2016"
     },
     {
       "LoanID": "678912345",
@@ -740,7 +697,8 @@
       "DateNotifiedOfPayment": "11/01/2016",
       "CurrentPaymentDueAmt": 200.0,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0
+      "MissedPaymentFlag": 0,
+      "OpenDate": "10/01/2016"
     }
   ],
   "DatabaseTime": "11/29/2016"

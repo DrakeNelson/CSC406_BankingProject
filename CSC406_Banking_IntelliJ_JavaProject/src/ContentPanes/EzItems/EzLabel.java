@@ -10,4 +10,8 @@ public class EzLabel extends Label {
         setTextFill(Color.web("#B8D4EF", 1.0));
         setStyle("-fx-font-weight: bold");
     }
+    public EzLabel(){
+        setTextFill(Color.web("#B8D4EF", 1.0));
+        setStyle("-fx-font-weight: bold");
+    }
 }

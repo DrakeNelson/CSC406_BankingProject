@@ -1,4 +1,4 @@
-package ContentPanes;
+package ContentPanes.AccountInfoViews;
 
 import ContentPanes.EzItems.EzLabel;
 import ContentPanes.EzItems.EzText;
@@ -10,10 +10,14 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
+import java.text.DecimalFormat;
+
 /**
  * Created by user on 11/26/2016.
  */
 public class CheckingAccountView extends GridPane{
+    private static DecimalFormat format = new DecimalFormat(".00");
+
     public CheckingAccountView(CheckingAccount account) {
         setHgap(10);
         setVgap(10);
@@ -23,7 +27,7 @@ public class CheckingAccountView extends GridPane{
         add(scenetitle, 0, 0, 4, 1);
 
         add(new EzLabel("Current Balance:"), 0, 1);
-        add(new EzText(Double.toString(account.getCurrentBalance())), 1, 1);
+        add(new EzText("$"+format.format(account.getCurrentBalance())), 1, 1);
         add(new EzLabel("Account Type:"), 2, 1);
         add(new EzText(account.getAccountType()), 3, 1);
         add(new EzLabel("Open Date:"), 4, 1);

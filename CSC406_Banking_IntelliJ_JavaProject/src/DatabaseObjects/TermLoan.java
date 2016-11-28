@@ -39,6 +39,9 @@ public class TermLoan
     @SerializedName("MissedPaymentFlag")
     @Expose
     int missedPaymentFlag;
+    @SerializedName("OpenDate")
+    @Expose
+    String openDate;
     public int getMissedPaymentFlag() {
         return this.missedPaymentFlag;
     }
@@ -105,5 +108,10 @@ public class TermLoan
     public void setLoanID(String loanID) {
         this.loanID = loanID;
     }
-
+    public String getOpenDate() {
+        return openDate;
+    }
+    public void setOpenDate(String openDate) {
+        this.openDate = openDate;
+    }
 }

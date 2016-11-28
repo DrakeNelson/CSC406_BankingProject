@@ -1,4 +1,4 @@
-package ContentPanes;
+package ContentPanes.AccountInfoViews;
 
 import ContentPanes.EzItems.EzLabel;
 import ContentPanes.EzItems.EzText;
@@ -10,10 +10,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 /**
- * Created by user on 11/26/2016.
+ * Created by user on 11/28/2016.
  */
-public class CustomerInfoPane extends GridPane {
-    public CustomerInfoPane(Customer customer) {
+public class CustomerInfoView extends GridPane{
+    public CustomerInfoView(Customer customer) {
         setAlignment(Pos.CENTER);
         setHgap(10);
         setVgap(10);
