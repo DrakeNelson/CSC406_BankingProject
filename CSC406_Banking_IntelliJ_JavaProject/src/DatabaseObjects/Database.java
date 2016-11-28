@@ -3,11 +3,17 @@ package DatabaseObjects;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Database
 {
+    @SerializedName("GoldInterestRate")
+    @Expose
+    private final double GOLDINTERESTRATE =0.01;
+    @SerializedName("DiamondInterestRate")
+    @Expose
+    private final double DIAMONDINTERESTRATE =0.013;
 
     @SerializedName("Customers")
     @Expose
@@ -29,50 +35,33 @@ public class Database
     public String databaseTime;
 
     public List<SavingAccount> getTraditionalSavingsBySSN(String SSN){
-        List<SavingAccount> result = new ArrayList<>();
-        for(SavingAccount account : savingAccounts){
-            if (Integer.toString(account.getCustomerSocial()).equals(SSN) && account.getSavingsAccountType().equalsIgnoreCase("Traditional")) {
-                result.add(account);
-            }
-        }
-        return result;
+        return savingAccounts.stream().filter(account ->
+                Integer.toString(account.getCustomerSocial()).equals(SSN)
+                && account.getSavingsAccountType().equalsIgnoreCase("Traditional")).collect(Collectors.toList());
+    }
+    public List<SavingAccount> getCdBySSN(String SSN){
+        return savingAccounts.stream().filter(account ->
+                Integer.toString(account.getCustomerSocial()).equals(SSN) &&
+                account.getSavingsAccountType().equalsIgnoreCase("CD")).collect(Collectors.toList());
     }
 
     public Customer getCustomerBySSN(String SSN){
         Customer result = null;
         for (Customer customer : customers){
             if(Integer.toString(customer.getSocial()).equals(SSN)){
-                return customer;
+                result = customer;
             }
         }
         return result;
     }
     public List<CheckingAccount> getCheckingAccountsBySSN(String SSN) {
-        List<CheckingAccount> result = new ArrayList<>();
-        for(CheckingAccount account : checkingAccounts){
-            if (Integer.toString(account.getCustomerSocial()).equals(SSN)) {
-                result.add(account);
-            }
-        }
-        return result;
+        return checkingAccounts.stream().filter(account -> Integer.toString(account.getCustomerSocial()).equals(SSN)).collect(Collectors.toList());
     }
     public List<TermLoan> getTermLoansBySSN(String SSN) {
-        List<TermLoan> result = new ArrayList<>();
-        for(TermLoan loan : termLoans){
-            if (Integer.toString(loan.getCustomerSocial()).equals(SSN)) {
-                result.add(loan);
-            }
-        }
-        return result;
+        return termLoans.stream().filter(loan -> Integer.toString(loan.getCustomerSocial()).equals(SSN)).collect(Collectors.toList());
     }
     public List<CreditCard> getCreditCardsBySSN(String SSN) {
-        List<CreditCard> result = new ArrayList<>();
-        for(CreditCard card : creditCards){
-            if (Integer.toString(card.getCustomerSocial()).equals(SSN)) {
-                result.add(card);
-            }
-        }
-        return result;
+        return creditCards.stream().filter(card -> Integer.toString(card.getCustomerSocial()).equals(SSN)).collect(Collectors.toList());
     }
 
 

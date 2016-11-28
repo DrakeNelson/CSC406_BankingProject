@@ -1,4 +1,6 @@
 {
+  "GoldInterestRate": 0.01,
+  "DiamondInterestRate": 0.013,
   "Customers": [
     {
       "Social": 423453245,
@@ -463,7 +465,7 @@
       "CurrentInterestRate": 0.15,
       "DatePaymentDue": "11/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": "405.00",
+      "CurrentPaymentDueAmt": 405.0,
       "DateLastPaymentMade": "10/29/2016",
       "MissedPaymentFlag": 0,
       "CreditLimit": 15000.0,
@@ -489,7 +491,7 @@
       "CurrentInterestRate": 0.17,
       "DatePaymentDue": "11/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": "255.00",
+      "CurrentPaymentDueAmt": 255.0,
       "DateLastPaymentMade": "10/29/2016",
       "MissedPaymentFlag": 0,
       "CreditLimit": 5000.0,
@@ -515,7 +517,7 @@
       "CurrentInterestRate": 5.0,
       "DatePaymentDue": "11/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": "200",
+      "CurrentPaymentDueAmt": 200.0,
       "DateLastPaymentMade": "10/29/2016",
       "MissedPaymentFlag": 0,
       "CreditLimit": 15000.0,
@@ -541,7 +543,7 @@
       "CurrentInterestRate": 12.0,
       "DatePaymentDue": "11/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": "75",
+      "CurrentPaymentDueAmt": 75.0,
       "DateLastPaymentMade": "10/29/2016",
       "MissedPaymentFlag": 0,
       "CreditLimit": 750.0,
@@ -567,7 +569,7 @@
       "CurrentInterestRate": 9.5,
       "DatePaymentDue": "11/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": "65.00",
+      "CurrentPaymentDueAmt": 65.0,
       "DateLastPaymentMade": "10/29/2016",
       "MissedPaymentFlag": 0,
       "CreditLimit": 500.0,
@@ -593,7 +595,7 @@
       "CurrentInterestRate": 8.0,
       "DatePaymentDue": "11/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": "200.00",
+      "CurrentPaymentDueAmt": 200.0,
       "DateLastPaymentMade": "10/29/2016",
       "MissedPaymentFlag": 0,
       "CreditLimit": 500.0,
@@ -625,7 +627,8 @@
       "DateNotifiedOfPayment": "11/01/2016",
       "CurrentPaymentDueAmt": 1593.0,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 1
+      "MissedPaymentFlag": 1,
+      "OpenDate": "10/01/2016"
     },
     {
       "LoanID": "234567891",
@@ -638,7 +641,8 @@
       "DateNotifiedOfPayment": "11/01/2016",
       "CurrentPaymentDueAmt": 614.0,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0
+      "MissedPaymentFlag": 0,
+      "OpenDate": "10/01/2016"
     },
     {
       "LoanID": "345678912",
@@ -651,7 +655,8 @@
       "DateNotifiedOfPayment": "11/01/2016",
       "CurrentPaymentDueAmt": 200.0,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0
+      "MissedPaymentFlag": 0,
+      "OpenDate": "10/01/2016"
     },
     {
       "LoanID": "456789123",
@@ -664,7 +669,8 @@
       "DateNotifiedOfPayment": "11/01/2016",
       "CurrentPaymentDueAmt": 225.0,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0
+      "MissedPaymentFlag": 0,
+      "OpenDate": "10/01/2016"
     },
     {
       "LoanID": "567891234",
@@ -677,7 +683,8 @@
       "DateNotifiedOfPayment": "11/01/2016",
       "CurrentPaymentDueAmt": 614.0,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0
+      "MissedPaymentFlag": 0,
+      "OpenDate": "10/01/2016"
     },
     {
       "LoanID": "678912345",
@@ -690,7 +697,8 @@
       "DateNotifiedOfPayment": "11/01/2016",
       "CurrentPaymentDueAmt": 200.0,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0
+      "MissedPaymentFlag": 0,
+      "OpenDate": "10/01/2016"
     }
   ],
   "DatabaseTime": "11/29/2016"
