@@ -17,6 +17,7 @@ public class PurchasesThisMonth
     @SerializedName("PurchaseAmt")
     @Expose
     double purchaseAmt;
+
     public double getPurchaseAmt() {
         return this.purchaseAmt;
     }
@@ -40,5 +41,15 @@ public class PurchasesThisMonth
     }
     public void setPurchaseID(String purchaseID) {
         this.purchaseID = purchaseID;
+    }
+
+    @Override
+    public String toString() {
+        return "PurchasesThisMonth{" +
+                "purchaseID='" + purchaseID + '\'' +
+                ", purchaseTitle='" + purchaseTitle + '\'' +
+                ", purchaseLocation='" + purchaseLocation + '\'' +
+                ", purchaseAmt=" + purchaseAmt +
+                '}';
     }
 }

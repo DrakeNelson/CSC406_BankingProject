@@ -4,9 +4,16 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Database
 {
+    @SerializedName("GoldInterestRate")
+    @Expose
+    private final double GOLDINTERESTRATE =0.01;
+    @SerializedName("DiamondInterestRate")
+    @Expose
+    private final double DIAMONDINTERESTRATE =0.013;
 
     @SerializedName("Customers")
     @Expose
@@ -23,6 +30,40 @@ public class Database
     @SerializedName("TermLoans")
     @Expose
     public List<TermLoan> termLoans;
+    @SerializedName("DatabaseTime")
+    @Expose
+    public String databaseTime;
+
+    public List<SavingAccount> getTraditionalSavingsBySSN(String SSN){
+        return savingAccounts.stream().filter(account ->
+                Integer.toString(account.getCustomerSocial()).equals(SSN)
+                && account.getSavingsAccountType().equalsIgnoreCase("Traditional")).collect(Collectors.toList());
+    }
+    public List<SavingAccount> getCdBySSN(String SSN){
+        return savingAccounts.stream().filter(account ->
+                Integer.toString(account.getCustomerSocial()).equals(SSN) &&
+                account.getSavingsAccountType().equalsIgnoreCase("CD")).collect(Collectors.toList());
+    }
+
+    public Customer getCustomerBySSN(String SSN){
+        Customer result = null;
+        for (Customer customer : customers){
+            if(Integer.toString(customer.getSocial()).equals(SSN)){
+                result = customer;
+            }
+        }
+        return result;
+    }
+    public List<CheckingAccount> getCheckingAccountsBySSN(String SSN) {
+        return checkingAccounts.stream().filter(account -> Integer.toString(account.getCustomerSocial()).equals(SSN)).collect(Collectors.toList());
+    }
+    public List<TermLoan> getTermLoansBySSN(String SSN) {
+        return termLoans.stream().filter(loan -> Integer.toString(loan.getCustomerSocial()).equals(SSN)).collect(Collectors.toList());
+    }
+    public List<CreditCard> getCreditCardsBySSN(String SSN) {
+        return creditCards.stream().filter(card -> Integer.toString(card.getCustomerSocial()).equals(SSN)).collect(Collectors.toList());
+    }
+
 
     public List<TermLoan> getTermLoans() {
         return this.termLoans;
@@ -54,4 +95,6 @@ public class Database
     public void setCustomers(List<Customer> customers) {
         this.customers = customers;
     }
+
+
 }
