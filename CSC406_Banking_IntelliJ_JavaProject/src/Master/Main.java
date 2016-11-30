@@ -15,7 +15,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
 import java.io.*;
 
 //main class pretty much starts up the app
