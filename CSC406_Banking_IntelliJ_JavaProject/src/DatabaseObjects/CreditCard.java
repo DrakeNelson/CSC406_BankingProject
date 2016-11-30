@@ -30,7 +30,7 @@ public class CreditCard
     String dateNotifiedOfPayment;
     @SerializedName("CurrentPaymentDueAmt")
     @Expose
-    String currentPaymentDueAmt;
+    Double currentPaymentDueAmt;
     @SerializedName("DateLastPaymentMade")
     @Expose
     String dateLastPaymentMade;
@@ -40,9 +40,10 @@ public class CreditCard
     @SerializedName("CreditLimit")
     @Expose
     double creditLimit;
-    @SerializedName("Database.PurchasesThisMonth")
+    @SerializedName("PurchasesThisMonth")
     @Expose
     List<PurchasesThisMonth> purchasesThisMonth;
+
     public void setCustomerSocial(int customerSocial) {
         this.customerSocial = customerSocial;
     }
@@ -70,10 +71,10 @@ public class CreditCard
     public void setDateLastPaymentMade(String dateLastPaymentMade) {
         this.dateLastPaymentMade = dateLastPaymentMade;
     }
-    public String getCurrentPaymentDueAmt() {
+    public Double getCurrentPaymentDueAmt() {
         return this.currentPaymentDueAmt;
     }
-    public void setCurrentPaymentDueAmt(String currentPaymentDueAmt) {
+    public void setCurrentPaymentDueAmt(Double currentPaymentDueAmt) {
         this.currentPaymentDueAmt = currentPaymentDueAmt;
     }
     public String getDateNotifiedOfPayment() {
