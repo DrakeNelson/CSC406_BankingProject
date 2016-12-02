@@ -68,4 +68,12 @@ public class SavingAccount
     public void setAccountID(String accountID) {
         this.accountID = accountID;
     }
+        public void deposit(double amt){
+        if(savingsAccountType.equals("traditional")){currentBalance+=amt;}
+            else{System.err.print("This should never happen");}
+    }
+    public void withdraw(double amt){
+        if(savingsAccountType.equals("traditional")){currentBalance-=amt;}
+        else{System.err.print("This should never happen");}
+    }
 }

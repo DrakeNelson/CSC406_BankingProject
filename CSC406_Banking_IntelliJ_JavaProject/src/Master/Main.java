@@ -49,6 +49,10 @@ public class Main extends Application {
         for (TermLoan loan : database.getTermLoans()) {
             loan.setOpenDate("10/01/2016");
         }
+        //database.getSavingsAccount(1234).deposit(99.99);
+        //database.getSavingsAccount(1234).withdraw(99.99);
+        //database.getCheckingAccount(1234).deposit(99.99);
+        //database.getCheckingAccount(1234).withdraw(99.99);
         launch(args);
     }
 

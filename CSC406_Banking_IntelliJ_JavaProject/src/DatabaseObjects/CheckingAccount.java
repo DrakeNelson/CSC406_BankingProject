@@ -69,4 +69,29 @@ public class CheckingAccount
     public void setAccountID(String accountID) {
         this.accountID = accountID;
     }
+    public void deposit(double amt){
+        if(accountType.equals("TMB")){
+            currentBalance+=amt; currentBalance-=.5;
+        }if(accountType.equals("Gold")){
+            currentBalance+=amt;
+        }if(accountType.equals("Diamond")){
+            currentBalance+=amt;
+        } else{System.err.print("This should never happen");}
+    }
+    public void withdraw(double amt){
+        if(accountType.equals("TMB"))
+        {
+            currentBalance-=amt;
+        }if(accountType.equals("Gold")){
+            currentBalance-=amt;
+            if(currentBalance<1000){
+                accountType.equals("TMB");
+            }
+        }if(accountType.equals("Diamond")){
+            currentBalance-=amt;
+            if(currentBalance<1000){
+                accountType.equals("TMB");
+            }
+        } else{System.err.print("This should never happen");}
+    }
 }
