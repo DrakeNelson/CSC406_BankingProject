@@ -3,6 +3,8 @@ package DatabaseObjects;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import static Master.Main.database;
+
 public class SavingAccount
 {
     @SerializedName("AccountID")
@@ -26,6 +28,22 @@ public class SavingAccount
     @SerializedName("TermDate")
     @Expose
     String termDate;
+    @SerializedName("BackupAccount")
+    @Expose
+    String backupAccount;
+
+    //for traditionals
+    public SavingAccount(int social,String account, double openBal, double interest, String backup) {
+        customerSocial=social;
+        accountID=account;
+        currentBalance=openBal;
+        interestRate=interest;
+        backupAccount=backup;
+        savingsAccountType="Traditional";
+        openDate=database.databaseTime;
+        termDate="";
+    }
+
     public String getTermDate() {
         return this.termDate;
     }

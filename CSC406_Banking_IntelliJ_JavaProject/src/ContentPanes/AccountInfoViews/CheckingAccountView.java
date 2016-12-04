@@ -2,6 +2,7 @@ package ContentPanes.AccountInfoViews;
 
 import ContentPanes.EzItems.EzLabel;
 import ContentPanes.EzItems.EzText;
+import ContentPanes.TellerViews.TellerCustomerServicePane;
 import DatabaseObjects.CheckingAccount;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -11,6 +12,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 import java.text.DecimalFormat;
+
+import static ContentPanes.EzItems.TryParse.TryParseDouble;
+import static Master.Main.database;
+import static Master.MasterController.TellerSearchClick;
 
 /**
  * Created by user on 11/26/2016.
@@ -40,6 +45,10 @@ public class CheckingAccountView extends GridPane{
         Button depositButton = new Button("Deposit");
         add(depositButton, 1, 2);
         depositButton.setOnAction(e -> {
+            if(TryParseDouble(depositTextField.getText())){
+                account.setCurrentBalance(account.getCurrentBalance()+Double.parseDouble(depositTextField.getText()));
+                TellerSearchClick(TellerCustomerServicePane.customer);
+            }
         });
 
         TextField withdrawlTextField = new TextField();
@@ -47,11 +56,16 @@ public class CheckingAccountView extends GridPane{
         Button withdrawlButton = new Button("Withdrawl");
         add(withdrawlButton, 4, 2);
         withdrawlButton.setOnAction(e -> {
+            if(TryParseDouble(withdrawlTextField.getText())){
+                account.setCurrentBalance(account.getCurrentBalance()-Double.parseDouble(withdrawlTextField.getText()));
+                TellerSearchClick(TellerCustomerServicePane.customer);
+            }
         });
 
         Button closeButton = new Button("Close Account");
         add(closeButton, 6, 2);
         closeButton.setOnAction(e -> {
+            database.getCheckingAccounts().remove(account);
         });
     }
 }

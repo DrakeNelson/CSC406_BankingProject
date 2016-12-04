@@ -1,6 +1,7 @@
 
 package Master;
 
+import DatabaseObjects.Customer;
 import DatabaseObjects.Database;
 import DatabaseObjects.TermLoan;
 import com.google.gson.Gson;
@@ -28,7 +29,7 @@ public class Main extends Application {
     static Stage window;
     public static Database database;
     private static Gson gson;
-
+    public static Customer customer;
     //start at main :)
     //main class pretty much starts up the app
     //the basic plan is to use the root as a constant container for the app

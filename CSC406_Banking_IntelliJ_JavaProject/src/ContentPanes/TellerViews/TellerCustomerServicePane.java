@@ -16,13 +16,17 @@ import javafx.scene.text.FontWeight;
 
 import java.util.List;
 
+import static ContentPanes.EzItems.TryParse.TryParseDouble;
+import static Master.Main.database;
+import static Master.MasterController.TellerSearchClick;
+
 /*
  * Created by drake on 11/24/2016.
  * all of the buttons on this page have no functionality
  */
 public class TellerCustomerServicePane extends GridPane {
 
-    private Customer customer;
+    public static Customer customer=Main.customer;
 
     public TellerCustomerServicePane(Customer searchedCustomer) {
         //get all customer info
@@ -87,6 +91,10 @@ public class TellerCustomerServicePane extends GridPane {
             Button depositButton = new Button("Deposit");
             add(depositButton, 1, 2);
             depositButton.setOnAction(e -> {
+                if(TryParseDouble(depositTextField.getText())){
+                    account.setCurrentBalance(account.getCurrentBalance()+Double.parseDouble(depositTextField.getText()));
+                    TellerSearchClick(customer);
+                }
             });
 
             TextField withdrawlTextField = new TextField();
@@ -94,11 +102,17 @@ public class TellerCustomerServicePane extends GridPane {
             Button withdrawlButton = new Button("Withdrawl");
             add(withdrawlButton, 4, 2);
             withdrawlButton.setOnAction(e -> {
+                if(TryParseDouble(withdrawlTextField.getText())){
+                    account.setCurrentBalance(account.getCurrentBalance()-Double.parseDouble(withdrawlTextField.getText()));
+                    TellerSearchClick(customer);
+                }
             });
 
             Button closeButton = new Button("Close Account");
             add(closeButton, 6, 2);
             closeButton.setOnAction(e -> {
+                database.getSavingAccounts().remove(account);
+                TellerSearchClick(customer);
             });
 
         }

@@ -143,7 +143,7 @@
       "AccountID": "113174582281",
       "CustomerSocial": 345653425,
       "SavingsAccountType": "Traditional",
-      "CurrentBalance": 15347.32,
+      "CurrentBalance": 30854.64,
       "InterestRate": 0.012,
       "OpenDate": "11/24/2016",
       "TermDate": ""
@@ -241,15 +241,6 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
-      "AccountID": "235462738492",
-      "CustomerSocial": 345653425,
-      "AccountType": "Diamond",
-      "CurrentBalance": 1500.0,
-      "BackupAccountIDs": "null",
-      "OverdraftCount": 2,
-      "DateAccountOpened": "11/24/2016"
-    },
-    {
       "AccountID": "327162536427",
       "CustomerSocial": 423148894,
       "AccountType": "TMB",
@@ -259,10 +250,19 @@
       "DateAccountOpened": "11/24/2016"
     },
     {
+      "AccountID": "235462738492",
+      "CustomerSocial": 345653425,
+      "AccountType": "Diamond",
+      "CurrentBalance": 1500.0,
+      "BackupAccountIDs": "null",
+      "OverdraftCount": 2,
+      "DateAccountOpened": "11/24/2016"
+    },
+    {
       "AccountID": "326263748219",
       "CustomerSocial": 677879013,
       "AccountType": "TMB",
-      "CurrentBalance": 375.0,
+      "CurrentBalance": 475.0,
       "BackupAccountIDs": "null",
       "OverdraftCount": 2,
       "DateAccountOpened": "11/24/2016"
@@ -280,7 +280,7 @@
       "AccountID": "564589462154",
       "CustomerSocial": 423567890,
       "AccountType": "Diamond",
-      "CurrentBalance": 2700.0,
+      "CurrentBalance": 2750.0,
       "BackupAccountIDs": "978549836213",
       "OverdraftCount": 0,
       "DateAccountOpened": "11/24/2016"
