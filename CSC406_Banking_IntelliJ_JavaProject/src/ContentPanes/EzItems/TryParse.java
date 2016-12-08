@@ -18,13 +18,17 @@ public class TryParse {
     }
     public static boolean TryParseInt(String x){
         try {
-            Long.valueOf(x);
+            Long.parseLong(x);
             if(x.contains("f")||x.contains("d")||x.contains("D")||x.contains("F")){
+                System.err.println("dfexception");
+
                 return false;
+
             }else{
                 return true;
             }
         } catch (NumberFormatException e) {
+            System.err.println("numformatexception");
             return false;
         }
     }
