@@ -95,19 +95,6 @@ public class Database
     public void setCustomers(List<Customer> customers) {
         this.customers = customers;
     }
-    public SavingAccount getSavingsAccount(int accountid){
-        SavingAccount result=null;
-        for(SavingAccount x:this.savingAccounts) if (x.accountID.equals(accountid)) {
-            result = x;
-        }
-        return result;
-        }
-    public CheckingAccount getCheckingAccount(int accountid){
-        CheckingAccount result=null;
-        for(CheckingAccount x:this.checkingAccounts) if (x.accountID.equals(accountid)) {
-            result = x;
-        }
-        return result;
-    }
+
 
 }
