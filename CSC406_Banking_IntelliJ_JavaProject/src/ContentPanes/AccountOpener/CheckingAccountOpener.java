@@ -13,8 +13,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 import static ContentPanes.EzItems.TryParse.TryParseDouble;
-import static ContentPanes.EzItems.TryParse.TryParseInt;
-import static Master.Main.customer;
 import static Master.Main.database;
 
 /**
@@ -67,11 +65,10 @@ public class CheckingAccountOpener extends VBox {
             signButton.setOnAction(e -> {
                 String openBal=startingBalanceField.getText();
                 String backupAccount=BackupAccountIDField.getText();
-                if(TryParseDouble(openBal)&&TryParseInt(backupAccount)){
-                    database.getCheckingAccounts().add(new CheckingAccount(customer.getSocial(),Double.parseDouble(openBal),backupAccount,socialField.getText()));
+                if(TryParseDouble(openBal)){
+                    database.getCheckingAccounts().add(new CheckingAccount(thisCustomer.getSocial(),Double.parseDouble(openBal),backupAccount,socialField.getText()));
                     System.out.println("added");
                 }
-
             });
         }
     }
