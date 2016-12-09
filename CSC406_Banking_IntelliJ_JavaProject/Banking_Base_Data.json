@@ -246,6 +246,16 @@
       "InterestRate": 0.0087,
       "OpenDate": "11/24/2016",
       "TermDate": ""
+    },
+    {
+      "AccountID": "23343565613",
+      "CustomerSocial": 233435656,
+      "SavingsAccountType": "Traditional",
+      "CurrentBalance": 2000.0,
+      "InterestRate": 0.0087,
+      "OpenDate": "11/29/2016",
+      "TermDate": "",
+      "BackupAccount": "Backup Account: "
     }
   ],
   "CheckingAccounts": [
