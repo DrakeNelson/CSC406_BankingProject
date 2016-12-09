@@ -45,9 +45,9 @@ public class CheckingAccountOpener extends VBox {
 
             EzText socialText = new EzText("New Checking Account Number: ");
             add(socialText, 0, 2);
-            EzText socialField = new EzText(Integer.toString(thisCustomer.getSocial()) + "2" +
+            EzText newAccountNumberField = new EzText(Integer.toString(thisCustomer.getSocial()) + "2" +
                     Integer.toString(database.getCheckingAccountsBySSN(Integer.toString(thisCustomer.getSocial())).size() + 1));
-            add(socialField, 1, 2);
+            add(newAccountNumberField, 1, 2);
 
             EzText startingBalanceText = new EzText("Opening Balance: ");
             add(startingBalanceText, 0, 3);
@@ -62,11 +62,11 @@ public class CheckingAccountOpener extends VBox {
             Button signButton = new Button("Create New Checking Account");
             signButton.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
             add(signButton, 0, 10, 4, 1);
-            signButton.setOnAction(e -> {
+            signButton.setOnAction(event -> {
                 String openBal=startingBalanceField.getText();
                 String backupAccount=BackupAccountIDField.getText();
                 if(TryParseDouble(openBal)){
-                    database.getCheckingAccounts().add(new CheckingAccount(thisCustomer.getSocial(),Double.parseDouble(openBal),backupAccount,socialField.getText()));
+                    database.getCheckingAccounts().add(new CheckingAccount(thisCustomer.getSocial(),Double.parseDouble(openBal),backupAccount,newAccountNumberField.getText()));
                     System.out.println("added");
                 }
             });

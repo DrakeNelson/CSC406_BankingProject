@@ -9,6 +9,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
@@ -20,7 +21,7 @@ import static Master.Main.database;
 /**
  * Created by user on 11/28/2016.
  */
-public class SavingsAccountOpener extends GridPane {
+public class SavingsAccountOpener extends VBox {
     private Customer thisCustomer;
     public SavingsAccountOpener(Customer customer) {
         thisCustomer=customer;
@@ -53,13 +54,13 @@ public class SavingsAccountOpener extends GridPane {
             add(startTextField, 1, 4);
 
             EzText backupText = new EzText("Backup Account: ");
-            add(backupText,0,4);
+            add(backupText,0,5);
             TextField backupTextField = new TextField();
-            add(backupTextField, 1, 4);
+            add(backupTextField, 1, 5);
 
             Button signButton = new Button("Create New Savings Account");
             signButton.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
-            add(signButton, 0, 6, 4, 1);
+            add(signButton, 0, 7, 4, 1);
             signButton.setOnAction(e -> {
                 String   openBal=startTextField.getText();
                 String  interest=interestTextField.getText();
