@@ -47,7 +47,13 @@ public class Main extends Application {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+<<<<<<< HEAD
 
+=======
+        for (TermLoan loan : database.getTermLoans()) {
+            loan.setOpenDate("10/01/2016");
+        }
+>>>>>>> parent of 36a2975... Added Methods for Savings and Checking
         launch(args);
     }
 
