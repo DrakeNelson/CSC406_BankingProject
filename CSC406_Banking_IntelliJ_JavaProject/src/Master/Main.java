@@ -3,7 +3,6 @@ package Master;
 
 import DatabaseObjects.Customer;
 import DatabaseObjects.Database;
-import DatabaseObjects.TermLoan;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javafx.application.Application;
@@ -46,9 +45,6 @@ public class Main extends Application {
             database = gson.fromJson(reader, Database.class);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
-        for (TermLoan loan : database.getTermLoans()) {
-            loan.setOpenDate("10/01/2016");
         }
         launch(args);
     }

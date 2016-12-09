@@ -33,6 +33,9 @@ public class Database
     @SerializedName("DatabaseTime")
     @Expose
     public String databaseTime;
+    @SerializedName("Checks")
+    @Expose
+    public List<Check> checks;
 
     public List<SavingAccount> getTraditionalSavingsBySSN(String SSN){
         return savingAccounts.stream().filter(account ->

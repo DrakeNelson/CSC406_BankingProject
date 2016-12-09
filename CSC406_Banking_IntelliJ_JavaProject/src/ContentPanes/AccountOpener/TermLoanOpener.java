@@ -8,13 +8,14 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 /**
  * Created by user on 11/28/2016.
  */
-public class TermLoanOpener extends GridPane {
+public class TermLoanOpener extends VBox {
     private Customer thisCustomer;
     public TermLoanOpener(Customer customer) {
         thisCustomer=customer;
