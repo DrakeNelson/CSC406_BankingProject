@@ -7,6 +7,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import DatabaseObjects.Customer;
+import static Master.Main.database;
 
 /**
  * Created by user on 11/28/2016.
@@ -59,7 +61,7 @@ public class CustomerCreator extends GridPane {
         signButton.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
         add(signButton, 0, 10, 4, 1);
         signButton.setOnAction(e -> {
-
+            database.getCustomers().add(new Customer(Integer.parseInt(socialField.getText()),addressField.getText(),cityField.getText(),stateField.getText(),zipField.getText(),firstNameField.getText(),lastNameField.getText()));
         });
     }
 }

@@ -86,6 +86,9 @@ public class Database
     public void setCheckingAccounts(List<CheckingAccount> checkingAccounts) {
         this.checkingAccounts = checkingAccounts;
     }
+    public List<Check> getChecks() {
+        return this.checks;
+    }
     public List<SavingAccount> getSavingAccounts() {
         return this.savingAccounts;
     }
