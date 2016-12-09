@@ -47,9 +47,7 @@ public class Main extends Application {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        for (TermLoan loan : database.getTermLoans()) {
-            loan.setOpenDate("10/01/2016");
-        }
+
         launch(args);
     }
 
