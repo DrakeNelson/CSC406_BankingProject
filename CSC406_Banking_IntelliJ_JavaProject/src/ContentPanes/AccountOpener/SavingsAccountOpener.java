@@ -9,7 +9,6 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
@@ -21,7 +20,7 @@ import static Master.Main.database;
 /**
  * Created by user on 11/28/2016.
  */
-public class SavingsAccountOpener extends VBox {
+public class SavingsAccountOpener extends GridPane {
     private Customer thisCustomer;
     public SavingsAccountOpener(Customer customer) {
         thisCustomer=customer;
