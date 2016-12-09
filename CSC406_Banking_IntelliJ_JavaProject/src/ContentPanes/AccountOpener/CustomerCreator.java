@@ -62,6 +62,7 @@ public class CustomerCreator extends GridPane {
         add(signButton, 0, 10, 4, 1);
         signButton.setOnAction(e -> {
             database.getCustomers().add(new Customer(Integer.parseInt(socialField.getText()),addressField.getText(),cityField.getText(),stateField.getText(),zipField.getText(),firstNameField.getText(),lastNameField.getText()));
+            System.out.println("added");
         });
     }
 }
