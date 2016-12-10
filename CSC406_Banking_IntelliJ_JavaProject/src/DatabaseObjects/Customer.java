@@ -27,6 +27,17 @@ public class Customer
     @SerializedName("LastName")
     @Expose
     String lastName;
+
+    public Customer(int Social, String Address, String City, String State, String Zip, String FirstName, String LastName) {
+        this.social = Social;
+        this.address = Address;
+        this.city = City;
+        this.state = State;
+        this.zip = Zip;
+        this.firstName = FirstName;
+        this.lastName = LastName;
+    }
+
     public String getLastName() {
         return this.lastName;
     }

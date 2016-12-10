@@ -1,12 +1,16 @@
 package ContentPanes.CustomerViews;
 
 import ContentPanes.EzItems.EzText;
+import DatabaseObjects.Check;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import static Master.Main.database;
+import DatabaseObjects.CheckingAccount;
+import DatabaseObjects.Customer;
 
 /**
  * Created by user on 11/28/2016.
@@ -53,5 +57,10 @@ public class CustomerCheckWriterPane extends GridPane {
         Button signButton = new Button("Sign and send Check");
         signButton.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
         add(signButton, 0, 9, 4, 1);
+        signButton.setOnAction(event -> {
+            String amount=ammountField.getText();
+            String checknum=checkNumField.getText();
+            database.getChecks().add(new Check(dateField.getText(),orderOfField.getText(),Double.parseDouble(amount),accountNumField.getText(),Double.parseDouble(checknum),forField.getText()));
+        });
     }
 }
