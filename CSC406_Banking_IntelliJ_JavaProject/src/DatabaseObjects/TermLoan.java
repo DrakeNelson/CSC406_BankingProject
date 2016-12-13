@@ -42,6 +42,8 @@ public class TermLoan
     @SerializedName("OpenDate")
     @Expose
     String openDate;
+    
+
     public int getMissedPaymentFlag() {
         return this.missedPaymentFlag;
     }

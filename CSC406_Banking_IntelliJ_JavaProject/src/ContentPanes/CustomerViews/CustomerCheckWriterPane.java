@@ -12,6 +12,7 @@ import static Master.Main.database;
 import DatabaseObjects.CheckingAccount;
 import DatabaseObjects.Customer;
 
+
 /**
  * Created by user on 11/28/2016.
  */
@@ -58,9 +59,9 @@ public class CustomerCheckWriterPane extends GridPane {
         signButton.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
         add(signButton, 0, 9, 4, 1);
         signButton.setOnAction(event -> {
-            String amount=ammountField.getText();
+            String ammount=ammountField.getText();
             String checknum=checkNumField.getText();
-            database.getChecks().add(new Check(dateField.getText(),orderOfField.getText(),Double.parseDouble(amount),accountNumField.getText(),Double.parseDouble(checknum),forField.getText()));
+            database.getChecks().add(new Check(dateField.getText(),orderOfField.getText(),Double.parseDouble(ammount),accountNumField.getText(),Double.parseDouble(checknum),forField.getText()));
         });
     }
 }
