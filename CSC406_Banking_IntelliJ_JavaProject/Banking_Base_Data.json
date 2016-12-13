@@ -660,19 +660,6 @@
           "PurchaseAmt": 23.56
         }
       ]
-    },
-    {
-      "CreditCardID": "34565342531",
-      "CustomerSocial": 345653425,
-      "CurrentBalance": 0.0,
-      "CurrentInterestRate": 1.5,
-      "DatePaymentDue": "10/15/2016",
-      "DateNotifiedOfPayment": "10/5/2016",
-      "CurrentPaymentDueAmt": 0.0,
-      "DateLastPaymentMade": "11/29/2016",
-      "MissedPaymentFlag": 0,
-      "CreditLimit": 2000.0,
-      "PurchasesThisMonth": []
     }
   ],
   "TermLoans": [

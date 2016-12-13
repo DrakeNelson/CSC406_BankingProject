@@ -11,10 +11,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import DatabaseObjects.CreditCard;
-
-import static ContentPanes.EzItems.TryParse.TryParseDouble;
-import static Master.Main.database;
 
 /**
  * Created by user on 11/28/2016.
@@ -57,20 +53,15 @@ public class CreditCardOpener extends VBox {
             add(NotificationDateTextField, 1, 5);
 
             EzText CreditLimitText = new EzText("Credit Limit: ");
-            add(CreditLimitText,0,6);
+            add(CreditLimitText,0,5);
             TextField CreditLimitTextField = new TextField();
-            add(CreditLimitTextField, 1, 6);
+            add(CreditLimitTextField, 1, 5);
 
-            Button signButton = new Button("Create New Credit Card");
+            Button signButton = new Button("Create New Checking Account");
             signButton.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
             add(signButton, 0, 10, 4, 1);
             signButton.setOnAction(e -> {
-                String interest=interestTextField.getText();
-                String credLimit=CreditLimitTextField.getText();
-                if(TryParseDouble(credLimit)&&TryParseDouble(interest)) {
-                    database.getCreditCards().add(new CreditCard(thisCustomer.getSocial(),socialField.getText(), Double.parseDouble(interest), payDueTextField.getText(), NotificationDateTextField.getText(), Double.parseDouble(credLimit)));
-                    System.out.println("added");
-                }
+
             });
         }
     }

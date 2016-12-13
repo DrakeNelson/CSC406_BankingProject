@@ -3,8 +3,6 @@ package DatabaseObjects;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import static Master.Main.database;
-
 /**
  * Created by user on 12/8/2016.
  */
