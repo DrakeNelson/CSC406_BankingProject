@@ -9,22 +9,22 @@ import static Master.Main.database;
  * Created by user on 12/8/2016.
  */
 public class Check {
-    @SerializedName("Date")
+    @SerializedName("date")
     @Expose
     String date;
-    @SerializedName("OrderOf")
+    @SerializedName("orderOf")
     @Expose
     String orderOf;
-    @SerializedName("Amount")
+    @SerializedName("amt")
     @Expose
     double amt;
-    @SerializedName("AccountID")
+    @SerializedName("accountID")
     @Expose
     String accountID;
-    @SerializedName("CheckNumber")
+    @SerializedName("checkNum")
     @Expose
     double checkNum;
-    @SerializedName("Memo")
+    @SerializedName("memo")
     @Expose
     String memo;
 

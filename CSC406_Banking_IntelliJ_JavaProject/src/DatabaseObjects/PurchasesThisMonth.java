@@ -18,6 +18,13 @@ public class PurchasesThisMonth
     @Expose
     double purchaseAmt;
 
+    public PurchasesThisMonth(String purchase, String title, String location, double amt){
+        this.purchaseID=purchase;
+        this.purchaseTitle=title;
+        this.purchaseLocation=location;
+        this.purchaseAmt=amt;
+    }
+
     public double getPurchaseAmt() {
         return this.purchaseAmt;
     }

@@ -10,7 +10,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import static Master.Main.database;
 import DatabaseObjects.CheckingAccount;
-import DatabaseObjects.Customer;
+import static ContentPanes.EzItems.TryParse.TryParseDouble;
 
 
 /**
@@ -58,10 +58,14 @@ public class CustomerCheckWriterPane extends GridPane {
         Button signButton = new Button("Sign and send Check");
         signButton.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
         add(signButton, 0, 9, 4, 1);
-        signButton.setOnAction(event -> {
-            String ammount=ammountField.getText();
-            String checknum=checkNumField.getText();
-            database.getChecks().add(new Check(dateField.getText(),orderOfField.getText(),Double.parseDouble(ammount),accountNumField.getText(),Double.parseDouble(checknum),forField.getText()));
+        signButton.setOnAction(event -> {String amount = ammountField.getText();
+            String checknum = checkNumField.getText();
+            for (CheckingAccount account : database.getCheckingAccounts()) {
+                if (account.getAccountID().compareToIgnoreCase(accountNumField.getText()) == 0 && TryParseDouble(amount) && TryParseDouble(checknum)) {
+                    database.checks.add(new Check(dateField.getText(), orderOfField.getText(), Double.parseDouble(amount), accountNumField.getText(), Double.parseDouble(checknum), forField.getText()));
+                System.out.println("added");
+                }
+            }
         });
     }
 }

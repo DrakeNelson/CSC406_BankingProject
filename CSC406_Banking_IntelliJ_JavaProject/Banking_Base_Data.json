@@ -816,5 +816,23 @@
       "OpenDate": "11/29/2016"
     }
   ],
-  "DatabaseTime": "11/29/2016"
+  "DatabaseTime": "11/29/2016",
+  "Checks": [
+    {
+      "date": "11/30/2016",
+      "orderOf": "nick",
+      "amt": 500.0,
+      "accountID": "263748593021",
+      "checkNum": 18.0,
+      "memo": "asdf"
+    },
+    {
+      "date": "10/20/2016",
+      "orderOf": "Walmart",
+      "amt": 666.66,
+      "accountID": "263748593021",
+      "checkNum": 22.0,
+      "memo": "Stuff"
+    }
+  ]
 }
