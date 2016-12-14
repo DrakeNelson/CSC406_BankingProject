@@ -1,12 +1,15 @@
 package ContentPanes.CustomerViews;
 
 import ContentPanes.EzItems.EzText;
+import DatabaseObjects.CreditCard;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import static ContentPanes.EzItems.TryParse.TryParseDouble;
+import static Master.Main.database;
 
 /**
  * Created by user on 11/28/2016.
@@ -43,6 +46,10 @@ public class CustomerCreditCardPurchase extends GridPane {
         Button signButton = new Button("Complete Purchase");
         signButton.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
         add(signButton, 0, 7, 4, 1);
-        //signButton.setOnAction(event -> );
+        signButton.setOnAction(event -> {
+            for(CreditCard card: database.getCreditCards()){
+               // if(card.getCreditCardID().compareToIgnoreCase(cardField.getText()==0)&&)
+            }
+        });
     }
 }
