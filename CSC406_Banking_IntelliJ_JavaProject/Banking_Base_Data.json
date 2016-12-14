@@ -673,6 +673,19 @@
       "MissedPaymentFlag": 0,
       "CreditLimit": 2000.0,
       "PurchasesThisMonth": []
+    },
+    {
+      "CreditCardID": "55555555531",
+      "CustomerSocial": 555555555,
+      "CurrentBalance": 1200.0,
+      "CurrentInterestRate": 0.025,
+      "DatePaymentDue": "10/20/2016",
+      "DateNotifiedOfPayment": "10/30/2016",
+      "CurrentPaymentDueAmt": 300.0,
+      "DateLastPaymentMade": "11/29/2016",
+      "MissedPaymentFlag": 0,
+      "CreditLimit": 3000.0,
+      "PurchasesThisMonth": []
     }
   ],
   "TermLoans": [
@@ -733,32 +746,18 @@
       "OpenDate": "10/01/2016"
     },
     {
-      "LoanID": "567891234",
-      "TermLoanType": "15year",
-      "CustomerSocial": 345653425,
-      "CurrentBalance": 1000.0,
-      "FixedInterestRate": 0.07,
-      "FixedPaymentAmount": 614.0,
-      "DatePaymentDue": "11/29/2016",
-      "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": 614.0,
-      "DateLastPaymentMade": "10/29/2016",
+      "LoanID": "55555555541",
+      "TermLoanType": "30",
+      "CustomerSocial": 555555555,
+      "CurrentBalance": 10781.25,
+      "FixedInterestRate": 0.025,
+      "FixedPaymentAmount": 15.625,
+      "DatePaymentDue": "10/25/2016",
+      "DateNotifiedOfPayment": "11/15/2016",
+      "CurrentPaymentDueAmt": 0.0,
+      "DateLastPaymentMade": "11/29/2016",
       "MissedPaymentFlag": 0,
-      "OpenDate": "10/01/2016"
-    },
-    {
-      "LoanID": "678912345",
-      "TermLoanType": "5year",
-      "CustomerSocial": 423453245,
-      "CurrentBalance": 10000.0,
-      "FixedInterestRate": 12.5,
-      "FixedPaymentAmount": 200.0,
-      "DatePaymentDue": "11/29/2016",
-      "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": 200.0,
-      "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0,
-      "OpenDate": "10/01/2016"
+      "OpenDate": "11/29/2016"
     }
   ],
   "DatabaseTime": "11/29/2016"
