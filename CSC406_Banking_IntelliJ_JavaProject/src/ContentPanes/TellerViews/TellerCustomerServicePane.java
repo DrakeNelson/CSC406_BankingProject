@@ -131,6 +131,11 @@ public class TellerCustomerServicePane extends GridPane {
             payButton.setOnAction(e -> {
                 if(TryParseDouble(payField.getText())){
                     loan.setCurrentBalance(loan.getCurrentBalance()-Double.parseDouble(payField.getText()));
+                    if(Double.parseDouble(payField.getText())>=loan.getCurrentPaymentDueAmt()){
+                        loan.setCurrentPaymentDueAmt(0);
+                    }else{
+                        loan.setCurrentPaymentDueAmt(loan.getCurrentPaymentDueAmt()-Double.parseDouble(payField.getText()));
+                    }
                     TellerSearchClick(customer);
                 }
             });
@@ -138,7 +143,8 @@ public class TellerCustomerServicePane extends GridPane {
             Button payFixedButton = new Button("Pay Fixed Amt");
             add(payFixedButton, 6, 3);
             payFixedButton.setOnAction(e -> {
-                loan.setCurrentBalance(loan.getCurrentBalance()-loan.getFixedPaymentAmount());
+                loan.setCurrentBalance(loan.getCurrentBalance()-loan.getCurrentPaymentDueAmt());
+                loan.setCurrentPaymentDueAmt(0);
                 TellerSearchClick(customer);
             });
 
@@ -158,14 +164,21 @@ public class TellerCustomerServicePane extends GridPane {
             payButton.setOnAction(e -> {
                 if(TryParseDouble(payField.getText())){
                     card.setCurrentBalance(card.getCurrentBalance()-Double.parseDouble(payField.getText()));
+                    if(Double.parseDouble(payField.getText())>=card.getCurrentPaymentDueAmt()){
+                        card.setCurrentPaymentDueAmt(0.);
+                    }else{
+                        card.setCurrentPaymentDueAmt(card.getCurrentPaymentDueAmt()-Double.parseDouble(payField.getText()));
+                    }
                     TellerSearchClick(customer);
                 }
+
             });
 
             Button payFixedButton = new Button("Pay Fixed Amt");
             add(payFixedButton, 6, 0);
             payFixedButton.setOnAction(e -> {
                 card.setCurrentBalance(card.getCurrentBalance()-card.getCurrentPaymentDueAmt());
+                card.setCurrentPaymentDueAmt(0.0);
                 TellerSearchClick(customer);
             });
         }

@@ -18,6 +18,10 @@ import javafx.scene.text.FontWeight;
 import java.text.DecimalFormat;
 import java.util.List;
 
+import static ContentPanes.EzItems.TryParse.TryParseDouble;
+import static Master.Main.database;
+import static Master.MasterController.ManagerSearchClick;
+
 /*
  * Created by drake on 11/24/2016.
  * all of the buttons on this page have no functionality
@@ -25,8 +29,10 @@ import java.util.List;
 public class ManagerCustomerServicePane extends GridPane {
     private static DecimalFormat format = new DecimalFormat(".00");
 
+    private Customer thisCustomer;
 
     public ManagerCustomerServicePane(Customer searchedCustomer) {
+        thisCustomer = searchedCustomer;
         //get all customer info
         List<SavingAccount> traditionalSavingsAccounts = Main.database.getTraditionalSavingsBySSN(Integer.toString(searchedCustomer.getSocial()));
         List<CheckingAccount> checkingAccounts = Main.database.getCheckingAccountsBySSN(Integer.toString(searchedCustomer.getSocial()));
@@ -96,6 +102,10 @@ public class ManagerCustomerServicePane extends GridPane {
             Button depositButton = new Button("Deposit");
             add(depositButton, 1, 0);
             depositButton.setOnAction(e -> {
+                if(TryParseDouble(depositTextField.getText())){
+                    account.setCurrentBalance(account.getCurrentBalance()+Double.parseDouble(depositTextField.getText()));
+                    ManagerSearchClick(thisCustomer);
+                }
 
             });
 
@@ -104,6 +114,10 @@ public class ManagerCustomerServicePane extends GridPane {
             Button withdrawButton = new Button("Withdraw");
             add(withdrawButton, 3, 0);
             withdrawButton.setOnAction(e -> {
+                if(TryParseDouble(withdrawTextField.getText())){
+                    account.setCurrentBalance(account.getCurrentBalance()-Double.parseDouble(withdrawTextField.getText()));
+                    ManagerSearchClick(thisCustomer);
+                }
             });
 
             TextField interestField = new TextField();
@@ -111,11 +125,16 @@ public class ManagerCustomerServicePane extends GridPane {
             Button interestButton = new Button("Set Interest");
             add(interestButton, 5, 0);
             interestButton.setOnAction(e -> {
+                String interest=interestField.getText();
+                account.setInterestRate(Double.parseDouble(interest));
+                ManagerSearchClick(thisCustomer);
             });
 
             Button closeButton = new Button("Close Account");
             add(closeButton, 6, 0);
             closeButton.setOnAction(e -> {
+                database.getSavingAccounts().remove(account);
+                ManagerSearchClick(thisCustomer);
             });
 
         }
@@ -133,16 +152,32 @@ public class ManagerCustomerServicePane extends GridPane {
             Button payButton = new Button("Pay Amt");
             add(payButton, 1, 0);
             payButton.setOnAction(e -> {
+                if(TryParseDouble(payField.getText())){
+                    loan.setCurrentBalance(loan.getCurrentBalance()-Double.parseDouble(payField.getText()));
+                    if(Double.parseDouble(payField.getText())>=loan.getCurrentPaymentDueAmt()){
+                        loan.setCurrentPaymentDueAmt(0);
+                    }else{
+                        loan.setCurrentPaymentDueAmt(loan.getCurrentPaymentDueAmt()-Double.parseDouble(payField.getText()));
+                    }
+                    ManagerSearchClick(thisCustomer);
+                }
             });
             TextField interestField = new TextField();
             add(interestField, 2, 0);
             Button setInterestButton = new Button("Set Interest");
             add(setInterestButton, 3, 0);
             setInterestButton.setOnAction(e -> {
+                String interest=interestField.getText();
+                loan.setFixedInterestRate(Double.parseDouble(interest));
+                loan.setFixedPaymentAmount((.5*loan.getCurrentBalance())*(loan.getFixedInterestRate())/12);
+                ManagerSearchClick(thisCustomer);
             });
             Button payFixedButton = new Button("Pay Fixed Amt");
             add(payFixedButton, 6, 0);
             payFixedButton.setOnAction(e -> {
+                loan.setCurrentBalance(loan.getCurrentBalance()-loan.getCurrentPaymentDueAmt());
+                loan.setCurrentPaymentDueAmt(0);
+                ManagerSearchClick(thisCustomer);
             });
 
         }
@@ -161,11 +196,23 @@ public class ManagerCustomerServicePane extends GridPane {
             Button payButton = new Button("Pay Amt");
             add(payButton, 1, 0);
             payButton.setOnAction(e -> {
+                if(TryParseDouble(payField.getText())){
+                    card.setCurrentBalance(card.getCurrentBalance()-Double.parseDouble(payField.getText()));
+                    if(Double.parseDouble(payField.getText())>=card.getCurrentPaymentDueAmt()){
+                        card.setCurrentPaymentDueAmt(0.);
+                    }else{
+                        card.setCurrentPaymentDueAmt(card.getCurrentPaymentDueAmt()-Double.parseDouble(payField.getText()));
+                    }
+                    ManagerSearchClick(thisCustomer);
+                }
             });
 
             Button payFixedButton = new Button("Pay Fixed Amt");
             add(payFixedButton, 6, 0);
             payFixedButton.setOnAction(e -> {
+                card.setCurrentBalance(card.getCurrentBalance()-card.getCurrentPaymentDueAmt());
+                card.setCurrentPaymentDueAmt(0.0);
+                ManagerSearchClick(thisCustomer);
             });
 
             TextField interestField = new TextField();
@@ -173,12 +220,18 @@ public class ManagerCustomerServicePane extends GridPane {
             Button setInterestButton = new Button("Set Interest");
             add(setInterestButton, 1, 1);
             setInterestButton.setOnAction(e -> {
+                String interest=interestField.getText();
+                card.setCurrentInterestRate(Double.parseDouble(interest));
+                ManagerSearchClick(thisCustomer);
             });
             TextField limitField = new TextField();
             add(limitField, 3, 1);
             Button setLimitButton = new Button("Set Limit");
             add(setLimitButton, 4, 1);
             setLimitButton.setOnAction(e -> {
+                String limit=limitField.getText();
+                card.setCreditLimit(Double.parseDouble(limit));
+                ManagerSearchClick(thisCustomer);
             });
             if(card.getMissedPaymentFlag()!=0) {
                 Button removeFlagButton = new Button("Remove Flag");
@@ -218,7 +271,10 @@ public class ManagerCustomerServicePane extends GridPane {
 
             Button closeButton = new Button("Close Account");
             add(closeButton, 6, 3);
-            closeButton.setOnAction(e -> {
+            closeButton.setOnAction(e -> { if(TryParseDouble(withdrawTextField.getText())){
+                account.setCurrentBalance(account.getCurrentBalance()-Double.parseDouble(withdrawTextField.getText())-100);
+                ManagerSearchClick(thisCustomer);
+            }
             });
         }
     }

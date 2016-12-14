@@ -56,6 +56,7 @@ public class TermLoan
         missedPaymentFlag=0;
         openDate=database.databaseTime;
         fixedPaymentAmount=(.5*loanAmt)*(interest)/12;
+        currentPaymentDueAmt=fixedPaymentAmount;
 
     }
 
