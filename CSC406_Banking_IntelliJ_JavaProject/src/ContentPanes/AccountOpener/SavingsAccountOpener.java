@@ -14,8 +14,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 import static ContentPanes.EzItems.TryParse.TryParseDouble;
-import static ContentPanes.EzItems.TryParse.TryParseInt;
-import static Master.Main.customer;
 import static Master.Main.database;
 
 /**
@@ -65,7 +63,7 @@ public class SavingsAccountOpener extends VBox {
                 String   openBal=startTextField.getText();
                 String  interest=interestTextField.getText();
                 if(TryParseDouble(openBal)&&TryParseDouble(interest)){
-                    database.getSavingAccounts().add(new SavingAccount(thisCustomer.getSocial(),accountField.getText(),Double.parseDouble(openBal),Double.parseDouble(interest),backupText.getText()));
+                    database.getSavingAccounts().add(new SavingAccount(thisCustomer.getSocial(),accountField.getText(),Double.parseDouble(openBal),Double.parseDouble(interest),backupTextField.getText()));
                     System.out.println("added");
                 }
             });

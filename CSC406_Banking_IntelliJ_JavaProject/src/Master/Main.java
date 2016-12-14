@@ -69,6 +69,7 @@ public class Main extends Application {
             } catch (Exception shouldnthappen) {
                 shouldnthappen.printStackTrace();
             }
+
             e.consume();
             window.close();
         });

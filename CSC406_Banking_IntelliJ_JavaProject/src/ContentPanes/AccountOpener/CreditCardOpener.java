@@ -53,11 +53,11 @@ public class CreditCardOpener extends VBox {
             add(NotificationDateTextField, 1, 5);
 
             EzText CreditLimitText = new EzText("Credit Limit: ");
-            add(CreditLimitText,0,5);
+            add(CreditLimitText,0,6);
             TextField CreditLimitTextField = new TextField();
-            add(CreditLimitTextField, 1, 5);
+            add(CreditLimitTextField, 1, 6);
 
-            Button signButton = new Button("Create New Checking Account");
+            Button signButton = new Button("Create New Credit Card");
             signButton.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
             add(signButton, 0, 10, 4, 1);
             signButton.setOnAction(e -> {

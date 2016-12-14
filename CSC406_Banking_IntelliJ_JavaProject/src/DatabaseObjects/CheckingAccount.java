@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import static Master.Main.database;
 
-public class CheckingAccount {
+public class CheckingAccount extends Account{
     @SerializedName("AccountID")
     @Expose
     String accountID;

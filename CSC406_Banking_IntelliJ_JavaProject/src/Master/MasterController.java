@@ -7,6 +7,7 @@ package Master;
  * Created by Drake Nelson 11/13/2016
  */
 
+import ContentPanes.AccountInfoViews.CustomerAtmAccounts;
 import ContentPanes.AccountOpener.*;
 import ContentPanes.*;
 import ContentPanes.CustomerViews.CustomerAtmWithdraw;
@@ -115,6 +116,13 @@ public class MasterController extends Master.Main {
         MasterContentPane.setStyle("-fx-background: rgb(0,0,0);");
         window.setTitle("Customer");
         MasterContentPane.setContent(new CustomerAtmWithdraw());
+        root.setCenter(MasterContentPane);
+    }
+    public static void AtmSearchClick(Customer customer) {
+        MasterContentPane = new ScrollPane();
+        MasterContentPane.setStyle("-fx-background: rgb(0,0,0);");
+        window.setTitle("Customer");
+        MasterContentPane.setContent(new CustomerAtmAccounts(customer));
         root.setCenter(MasterContentPane);
     }
 

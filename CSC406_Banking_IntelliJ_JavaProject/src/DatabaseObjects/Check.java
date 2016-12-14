@@ -7,22 +7,22 @@ import com.google.gson.annotations.SerializedName;
  * Created by user on 12/8/2016.
  */
 public class Check {
-    @SerializedName("Date")
+    @SerializedName("date")
     @Expose
     String date;
-    @SerializedName("OrderOf")
+    @SerializedName("orderOf")
     @Expose
     String orderOf;
-    @SerializedName("Amount")
+    @SerializedName("amt")
     @Expose
     double amt;
-    @SerializedName("AccountID")
+    @SerializedName("accountID")
     @Expose
     String accountID;
-    @SerializedName("CheckNumber")
+    @SerializedName("checkNum")
     @Expose
     double checkNum;
-    @SerializedName("Memo")
+    @SerializedName("memo")
     @Expose
     String memo;
 
@@ -34,6 +34,16 @@ public class Check {
         this.checkNum = CheckNumber;
         this.memo = Memo;
     }
+
+    public Check() {
+        this.date = "asdf";
+        this.orderOf = "asdf";
+        this.amt = 12;
+        this.accountID = "asdf";
+        this.checkNum = 12;
+        this.memo = "asdf";
+    }
+
     public String getDate() {return this.date;}
     public void setDate(String date) {this.date = date;}
     public String getOrderOf() {return this.orderOf;}

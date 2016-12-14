@@ -152,10 +152,11 @@
       "AccountID": "113174582281",
       "CustomerSocial": 345653425,
       "SavingsAccountType": "Traditional",
-      "CurrentBalance": 30854.64,
+      "CurrentBalance": 30054.64,
       "InterestRate": 0.012,
       "OpenDate": "11/24/2016",
-      "TermDate": ""
+      "TermDate": "",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "113174582282",
@@ -164,7 +165,8 @@
       "CurrentBalance": 56879.2,
       "InterestRate": 0.014,
       "OpenDate": "11/24/2016",
-      "TermDate": "2017-02-19"
+      "TermDate": "2017-02-19",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "113174582283",
@@ -173,7 +175,8 @@
       "CurrentBalance": 453.12,
       "InterestRate": 0.0064,
       "OpenDate": "11/24/2016",
-      "TermDate": ""
+      "TermDate": "",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "113174582284",
@@ -182,7 +185,8 @@
       "CurrentBalance": 1349.72,
       "InterestRate": 0.0097,
       "OpenDate": "11/24/2016",
-      "TermDate": "2017-03-22"
+      "TermDate": "2017-03-22",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "113174582285",
@@ -191,7 +195,8 @@
       "CurrentBalance": 197.26,
       "InterestRate": 0.0083,
       "OpenDate": "11/24/2016",
-      "TermDate": "2017-12-13"
+      "TermDate": "2017-12-13",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "113174582286",
@@ -200,7 +205,8 @@
       "CurrentBalance": 89.11,
       "InterestRate": 0.005,
       "OpenDate": "11/24/2016",
-      "TermDate": ""
+      "TermDate": "",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "113174582287",
@@ -209,7 +215,8 @@
       "CurrentBalance": 23987.28,
       "InterestRate": 0.015,
       "OpenDate": "11/24/2016",
-      "TermDate": ""
+      "TermDate": "",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "113174582288",
@@ -218,7 +225,8 @@
       "CurrentBalance": 12734.98,
       "InterestRate": 0.02,
       "OpenDate": "11/24/2016",
-      "TermDate": "2017-04-16"
+      "TermDate": "2017-04-16",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "113174582289",
@@ -227,7 +235,8 @@
       "CurrentBalance": 3455.34,
       "InterestRate": 0.011,
       "OpenDate": "11/24/2016",
-      "TermDate": "2017-02-02"
+      "TermDate": "2017-02-02",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "113174582280",
@@ -236,7 +245,8 @@
       "CurrentBalance": 672.91,
       "InterestRate": 0.0087,
       "OpenDate": "11/24/2016",
-      "TermDate": ""
+      "TermDate": "",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "23343565613",
@@ -246,7 +256,8 @@
       "InterestRate": 0.0087,
       "OpenDate": "11/29/2016",
       "TermDate": "",
-      "BackupAccount": "Backup Account: "
+      "BackupAccount": "Backup Account: ",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "50502256811",
@@ -256,7 +267,8 @@
       "InterestRate": 0.0087,
       "OpenDate": "11/29/2016",
       "TermDate": "",
-      "BackupAccount": "Backup Account: "
+      "BackupAccount": "Backup Account: ",
+      "currentBalance": 0.0
     }
   ],
   "CheckingAccounts": [
@@ -267,7 +279,8 @@
       "CurrentBalance": 1000.0,
       "BackupAccountIDs": "null",
       "OverdraftCount": 0,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "327162536427",
@@ -276,7 +289,8 @@
       "CurrentBalance": 125.0,
       "BackupAccountIDs": "null",
       "OverdraftCount": 0,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "235462738492",
@@ -285,7 +299,8 @@
       "CurrentBalance": 1500.0,
       "BackupAccountIDs": "null",
       "OverdraftCount": 2,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "326263748219",
@@ -294,7 +309,8 @@
       "CurrentBalance": 475.0,
       "BackupAccountIDs": "null",
       "OverdraftCount": 2,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "154678946425",
@@ -303,16 +319,18 @@
       "CurrentBalance": 1500.0,
       "BackupAccountIDs": "null",
       "OverdraftCount": 0,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "564589462154",
       "CustomerSocial": 423567890,
       "AccountType": "Diamond",
-      "CurrentBalance": 2750.0,
+      "CurrentBalance": 2700.0,
       "BackupAccountIDs": "978549836213",
       "OverdraftCount": 0,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "978549836213",
@@ -321,7 +339,8 @@
       "CurrentBalance": 450.0,
       "BackupAccountIDs": "564589462154",
       "OverdraftCount": 2,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "654894782130",
@@ -330,7 +349,8 @@
       "CurrentBalance": 103.75,
       "BackupAccountIDs": "171117456788",
       "OverdraftCount": 1,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "171117456788",
@@ -339,7 +359,8 @@
       "CurrentBalance": 340.0,
       "BackupAccountIDs": "654894782130",
       "OverdraftCount": 2,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "583174582288",
@@ -348,7 +369,8 @@
       "CurrentBalance": 21229.0,
       "BackupAccountIDs": "124274586958",
       "OverdraftCount": 0,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "124274586958",
@@ -357,7 +379,8 @@
       "CurrentBalance": 53043.0,
       "BackupAccountIDs": "583174582288",
       "OverdraftCount": 0,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "543294870433",
@@ -366,7 +389,8 @@
       "CurrentBalance": 21229.0,
       "BackupAccountIDs": "2334356561525",
       "OverdraftCount": 0,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "2334356561525",
@@ -375,7 +399,8 @@
       "CurrentBalance": 750.0,
       "BackupAccountIDs": "543294870433",
       "OverdraftCount": 1,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "2334356565555",
@@ -384,7 +409,8 @@
       "CurrentBalance": 700.0,
       "BackupAccountIDs": "2334356566666",
       "OverdraftCount": 2,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "2334356566666",
@@ -393,7 +419,8 @@
       "CurrentBalance": 700.0,
       "BackupAccountIDs": "2334356565555",
       "OverdraftCount": 2,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "2335456565555",
@@ -402,7 +429,8 @@
       "CurrentBalance": 700.0,
       "BackupAccountIDs": "2331256566666",
       "OverdraftCount": 2,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "2331256566666",
@@ -411,7 +439,8 @@
       "CurrentBalance": 700.0,
       "BackupAccountIDs": "2335456565555",
       "OverdraftCount": 2,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "2444456565555",
@@ -420,7 +449,8 @@
       "CurrentBalance": 700.0,
       "BackupAccountIDs": "2331244446666",
       "OverdraftCount": 2,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "2331244446666",
@@ -429,7 +459,8 @@
       "CurrentBalance": 7700.0,
       "BackupAccountIDs": "2444456565555",
       "OverdraftCount": 2,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "2444456544455",
@@ -438,7 +469,8 @@
       "CurrentBalance": 700.0,
       "BackupAccountIDs": "2331244336666",
       "OverdraftCount": 2,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "2331244336666",
@@ -447,7 +479,8 @@
       "CurrentBalance": 77000.0,
       "BackupAccountIDs": "2444456544455",
       "OverdraftCount": 2,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "2444234565555",
@@ -456,7 +489,8 @@
       "CurrentBalance": 700.0,
       "BackupAccountIDs": "2331244442346",
       "OverdraftCount": 2,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "2331244442346",
@@ -465,7 +499,8 @@
       "CurrentBalance": 77000.0,
       "BackupAccountIDs": "2444234565555",
       "OverdraftCount": 2,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "244111165555",
@@ -474,7 +509,8 @@
       "CurrentBalance": 700.0,
       "BackupAccountIDs": "2331241111346",
       "OverdraftCount": 2,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "2331241111346",
@@ -483,7 +519,8 @@
       "CurrentBalance": 77000.0,
       "BackupAccountIDs": "244111165555",
       "OverdraftCount": 2,
-      "DateAccountOpened": "11/24/2016"
+      "DateAccountOpened": "11/24/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "42356789023",
@@ -492,7 +529,8 @@
       "CurrentBalance": 500.0,
       "BackupAccountIDs": "564589462154",
       "OverdraftCount": 0,
-      "DateAccountOpened": "11/29/2016"
+      "DateAccountOpened": "11/29/2016",
+      "currentBalance": 0.0
     },
     {
       "AccountID": "51502272021",
@@ -501,7 +539,8 @@
       "CurrentBalance": 2000.0,
       "BackupAccountIDs": "",
       "OverdraftCount": 0,
-      "DateAccountOpened": "11/29/2016"
+      "DateAccountOpened": "11/29/2016",
+      "currentBalance": 0.0
     }
   ],
   "CreditCards": [
@@ -748,5 +787,15 @@
       "OpenDate": "10/01/2016"
     }
   ],
-  "DatabaseTime": "11/29/2016"
+  "DatabaseTime": "11/29/2016",
+  "Checks": [
+    {
+      "date": "11/30/2016",
+      "orderOf": "nick",
+      "amt": 500.0,
+      "accountID": "263748593021",
+      "checkNum": 18.0,
+      "memo": "asdf"
+    }
+  ]
 }
