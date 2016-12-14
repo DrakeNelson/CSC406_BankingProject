@@ -103,7 +103,7 @@ public class TellerCustomerServicePane extends GridPane {
             add(withdrawlButton, 4, 2);
             withdrawlButton.setOnAction(e -> {
                 if(TryParseDouble(withdrawlTextField.getText())){
-                    account.setCurrentBalance(account.getCurrentBalance()-Double.parseDouble(withdrawlTextField.getText()));
+                    account.withdraw(Double.parseDouble(withdrawlTextField.getText()),account);
                     TellerSearchClick(customer);
                 }
             });

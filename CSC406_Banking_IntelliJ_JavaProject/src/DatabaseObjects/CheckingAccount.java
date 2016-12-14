@@ -18,9 +18,9 @@ public class CheckingAccount extends Account{
     @SerializedName("CurrentBalance")
     @Expose
     double currentBalance;
-    @SerializedName("BackupAccountIDs")
+    @SerializedName("BackupAccount")
     @Expose
-    String backupAccountIDs;
+    String backupAccount;
     @SerializedName("OverdraftCount")
     @Expose
     int overdraftCount;
@@ -32,7 +32,7 @@ public class CheckingAccount extends Account{
         this.accountID = AccountID;
         this.customerSocial = cust;
         this.currentBalance = openbal;
-        this.backupAccountIDs = backup;
+        this.backupAccount = backup;
         this.overdraftCount = 0;
         dateAccountOpened = database.databaseTime;
         this.accountType = getAccountTypeCalculator(openbal);
@@ -55,27 +55,27 @@ public class CheckingAccount extends Account{
     public void setDateAccountOpened(String dateAccountOpened) {
         this.dateAccountOpened = dateAccountOpened;
     }
-
+    @Override
     public int getOverdraftCount() {
         return this.overdraftCount;
     }
-
+    @Override
     public void setOverdraftCount(int overdraftCount) {
         this.overdraftCount = overdraftCount;
     }
-
-    public String getBackupAccountIDs() {
-        return this.backupAccountIDs;
+    @Override
+    public String getBackupAccount() {
+        return this.backupAccount;
     }
-
-    public void setBackupAccountIDs(String backupAccountIDs) {
-        this.backupAccountIDs = backupAccountIDs;
+    @Override
+    public void setBackupAccount(String backupAccount) {
+        this.backupAccount = backupAccount;
     }
-
+    @Override
     public double getCurrentBalance() {
         return this.currentBalance;
     }
-
+    @Override
     public void setCurrentBalance(double currentBalance) {
         this.currentBalance = currentBalance;
     }

@@ -63,7 +63,7 @@ public class SavingsAccountOpener extends VBox {
                 String   openBal=startTextField.getText();
                 String  interest=interestTextField.getText();
                 if(TryParseDouble(openBal)&&TryParseDouble(interest)){
-                    database.getSavingAccounts().add(new SavingAccount(thisCustomer.getSocial(),accountField.getText(),Double.parseDouble(openBal),Double.parseDouble(interest),backupTextField.getText()));
+                    database.getSavingAccounts().add(new SavingAccount(thisCustomer.getSocial(), accountField.getText(), Double.parseDouble(openBal), Double.parseDouble(interest), backupTextField.getText(), database.databaseTime));
                     System.out.println("added");
                 }
             });

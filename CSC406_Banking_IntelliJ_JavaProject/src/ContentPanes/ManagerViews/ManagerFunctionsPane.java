@@ -26,12 +26,6 @@ public class ManagerFunctionsPane extends GridPane {
         add(changeGoldButton, 1, 1);
         changeGoldButton.setOnAction(e -> {
         });
-        TextField diamondInterestRate = new TextField();
-        add(diamondInterestRate, 2, 1);
-        Button changeDiamondButton = new Button("Change Diamond Interest Rate");
-        add(changeDiamondButton, 3, 1);
-        changeDiamondButton.setOnAction(e -> {
-        });
 
         EzText title2 = new EzText("Send RollOver Notifications");
         title2.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));

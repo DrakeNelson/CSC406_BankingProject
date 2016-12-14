@@ -11,9 +11,7 @@ public class Database
     @SerializedName("GoldInterestRate")
     @Expose
     private final double GOLDINTERESTRATE =0.01;
-    @SerializedName("DiamondInterestRate")
-    @Expose
-    private final double DIAMONDINTERESTRATE =0.013;
+
 
     @SerializedName("Customers")
     @Expose
@@ -105,5 +103,18 @@ public class Database
         this.customers = customers;
     }
 
-
+    public Account getBackupByAccount(String account){
+        Account backup=null;
+        for (SavingAccount acc : getSavingAccounts()) {
+            if (acc.getAccountID().equalsIgnoreCase(account)) {
+                backup= acc;
+            }
+        }
+        for (CheckingAccount acc : getCheckingAccounts()) {
+            if (acc.getAccountID().equalsIgnoreCase(account)) {
+                backup= acc;
+            }
+        }
+        return backup;
+    }
 }

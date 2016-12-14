@@ -1,8 +1,12 @@
 package ContentPanes.ManagerViews;
 
-import ContentPanes.AccountInfoViews.*;
+import ContentPanes.AccountInfoViews.CreditCardInfoView;
+import ContentPanes.AccountInfoViews.CustomerInfoView;
+import ContentPanes.AccountInfoViews.SavingsAccountInfoView;
+import ContentPanes.AccountInfoViews.TermLoanInfoView;
 import ContentPanes.EzItems.EzLabel;
 import ContentPanes.EzItems.EzText;
+import ContentPanes.TellerViews.TellerCustomerServicePane;
 import DatabaseObjects.*;
 import Master.Main;
 import javafx.geometry.Insets;
@@ -67,7 +71,7 @@ public class ManagerCustomerServicePane extends GridPane {
         checkingAccountListEzLabel.setFont(Font.font("Gabriola", FontWeight.BLACK, 24));
         outerBox.getChildren().add(checkingAccountListEzLabel);
         for (CheckingAccount account : checkingAccounts) {
-            outerBox.getChildren().add(new CheckingAccountView(account));
+            outerBox.getChildren().add(new CheckingAccountViewMan(account));
         }
         //list Loans
         EzText loanListEzLabel = new EzText("Term Loans:");
@@ -110,7 +114,7 @@ public class ManagerCustomerServicePane extends GridPane {
             Button withdrawButton = new Button("Withdraw");
             add(withdrawButton, 3, 0);
             withdrawButton.setOnAction(e -> {
-                account.setCurrentBalance(account.getCurrentBalance()-Double.parseDouble(withdrawTextField.getText()));
+                account.withdraw(Double.parseDouble(withdrawTextField.getText()),account);
                 ManagerSearchClick(thisCustomer);
             });
 
@@ -239,6 +243,53 @@ public class ManagerCustomerServicePane extends GridPane {
             add(closeButton, 6, 3);
             closeButton.setOnAction(e -> {
             });
+        }
+    }
+    private class CheckingAccountViewMan extends GridPane{
+        private CheckingAccountViewMan(CheckingAccount account) {
+            setHgap(10);
+            setVgap(10);
+            setPadding(new Insets(25, 25, 25, 25));
+            EzText scenetitle = new EzText("Account # : " + account.getAccountID());
+            scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+            add(scenetitle, 0, 0, 4, 1);
+
+            add(new EzLabel("Current Balance:"), 0, 1);
+            add(new EzText("$"+format.format(account.getCurrentBalance())), 1, 1);
+            add(new EzLabel("Account Type:"), 2, 1);
+            add(new EzText(account.getAccountType()), 3, 1);
+            add(new EzLabel("Open Date:"), 4, 1);
+            add(new EzText(account.getDateAccountOpened()), 5, 1);
+            add(new EzLabel("Overdraft Count:"), 6, 1);
+            add(new EzText(Integer.toString(account.getOverdraftCount())), 7, 1);
+            add(new EzLabel("Backup Account:"), 0, 2);
+            add(new EzText(account.getBackupAccount()), 1, 2);
+
+            TextField depositTextField = new TextField();
+            add(depositTextField, 0,3);
+            Button depositButton = new Button("Deposit");
+            add(depositButton, 1, 3);
+            depositButton.setOnAction(e -> {
+                if(TryParseDouble(depositTextField.getText())){
+                    account.setCurrentBalance(account.getCurrentBalance()+Double.parseDouble(depositTextField.getText()));
+                    ManagerSearchClick(TellerCustomerServicePane.customer);
+                }
+            });
+
+            TextField withdrawlTextField = new TextField();
+            add(withdrawlTextField, 3, 3);
+            Button withdrawlButton = new Button("Withdrawl");
+            add(withdrawlButton, 4, 3);
+            withdrawlButton.setOnAction(e -> {
+                if(TryParseDouble(withdrawlTextField.getText())){
+                    account.withdraw(Double.parseDouble(withdrawlTextField.getText()),account);
+                    ManagerSearchClick(TellerCustomerServicePane.customer);
+                }
+            });
+
+            Button closeButton = new Button("Close Account");
+            add(closeButton, 6, 3);
+            closeButton.setOnAction(e -> database.getCheckingAccounts().remove(account));
         }
     }
 }

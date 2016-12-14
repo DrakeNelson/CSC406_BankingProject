@@ -39,11 +39,13 @@ public class CheckingAccountView extends GridPane{
         add(new EzText(account.getDateAccountOpened()), 5, 1);
         add(new EzLabel("Overdraft Count:"), 6, 1);
         add(new EzText(Integer.toString(account.getOverdraftCount())), 7, 1);
+        add(new EzLabel("Backup Account:"), 0, 2);
+        add(new EzText(account.getBackupAccount()), 1, 2);
 
         TextField depositTextField = new TextField();
-        add(depositTextField, 0, 2);
+        add(depositTextField, 0, 3);
         Button depositButton = new Button("Deposit");
-        add(depositButton, 1, 2);
+        add(depositButton, 1, 3);
         depositButton.setOnAction(e -> {
             if(TryParseDouble(depositTextField.getText())){
                 account.setCurrentBalance(account.getCurrentBalance()+Double.parseDouble(depositTextField.getText()));
@@ -52,18 +54,19 @@ public class CheckingAccountView extends GridPane{
         });
 
         TextField withdrawlTextField = new TextField();
-        add(withdrawlTextField, 3, 2);
+        add(withdrawlTextField, 3, 3);
         Button withdrawlButton = new Button("Withdrawl");
-        add(withdrawlButton, 4, 2);
+        add(withdrawlButton, 4, 3);
         withdrawlButton.setOnAction(e -> {
             if(TryParseDouble(withdrawlTextField.getText())){
-                account.setCurrentBalance(account.getCurrentBalance()-Double.parseDouble(withdrawlTextField.getText()));
+                account.withdraw(Double.parseDouble(withdrawlTextField.getText()),account);
+                //account.setCurrentBalance(account.getCurrentBalance()-Double.parseDouble(withdrawlTextField.getText()));
                 TellerSearchClick(TellerCustomerServicePane.customer);
             }
         });
 
         Button closeButton = new Button("Close Account");
-        add(closeButton, 6, 2);
+        add(closeButton, 6, 3);
         closeButton.setOnAction(e -> {
             database.getCheckingAccounts().remove(account);
         });
