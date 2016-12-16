@@ -5,11 +5,17 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import DatabaseObjects.Customer;
+import javafx.scene.text.Text;
+
+import static Master.Main.database;
 
 /**
  * Created by user on 11/28/2016.
+ * DONE
  */
 public class CustomerCreator extends GridPane {
     public CustomerCreator(String ssn) {
@@ -55,11 +61,16 @@ public class CustomerCreator extends GridPane {
         TextField lastNameField = new TextField();
         add(lastNameField, 1, 8);
 
+        final Text actionTarget = new Text();
+        add(actionTarget, 1, 9);
+
         Button signButton = new Button("Create New Customer");
         signButton.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
         add(signButton, 0, 10, 4, 1);
         signButton.setOnAction(e -> {
-
+            database.getCustomers().add(new Customer(Integer.parseInt(socialField.getText()),addressField.getText(),cityField.getText(),stateField.getText(),zipField.getText(),firstNameField.getText(),lastNameField.getText()));
+            actionTarget.setFill(Color.FIREBRICK);
+            actionTarget.setText("Customer Created");
         });
     }
 }

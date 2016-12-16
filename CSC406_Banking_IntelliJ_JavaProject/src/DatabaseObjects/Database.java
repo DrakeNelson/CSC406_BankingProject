@@ -10,10 +10,7 @@ public class Database
 {
     @SerializedName("GoldInterestRate")
     @Expose
-    private final double GOLDINTERESTRATE =0.01;
-    @SerializedName("DiamondInterestRate")
-    @Expose
-    private final double DIAMONDINTERESTRATE =0.013;
+    public double GOLDINTERESTRATE;
 
     @SerializedName("Customers")
     @Expose
@@ -33,6 +30,12 @@ public class Database
     @SerializedName("DatabaseTime")
     @Expose
     public String databaseTime;
+    @SerializedName("Checks")
+    @Expose
+    public List<Check> checks;
+    @SerializedName("PurchasesThisMonth")
+    @Expose
+    public List<PurchasesThisMonth> purchasesThisMonth;
 
     public List<SavingAccount> getTraditionalSavingsBySSN(String SSN){
         return savingAccounts.stream().filter(account ->
@@ -54,6 +57,15 @@ public class Database
         }
         return result;
     }
+    public CreditCard getcardByNum(String CardNum){
+        CreditCard result = null;
+        for (CreditCard creditCards : getCreditCards()){
+            if(creditCards.getCreditCardID().equals(CardNum)){
+                result = creditCards;
+            }
+        }
+        return result;
+    }
     public List<CheckingAccount> getCheckingAccountsBySSN(String SSN) {
         return checkingAccounts.stream().filter(account -> Integer.toString(account.getCustomerSocial()).equals(SSN)).collect(Collectors.toList());
     }
@@ -63,7 +75,6 @@ public class Database
     public List<CreditCard> getCreditCardsBySSN(String SSN) {
         return creditCards.stream().filter(card -> Integer.toString(card.getCustomerSocial()).equals(SSN)).collect(Collectors.toList());
     }
-
 
     public List<TermLoan> getTermLoans() {
         return this.termLoans;
@@ -83,6 +94,18 @@ public class Database
     public void setCheckingAccounts(List<CheckingAccount> checkingAccounts) {
         this.checkingAccounts = checkingAccounts;
     }
+    public List<Check> getChecks() {
+        return this.checks;
+    }
+    public void setChecks(List<Check> checks){
+        this.checks= checks;
+    }
+    public List<PurchasesThisMonth> getpurchasesThisMonth() {
+        return this.purchasesThisMonth;
+    }
+    public void setPurchasesThisMonth(List<PurchasesThisMonth> purchasesThisMonth){
+        this.purchasesThisMonth= purchasesThisMonth;
+    }
     public List<SavingAccount> getSavingAccounts() {
         return this.savingAccounts;
     }
@@ -96,5 +119,18 @@ public class Database
         this.customers = customers;
     }
 
-
+    public Account getBackupByAccount(String account){
+        Account backup=null;
+        for (SavingAccount acc : getSavingAccounts()) {
+            if (acc.getAccountID().equalsIgnoreCase(account)) {
+                backup= acc;
+            }
+        }
+        for (CheckingAccount acc : getCheckingAccounts()) {
+            if (acc.getAccountID().equalsIgnoreCase(account)) {
+                backup= acc;
+            }
+        }
+        return backup;
+    }
 }

@@ -17,7 +17,7 @@ import javafx.scene.text.Text;
 
 /**
  * Created by Drake on 9/5/2016.
- * this page should be pretty much complete
+ * DONE
  */
 public class ManagerCustomerSearchPane extends GridPane {
     private String welcomeLine="Welcome Manager";

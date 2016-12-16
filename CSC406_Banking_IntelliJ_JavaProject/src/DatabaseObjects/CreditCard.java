@@ -3,6 +3,10 @@ package DatabaseObjects;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import static Master.Main.database;
+
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class CreditCard
@@ -10,6 +14,7 @@ public class CreditCard
     @SerializedName("CreditCardID")
     @Expose
     String creditCardID;
+
     public int getCustomerSocial() {
         return this.customerSocial;
     }
@@ -43,6 +48,19 @@ public class CreditCard
     @SerializedName("PurchasesThisMonth")
     @Expose
     List<PurchasesThisMonth> purchasesThisMonth;
+
+    public CreditCard(int social,String account, double interest, String dueDate, String noteDate, double creditLimit){
+        this.customerSocial=social;
+        this.creditCardID=account;
+        this.currentInterestRate=interest;
+        this.datePaymentDue=dueDate;
+        this.dateNotifiedOfPayment=noteDate;
+        this.creditLimit=creditLimit;
+        currentPaymentDueAmt=0.0;
+        dateLastPaymentMade=database.databaseTime;
+        purchasesThisMonth=new ArrayList<>();
+    }
+    
 
     public void setCustomerSocial(int customerSocial) {
         this.customerSocial = customerSocial;
@@ -107,4 +125,5 @@ public class CreditCard
     public void setCurrentBalance(double currentBalance) {
         this.currentBalance = currentBalance;
     }
+
 }

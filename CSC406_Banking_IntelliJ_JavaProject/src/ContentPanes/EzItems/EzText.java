@@ -5,6 +5,7 @@ import javafx.scene.text.Text;
 
 /**
  * Created by user on 11/26/2016.
+ * DONE
  */
 public class EzText extends Text {
     public EzText(String x) {

@@ -7,8 +7,9 @@ package Master;
  * Created by Drake Nelson 11/13/2016
  */
 
+import ContentPanes.AccountInfoViews.CustomerAtmAccounts;
+import ContentPanes.AccountInfoViews.CustomerAtmCloser;
 import ContentPanes.AccountOpener.*;
-import ContentPanes.*;
 import ContentPanes.CustomerViews.CustomerAtmWithdraw;
 import ContentPanes.CustomerViews.CustomerCheckWriterPane;
 import ContentPanes.CustomerViews.CustomerCreditCardPurchase;
@@ -19,6 +20,7 @@ import ContentPanes.ManagerViews.ManagerOpenNewAccountPane;
 import ContentPanes.TellerViews.TellerCustomerSearchPane;
 import ContentPanes.TellerViews.TellerCustomerServicePane;
 import ContentPanes.TellerViews.TellerOpenNewAccountPane;
+import ContentPanes.TimeMachinePane;
 import DatabaseObjects.Customer;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
@@ -118,6 +120,22 @@ public class MasterController extends Master.Main {
         root.setCenter(MasterContentPane);
     }
 
+    public static void AtmSearchClick(Customer customer) {
+        MasterContentPane = new ScrollPane();
+        MasterContentPane.setStyle("-fx-background: rgb(0,0,0);");
+        window.setTitle("Customer");
+        MasterContentPane.setContent(new CustomerAtmAccounts(customer));
+        root.setCenter(MasterContentPane);
+    }
+
+    public static void AtmCloseClick(Customer customer) {
+        MasterContentPane = new ScrollPane();
+        MasterContentPane.setStyle("-fx-background: rgb(0,0,0);");
+        window.setTitle("Customer");
+        MasterContentPane.setContent(new CustomerAtmCloser(customer));
+        root.setCenter(MasterContentPane);
+    }
+
     public void TellerAccountOpenClick() {
         MasterContentPane = new ScrollPane();
         MasterContentPane.setStyle("-fx-background: rgb(0,0,0);");
@@ -169,8 +187,16 @@ public class MasterController extends Master.Main {
     public static void NewCustomerClick(String ssn) {
         MasterContentPane = new ScrollPane();
         MasterContentPane.setStyle("-fx-background: rgb(0,0,0);");
-        window.setTitle("Open Term Loan");
+        window.setTitle("New Customer");
         MasterContentPane.setContent(new CustomerCreator(ssn));
+        root.setCenter(MasterContentPane);
+    }
+
+    public static void OpenCD(Customer cust) {
+        MasterContentPane = new ScrollPane();
+        MasterContentPane.setStyle("-fx-background: rgb(0,0,0);");
+        window.setTitle("Open CD");
+        MasterContentPane.setContent(new CDOpener(cust));
         root.setCenter(MasterContentPane);
     }
 }

@@ -11,9 +11,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import static ContentPanes.EzItems.TryParse.TryParseDouble;
@@ -22,10 +25,9 @@ import static Master.MasterController.TellerSearchClick;
 
 /*
  * Created by drake on 11/24/2016.
- * all of the buttons on this page have no functionality
  */
 public class TellerCustomerServicePane extends GridPane {
-
+    private static DecimalFormat format = new DecimalFormat(".00");
     public static Customer customer=Main.customer;
 
     public TellerCustomerServicePane(Customer searchedCustomer) {
@@ -85,7 +87,8 @@ public class TellerCustomerServicePane extends GridPane {
             setHgap(10);
             setVgap(10);
             setPadding(new Insets(0, 25, 25, 25));
-
+            final Text actionTarget = new Text();
+            add(actionTarget, 0, 0);
             TextField depositTextField = new TextField();
             add(depositTextField, 0, 2);
             Button depositButton = new Button("Deposit");
@@ -94,6 +97,9 @@ public class TellerCustomerServicePane extends GridPane {
                 if(TryParseDouble(depositTextField.getText())){
                     account.setCurrentBalance(account.getCurrentBalance()+Double.parseDouble(depositTextField.getText()));
                     TellerSearchClick(customer);
+                }else{
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("invalid value");
                 }
             });
 
@@ -103,8 +109,11 @@ public class TellerCustomerServicePane extends GridPane {
             add(withdrawlButton, 4, 2);
             withdrawlButton.setOnAction(e -> {
                 if(TryParseDouble(withdrawlTextField.getText())){
-                    account.setCurrentBalance(account.getCurrentBalance()-Double.parseDouble(withdrawlTextField.getText()));
+                    account.withdraw(Double.parseDouble(withdrawlTextField.getText()),account);
                     TellerSearchClick(customer);
+                }else{
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("invalid value");
                 }
             });
 
@@ -112,6 +121,9 @@ public class TellerCustomerServicePane extends GridPane {
             add(closeButton, 6, 2);
             closeButton.setOnAction(e -> {
                 database.getSavingAccounts().remove(account);
+                database.getCheckingAccounts().stream().filter(acc -> acc.getBackupAccount().equals(account.getAccountID())).forEach(acc -> acc.setBackupAccount(""));
+                database.getSavingAccounts().stream().filter(acc -> acc.getBackupAccount().equals(account.getAccountID())).forEach(acc -> acc.setBackupAccount(""));
+                System.out.println("Savings account closed pay customer: $" + format.format(account.getCurrentBalance()));
                 TellerSearchClick(customer);
             });
 
@@ -129,11 +141,23 @@ public class TellerCustomerServicePane extends GridPane {
             Button payButton = new Button("Pay Amt");
             add(payButton, 1, 3);
             payButton.setOnAction(e -> {
+                if(TryParseDouble(payField.getText())){
+                    loan.setCurrentBalance(loan.getCurrentBalance()-Double.parseDouble(payField.getText()));
+                    if(Double.parseDouble(payField.getText())>=loan.getCurrentPaymentDueAmt()){
+                        loan.setCurrentPaymentDueAmt(0);
+                    }else{
+                        loan.setCurrentPaymentDueAmt(loan.getCurrentPaymentDueAmt()-Double.parseDouble(payField.getText()));
+                    }
+                    TellerSearchClick(customer);
+                }
             });
 
             Button payFixedButton = new Button("Pay Fixed Amt");
             add(payFixedButton, 6, 3);
             payFixedButton.setOnAction(e -> {
+                loan.setCurrentBalance(loan.getCurrentBalance()-loan.getCurrentPaymentDueAmt());
+                loan.setCurrentPaymentDueAmt(0);
+                TellerSearchClick(customer);
             });
 
         }
@@ -150,11 +174,24 @@ public class TellerCustomerServicePane extends GridPane {
             Button payButton = new Button("Pay Amt");
             add(payButton, 1, 0);
             payButton.setOnAction(e -> {
+                if(TryParseDouble(payField.getText())){
+                    card.setCurrentBalance(card.getCurrentBalance()-Double.parseDouble(payField.getText()));
+                    if(Double.parseDouble(payField.getText())>=card.getCurrentPaymentDueAmt()){
+                        card.setCurrentPaymentDueAmt(0.);
+                    }else{
+                        card.setCurrentPaymentDueAmt(card.getCurrentPaymentDueAmt()-Double.parseDouble(payField.getText()));
+                    }
+                    TellerSearchClick(customer);
+                }
+
             });
 
             Button payFixedButton = new Button("Pay Fixed Amt");
             add(payFixedButton, 6, 0);
             payFixedButton.setOnAction(e -> {
+                card.setCurrentBalance(card.getCurrentBalance()-card.getCurrentPaymentDueAmt());
+                card.setCurrentPaymentDueAmt(0.0);
+                TellerSearchClick(customer);
             });
         }
     }

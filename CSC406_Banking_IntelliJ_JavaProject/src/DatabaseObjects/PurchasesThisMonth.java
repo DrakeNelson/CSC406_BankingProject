@@ -3,8 +3,9 @@ package DatabaseObjects;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class PurchasesThisMonth
-{
+import static Master.Main.database;
+
+public class PurchasesThisMonth  {
     @SerializedName("PurchaseID")
     @Expose
     String purchaseID;
@@ -17,6 +18,17 @@ public class PurchasesThisMonth
     @SerializedName("PurchaseAmt")
     @Expose
     double purchaseAmt;
+    @SerializedName("PurchaseDate")
+    @Expose
+    String purchaseDate;
+
+    public PurchasesThisMonth(String purchase, String title, String location, double amt){
+        this.purchaseID=purchase;
+        this.purchaseTitle=title;
+        this.purchaseLocation=location;
+        this.purchaseAmt=amt;
+        purchaseDate = database.databaseTime;
+    }
 
     public double getPurchaseAmt() {
         return this.purchaseAmt;
@@ -42,6 +54,7 @@ public class PurchasesThisMonth
     public void setPurchaseID(String purchaseID) {
         this.purchaseID = purchaseID;
     }
+
 
     @Override
     public String toString() {

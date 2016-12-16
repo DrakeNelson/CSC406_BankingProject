@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import static Master.Main.database;
 
-public class CheckingAccount {
+public class CheckingAccount extends Account{
     @SerializedName("AccountID")
     @Expose
     String accountID;
@@ -18,9 +18,9 @@ public class CheckingAccount {
     @SerializedName("CurrentBalance")
     @Expose
     double currentBalance;
-    @SerializedName("BackupAccountIDs")
+    @SerializedName("BackupAccount")
     @Expose
-    String backupAccountIDs;
+    String backupAccount;
     @SerializedName("OverdraftCount")
     @Expose
     int overdraftCount;
@@ -28,14 +28,27 @@ public class CheckingAccount {
     @Expose
     String dateAccountOpened;
 
+    public String getLastInterestPaidDate() {
+        return lastInterestPaidDate;
+    }
+
+    public void setLastInterestPaidDate(String lastInterestPaidDate) {
+        this.lastInterestPaidDate = lastInterestPaidDate;
+    }
+
+    @SerializedName("LastInterestPaidDate")
+    @Expose
+    String lastInterestPaidDate;
+
     public CheckingAccount(int cust, double openbal, String backup, String AccountID) {
         this.accountID = AccountID;
         this.customerSocial = cust;
         this.currentBalance = openbal;
-        this.backupAccountIDs = backup;
+        this.backupAccount = backup;
         this.overdraftCount = 0;
         dateAccountOpened = database.databaseTime;
         this.accountType = getAccountTypeCalculator(openbal);
+        this.lastInterestPaidDate = database.databaseTime;
     }
 
     private String getAccountTypeCalculator(double balance) {
@@ -55,27 +68,27 @@ public class CheckingAccount {
     public void setDateAccountOpened(String dateAccountOpened) {
         this.dateAccountOpened = dateAccountOpened;
     }
-
+    @Override
     public int getOverdraftCount() {
         return this.overdraftCount;
     }
-
+    @Override
     public void setOverdraftCount(int overdraftCount) {
         this.overdraftCount = overdraftCount;
     }
-
-    public String getBackupAccountIDs() {
-        return this.backupAccountIDs;
+    @Override
+    public String getBackupAccount() {
+        return this.backupAccount;
     }
-
-    public void setBackupAccountIDs(String backupAccountIDs) {
-        this.backupAccountIDs = backupAccountIDs;
+    @Override
+    public void setBackupAccount(String backupAccount) {
+        this.backupAccount = backupAccount;
     }
-
+    @Override
     public double getCurrentBalance() {
         return this.currentBalance;
     }
-
+    @Override
     public void setCurrentBalance(double currentBalance) {
         this.currentBalance = currentBalance;
     }

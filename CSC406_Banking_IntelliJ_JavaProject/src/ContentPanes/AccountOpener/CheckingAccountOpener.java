@@ -9,8 +9,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 
 import static ContentPanes.EzItems.TryParse.TryParseDouble;
 import static Master.Main.database;
@@ -45,9 +47,9 @@ public class CheckingAccountOpener extends VBox {
 
             EzText socialText = new EzText("New Checking Account Number: ");
             add(socialText, 0, 2);
-            EzText socialField = new EzText(Integer.toString(thisCustomer.getSocial()) + "2" +
+            EzText newAccountNumberField = new EzText(Integer.toString(thisCustomer.getSocial()) + "2" +
                     Integer.toString(database.getCheckingAccountsBySSN(Integer.toString(thisCustomer.getSocial())).size() + 1));
-            add(socialField, 1, 2);
+            add(newAccountNumberField, 1, 2);
 
             EzText startingBalanceText = new EzText("Opening Balance: ");
             add(startingBalanceText, 0, 3);
@@ -59,15 +61,22 @@ public class CheckingAccountOpener extends VBox {
             TextField BackupAccountIDField = new TextField();
             add(BackupAccountIDField, 1, 4);
 
+            final Text actionTarget = new Text();
+            add(actionTarget, 1, 5);
+
             Button signButton = new Button("Create New Checking Account");
             signButton.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
             add(signButton, 0, 10, 4, 1);
-            signButton.setOnAction(e -> {
+            signButton.setOnAction(event -> {
                 String openBal=startingBalanceField.getText();
                 String backupAccount=BackupAccountIDField.getText();
                 if(TryParseDouble(openBal)){
-                    database.getCheckingAccounts().add(new CheckingAccount(thisCustomer.getSocial(),Double.parseDouble(openBal),backupAccount,socialField.getText()));
-                    System.out.println("added");
+                    database.getCheckingAccounts().add(new CheckingAccount(thisCustomer.getSocial(),Double.parseDouble(openBal),backupAccount,newAccountNumberField.getText()));
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("Checking Account Created");
+                }else{
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("invalid value in openBal");
                 }
             });
         }
