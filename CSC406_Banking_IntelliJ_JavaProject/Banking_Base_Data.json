@@ -151,7 +151,7 @@
       "AccountID": "113174582281",
       "CustomerSocial": 345653425,
       "SavingsAccountType": "Traditional",
-      "CurrentBalance": 30054.64,
+      "CurrentBalance": 30154.64,
       "InterestRate": 0.012,
       "OpenDate": "11/24/2016",
       "TermDate": "",
@@ -216,7 +216,7 @@
       "AccountID": "113174582286",
       "CustomerSocial": 345653425,
       "SavingsAccountType": "Traditional",
-      "CurrentBalance": 89.11,
+      "CurrentBalance": 89.11000000000001,
       "InterestRate": 0.005,
       "OpenDate": "11/24/2016",
       "TermDate": "",
@@ -671,7 +671,7 @@
       "CreditCardID": "3333333333333333",
       "CustomerSocial": 345812332,
       "CurrentBalance": 900.0,
-      "CurrentInterestRate": 0.050,
+      "CurrentInterestRate": 0.05,
       "DatePaymentDue": "11/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
       "CurrentPaymentDueAmt": 200.0,
@@ -697,7 +697,7 @@
       "CreditCardID": "4444444444444444",
       "CustomerSocial": 345812332,
       "CurrentBalance": 250.0,
-      "CurrentInterestRate": 0.0120,
+      "CurrentInterestRate": 0.012,
       "DatePaymentDue": "11/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
       "CurrentPaymentDueAmt": 75.0,
@@ -749,7 +749,7 @@
       "CreditCardID": "6666666666666666",
       "CustomerSocial": 423168945,
       "CurrentBalance": 250.0,
-      "CurrentInterestRate": 0.080,
+      "CurrentInterestRate": 0.08,
       "DatePaymentDue": "11/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
       "CurrentPaymentDueAmt": 200.0,
@@ -865,8 +865,40 @@
       "orderOf": "nick",
       "amt": 500.0,
       "accountID": "263748593021",
-      "checkNum": 18.0,
+      "checkNum": 18,
       "memo": "asdf"
+    },
+    {
+      "date": "11/14/2016",
+      "orderOf": "IHOP",
+      "amt": 35.0,
+      "accountID": "263748593021",
+      "checkNum": 283,
+      "memo": "pancakes"
+    },
+    {
+      "date": "11/23/2016",
+      "orderOf": "Shane",
+      "amt": 50.0,
+      "accountID": "263748593021",
+      "checkNum": 24,
+      "memo": "T.A.R.D.I.S."
+    },
+    {
+      "date": "11/23/2016",
+      "orderOf": "Shane",
+      "amt": 50.0,
+      "accountID": "263748593021",
+      "checkNum": 25,
+      "memo": "T.A.R.D.I.S."
+    },
+    {
+      "date": "11/22/2016",
+      "orderOf": "Austin",
+      "amt": 0.5,
+      "accountID": "263748593021",
+      "checkNum": 14,
+      "memo": "all you\u0027re hard work"
     }
   ]
 }

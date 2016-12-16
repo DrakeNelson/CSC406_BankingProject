@@ -21,12 +21,12 @@ public class Check {
     String accountID;
     @SerializedName("checkNum")
     @Expose
-    double checkNum;
+    int checkNum;
     @SerializedName("memo")
     @Expose
     String memo;
 
-    public Check(String Date, String OrderOf, Double Amount, String AccountID, Double CheckNumber, String Memo) {
+    public Check(String Date, String OrderOf, Double Amount, String AccountID, int CheckNumber, String Memo) {
         this.date = Date;
         this.orderOf = OrderOf;
         this.amt = Amount;

@@ -8,8 +8,10 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 
 import java.text.DecimalFormat;
 
@@ -20,7 +22,7 @@ import static Master.MasterController.TellerSearchClick;
 /**
  * Created by user on 11/26/2016.
  */
-public class CheckingAccountView extends GridPane{
+public class CheckingAccountView extends GridPane {
     private static DecimalFormat format = new DecimalFormat(".00");
 
     public CheckingAccountView(CheckingAccount account) {
@@ -32,7 +34,7 @@ public class CheckingAccountView extends GridPane{
         add(scenetitle, 0, 0, 4, 1);
 
         add(new EzLabel("Current Balance:"), 0, 1);
-        add(new EzText("$"+format.format(account.getCurrentBalance())), 1, 1);
+        add(new EzText("$" + format.format(account.getCurrentBalance())), 1, 1);
         add(new EzLabel("Account Type:"), 2, 1);
         add(new EzText(account.getAccountType()), 3, 1);
         add(new EzLabel("Open Date:"), 4, 1);
@@ -41,15 +43,22 @@ public class CheckingAccountView extends GridPane{
         add(new EzText(Integer.toString(account.getOverdraftCount())), 7, 1);
         add(new EzLabel("Backup Account:"), 0, 2);
         add(new EzText(account.getBackupAccount()), 1, 2);
+        final Text actionTarget = new Text();
+        add(actionTarget, 4, 2);
 
         TextField depositTextField = new TextField();
         add(depositTextField, 0, 3);
         Button depositButton = new Button("Deposit");
         add(depositButton, 1, 3);
         depositButton.setOnAction(e -> {
-            if(TryParseDouble(depositTextField.getText())){
-                account.setCurrentBalance(account.getCurrentBalance()+Double.parseDouble(depositTextField.getText()));
+            if (TryParseDouble(depositTextField.getText())) {
+                account.setCurrentBalance(account.getCurrentBalance() + Double.parseDouble(depositTextField.getText()));
                 TellerSearchClick(TellerCustomerServicePane.customer);
+                actionTarget.setFill(Color.FIREBRICK);
+                actionTarget.setText("Deposited");
+            } else {
+                actionTarget.setFill(Color.FIREBRICK);
+                actionTarget.setText("Invalid amt");
             }
         });
 
@@ -58,10 +67,19 @@ public class CheckingAccountView extends GridPane{
         Button withdrawlButton = new Button("Withdrawl");
         add(withdrawlButton, 4, 3);
         withdrawlButton.setOnAction(e -> {
-            if(TryParseDouble(withdrawlTextField.getText())){
-                account.withdraw(Double.parseDouble(withdrawlTextField.getText()),account);
-                //account.setCurrentBalance(account.getCurrentBalance()-Double.parseDouble(withdrawlTextField.getText()));
+            if (TryParseDouble(withdrawlTextField.getText())) {
+                account.withdraw(Double.parseDouble(withdrawlTextField.getText()), account);
                 TellerSearchClick(TellerCustomerServicePane.customer);
+                if (account.getCurrentBalance() == 0) {
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("Overdraft Protection Activated");
+                } else {
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("Withdrawn");
+                }
+            } else {
+                actionTarget.setFill(Color.FIREBRICK);
+                actionTarget.setText("Invalid amt");
             }
         });
 
@@ -69,6 +87,7 @@ public class CheckingAccountView extends GridPane{
         add(closeButton, 6, 3);
         closeButton.setOnAction(e -> {
             database.getCheckingAccounts().remove(account);
+            TellerSearchClick(TellerCustomerServicePane.customer);
         });
     }
 }

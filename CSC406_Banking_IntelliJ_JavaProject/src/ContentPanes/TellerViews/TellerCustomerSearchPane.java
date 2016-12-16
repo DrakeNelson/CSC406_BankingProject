@@ -52,6 +52,7 @@ public class TellerCustomerSearchPane extends GridPane {
         Button btn = new Button("Search Customers");
         final Text actionTarget = new Text();
         tellerCustomerSearchPane.add(actionTarget, 1, 6);
+
         btn.setOnAction(e -> {
             Customer cust = Main.database.getCustomerBySSN(userTextField.getText());
             if(cust==null){

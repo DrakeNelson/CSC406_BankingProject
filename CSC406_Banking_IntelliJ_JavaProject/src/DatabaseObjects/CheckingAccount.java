@@ -28,6 +28,18 @@ public class CheckingAccount extends Account{
     @Expose
     String dateAccountOpened;
 
+    public String getLastInterestPaidDate() {
+        return lastInterestPaidDate;
+    }
+
+    public void setLastInterestPaidDate(String lastInterestPaidDate) {
+        this.lastInterestPaidDate = lastInterestPaidDate;
+    }
+
+    @SerializedName("LastInterestPaidDate")
+    @Expose
+    String lastInterestPaidDate;
+
     public CheckingAccount(int cust, double openbal, String backup, String AccountID) {
         this.accountID = AccountID;
         this.customerSocial = cust;
@@ -36,6 +48,7 @@ public class CheckingAccount extends Account{
         this.overdraftCount = 0;
         dateAccountOpened = database.databaseTime;
         this.accountType = getAccountTypeCalculator(openbal);
+        this.lastInterestPaidDate = database.databaseTime;
     }
 
     private String getAccountTypeCalculator(double balance) {

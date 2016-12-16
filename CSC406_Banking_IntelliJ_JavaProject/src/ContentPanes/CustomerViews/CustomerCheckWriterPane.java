@@ -7,8 +7,10 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 
 import static ContentPanes.EzItems.TryParse.TryParseDouble;
 import static Master.Main.database;
@@ -55,16 +57,27 @@ public class CustomerCheckWriterPane extends GridPane {
         TextField forField = new TextField();
         add(forField, 1, 7);
 
+        final Text actionTarget = new Text();
+        add(actionTarget, 1, 8);
+
         Button signButton = new Button("Sign and send Check");
         signButton.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
         add(signButton, 0, 9, 4, 1);
         signButton.setOnAction(event -> {
+            Boolean checker =false;
             String amount = ammountField.getText();
             String checknum = checkNumField.getText();
             for (CheckingAccount account : database.getCheckingAccounts()) {
                 if (account.getAccountID().compareToIgnoreCase(accountNumField.getText()) == 0 && TryParseDouble(amount) && TryParseDouble(checknum)) {
-                    database.checks.add(new Check(dateField.getText(), orderOfField.getText(), Double.parseDouble(amount), accountNumField.getText(), Double.parseDouble(checknum), forField.getText()));
+                    database.checks.add(new Check(dateField.getText(), orderOfField.getText(), Double.parseDouble(amount), accountNumField.getText(), Integer.parseInt(checknum), forField.getText()));
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("Check Sent");
+                    checker=true;
                 }
+            }
+            if(!checker){
+                actionTarget.setFill(Color.FIREBRICK);
+                actionTarget.setText("Invalid Checking Account");
             }
         });
     }

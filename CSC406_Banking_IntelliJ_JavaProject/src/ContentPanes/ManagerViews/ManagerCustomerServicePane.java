@@ -6,7 +6,6 @@ import ContentPanes.AccountInfoViews.SavingsAccountInfoView;
 import ContentPanes.AccountInfoViews.TermLoanInfoView;
 import ContentPanes.EzItems.EzLabel;
 import ContentPanes.EzItems.EzText;
-import ContentPanes.TellerViews.TellerCustomerServicePane;
 import DatabaseObjects.*;
 import Master.Main;
 import javafx.geometry.Insets;
@@ -16,8 +15,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -33,6 +34,7 @@ import static Master.MasterController.ManagerSearchClick;
 public class ManagerCustomerServicePane extends GridPane {
     private static DecimalFormat format = new DecimalFormat(".00");
     private Customer thisCustomer;
+    final Text actionTarget = new Text();
 
     public ManagerCustomerServicePane(Customer searchedCustomer) {
         thisCustomer = searchedCustomer;
@@ -48,6 +50,7 @@ public class ManagerCustomerServicePane extends GridPane {
         custBox.getChildren().addAll(new CustomerInfoView(searchedCustomer), new ManagerCustomerSearchPane("Search New Customer"));
 
         VBox outerBox = new VBox();
+        outerBox.getChildren().add(actionTarget);
         outerBox.getChildren().add(custBox);
         outerBox.setAlignment(Pos.TOP_LEFT);
 
@@ -105,8 +108,14 @@ public class ManagerCustomerServicePane extends GridPane {
             Button depositButton = new Button("Deposit");
             add(depositButton, 1, 0);
             depositButton.setOnAction(e -> {
-                account.setCurrentBalance(account.getCurrentBalance()+Double.parseDouble(depositTextField.getText()));
-                ManagerSearchClick(thisCustomer);
+                if (TryParseDouble(depositTextField.getText())) {
+                    account.setCurrentBalance(account.getCurrentBalance() + Double.parseDouble(depositTextField.getText()));
+                    ManagerSearchClick(thisCustomer);
+                }else{
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("Invalid amt");
+                }
+
             });
 
             TextField withdrawTextField = new TextField();
@@ -114,8 +123,16 @@ public class ManagerCustomerServicePane extends GridPane {
             Button withdrawButton = new Button("Withdraw");
             add(withdrawButton, 3, 0);
             withdrawButton.setOnAction(e -> {
-                account.withdraw(Double.parseDouble(withdrawTextField.getText()),account);
-                ManagerSearchClick(thisCustomer);
+                if (TryParseDouble(withdrawTextField.getText())) {
+                    account.withdraw(Double.parseDouble(withdrawTextField.getText()), account);
+                    ManagerSearchClick(thisCustomer);
+                    if (account.getCurrentBalance() == 0) {
+                        System.out.println("Overdraft Protection Activated");
+                    }
+                } else {
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("Invalid amt");
+                }
             });
 
             TextField interestField = new TextField();
@@ -123,8 +140,14 @@ public class ManagerCustomerServicePane extends GridPane {
             Button interestButton = new Button("Set Interest");
             add(interestButton, 5, 0);
             interestButton.setOnAction(e -> {
-                account.setInterestRate(account.getCurrentBalance()+Double.parseDouble(interestField.getText()));
-                ManagerSearchClick(thisCustomer);
+                if (TryParseDouble(interestField.getText())) {
+                    account.setInterestRate(account.getCurrentBalance() + Double.parseDouble(interestField.getText()));
+                    ManagerSearchClick(thisCustomer);
+                } else {
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("Invalid amt");
+                }
+
             });
 
             Button closeButton = new Button("Close Account");
@@ -132,6 +155,7 @@ public class ManagerCustomerServicePane extends GridPane {
             closeButton.setOnAction(e -> {
                 database.getSavingAccounts().remove(account);
                 ManagerSearchClick(thisCustomer);
+                System.out.println("Savings Account closed Pay Customer: $" + account.getCurrentBalance());
             });
 
         }
@@ -199,7 +223,7 @@ public class ManagerCustomerServicePane extends GridPane {
             add(setLimitButton, 4, 1);
             setLimitButton.setOnAction(e -> {
             });
-            if(card.getMissedPaymentFlag()!=0) {
+            if (card.getMissedPaymentFlag() != 0) {
                 Button removeFlagButton = new Button("Remove Flag");
                 add(removeFlagButton, 6, 1);
                 removeFlagButton.setOnAction(e -> {
@@ -218,7 +242,7 @@ public class ManagerCustomerServicePane extends GridPane {
             add(sceneTitle, 0, 0, 4, 1);
 
             add(new EzLabel("Current Balance:"), 0, 1);
-            add(new EzText("$"+format.format(account.getCurrentBalance())), 1, 1);
+            add(new EzText("$" + format.format(account.getCurrentBalance())), 1, 1);
             add(new EzLabel("Interest Rate:"), 2, 1);
             add(new EzText(format.format(account.getInterestRate() * 100) + "%"), 3, 1);
             add(new EzLabel("Open Date:"), 4, 1);
@@ -227,25 +251,17 @@ public class ManagerCustomerServicePane extends GridPane {
             add(new EzLabel("Term Date:"), 4, 2);
             add(new EzText(account.getTermDate()), 5, 2);
 
-
-            TextField withdrawTextField = new TextField();
-            add(withdrawTextField, 3, 3);
-            Button withdrawButton = new Button("Withdraw");
-            add(withdrawButton, 4, 3);
-            withdrawButton.setOnAction(e -> {
-                if(TryParseDouble(withdrawTextField.getText())){
-                    account.setCurrentBalance(account.getCurrentBalance()-Double.parseDouble(withdrawTextField.getText())-100);
-                    ManagerSearchClick(thisCustomer);
-                }
-            });
-
             Button closeButton = new Button("Close Account");
             add(closeButton, 6, 3);
             closeButton.setOnAction(e -> {
+                database.getSavingAccounts().remove(account);
+                ManagerSearchClick(thisCustomer);
+                System.out.println("CD closed Pay Customer: " + (account.getCurrentBalance()-75)+"after $75 penalty.");
             });
         }
     }
-    private class CheckingAccountViewMan extends GridPane{
+
+    private class CheckingAccountViewMan extends GridPane {
         private CheckingAccountViewMan(CheckingAccount account) {
             setHgap(10);
             setVgap(10);
@@ -255,7 +271,7 @@ public class ManagerCustomerServicePane extends GridPane {
             add(scenetitle, 0, 0, 4, 1);
 
             add(new EzLabel("Current Balance:"), 0, 1);
-            add(new EzText("$"+format.format(account.getCurrentBalance())), 1, 1);
+            add(new EzText("$" + format.format(account.getCurrentBalance())), 1, 1);
             add(new EzLabel("Account Type:"), 2, 1);
             add(new EzText(account.getAccountType()), 3, 1);
             add(new EzLabel("Open Date:"), 4, 1);
@@ -266,13 +282,16 @@ public class ManagerCustomerServicePane extends GridPane {
             add(new EzText(account.getBackupAccount()), 1, 2);
 
             TextField depositTextField = new TextField();
-            add(depositTextField, 0,3);
+            add(depositTextField, 0, 3);
             Button depositButton = new Button("Deposit");
             add(depositButton, 1, 3);
             depositButton.setOnAction(e -> {
-                if(TryParseDouble(depositTextField.getText())){
-                    account.setCurrentBalance(account.getCurrentBalance()+Double.parseDouble(depositTextField.getText()));
-                    ManagerSearchClick(TellerCustomerServicePane.customer);
+                if (TryParseDouble(depositTextField.getText())) {
+                    account.setCurrentBalance(account.getCurrentBalance() + Double.parseDouble(depositTextField.getText()));
+                    ManagerSearchClick(thisCustomer);
+                } else {
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("Invalid amt");
                 }
             });
 
@@ -281,15 +300,24 @@ public class ManagerCustomerServicePane extends GridPane {
             Button withdrawlButton = new Button("Withdrawl");
             add(withdrawlButton, 4, 3);
             withdrawlButton.setOnAction(e -> {
-                if(TryParseDouble(withdrawlTextField.getText())){
-                    account.withdraw(Double.parseDouble(withdrawlTextField.getText()),account);
-                    ManagerSearchClick(TellerCustomerServicePane.customer);
+                if (TryParseDouble(withdrawlTextField.getText())) {
+                    account.withdraw(Double.parseDouble(withdrawlTextField.getText()), account);
+                    ManagerSearchClick(thisCustomer);
+                    if (account.getCurrentBalance() == 0) {
+                        System.out.println("Overdraft Protection Activated");
+                    }
+                } else {
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("Invalid amt");
                 }
             });
 
             Button closeButton = new Button("Close Account");
             add(closeButton, 6, 3);
-            closeButton.setOnAction(e -> database.getCheckingAccounts().remove(account));
+            closeButton.setOnAction(e -> {
+                database.getCheckingAccounts().remove(account);
+                System.out.println("Checking Account closed Pay Customer: " + (account.getCurrentBalance()));
+            });
         }
     }
 }
