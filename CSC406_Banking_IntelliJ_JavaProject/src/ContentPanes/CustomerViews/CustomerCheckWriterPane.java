@@ -63,6 +63,7 @@ public class CustomerCheckWriterPane extends GridPane {
         Button signButton = new Button("Sign and send Check");
         signButton.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
         add(signButton, 0, 9, 4, 1);
+
         signButton.setOnAction(event -> {
             Boolean checker =false;
             String amount = ammountField.getText();

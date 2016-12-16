@@ -147,7 +147,6 @@ public class ManagerCustomerServicePane extends GridPane {
                     actionTarget.setFill(Color.FIREBRICK);
                     actionTarget.setText("Invalid amt");
                 }
-
             });
 
             Button closeButton = new Button("Close Account");
@@ -156,6 +155,7 @@ public class ManagerCustomerServicePane extends GridPane {
                 database.getSavingAccounts().remove(account);
                 ManagerSearchClick(thisCustomer);
                 System.out.println("Savings Account closed Pay Customer: $" + account.getCurrentBalance());
+
             });
 
         }
@@ -173,19 +173,32 @@ public class ManagerCustomerServicePane extends GridPane {
             Button payButton = new Button("Pay Amt");
             add(payButton, 1, 0);
             payButton.setOnAction(e -> {
-
+                if(TryParseDouble(payField.getText())){
+                    loan.setCurrentBalance(loan.getCurrentBalance()-Double.parseDouble(payField.getText()));
+                    if(Double.parseDouble(payField.getText())>=loan.getCurrentPaymentDueAmt()){
+                        loan.setCurrentPaymentDueAmt(0);
+                    }else{
+                        loan.setCurrentPaymentDueAmt(loan.getCurrentPaymentDueAmt()-Double.parseDouble(payField.getText()));
+                    }
+                    ManagerSearchClick(thisCustomer);
+                }
             });
             TextField interestField = new TextField();
             add(interestField, 2, 0);
             Button setInterestButton = new Button("Set Interest");
             add(setInterestButton, 3, 0);
             setInterestButton.setOnAction(e -> {
-
+                String interest=interestField.getText();
+                loan.setFixedInterestRate(Double.parseDouble(interest));
+                loan.setFixedPaymentAmount((.5*loan.getCurrentBalance())*(loan.getFixedInterestRate())/12);
+                ManagerSearchClick(thisCustomer);
             });
             Button payFixedButton = new Button("Pay Fixed Amt");
             add(payFixedButton, 6, 0);
             payFixedButton.setOnAction(e -> {
-
+                loan.setCurrentBalance(loan.getCurrentBalance()-loan.getCurrentPaymentDueAmt());
+                loan.setCurrentPaymentDueAmt(0);
+                ManagerSearchClick(thisCustomer);
             });
 
         }
@@ -204,11 +217,23 @@ public class ManagerCustomerServicePane extends GridPane {
             Button payButton = new Button("Pay Amt");
             add(payButton, 1, 0);
             payButton.setOnAction(e -> {
+                if(TryParseDouble(payField.getText())){
+                    card.setCurrentBalance(card.getCurrentBalance()-Double.parseDouble(payField.getText()));
+                    if(Double.parseDouble(payField.getText())>=card.getCurrentPaymentDueAmt()){
+                        card.setCurrentPaymentDueAmt(0.);
+                    }else{
+                        card.setCurrentPaymentDueAmt(card.getCurrentPaymentDueAmt()-Double.parseDouble(payField.getText()));
+                    }
+                    ManagerSearchClick(thisCustomer);
+                }
             });
 
             Button payFixedButton = new Button("Pay Fixed Amt");
             add(payFixedButton, 6, 0);
             payFixedButton.setOnAction(e -> {
+                card.setCurrentBalance(card.getCurrentBalance()-card.getCurrentPaymentDueAmt());
+                card.setCurrentPaymentDueAmt(0.0);
+                ManagerSearchClick(thisCustomer);
             });
 
             TextField interestField = new TextField();
@@ -216,12 +241,18 @@ public class ManagerCustomerServicePane extends GridPane {
             Button setInterestButton = new Button("Set Interest");
             add(setInterestButton, 1, 1);
             setInterestButton.setOnAction(e -> {
+                String interest=interestField.getText();
+                card.setCurrentInterestRate(Double.parseDouble(interest));
+                ManagerSearchClick(thisCustomer);
             });
             TextField limitField = new TextField();
             add(limitField, 3, 1);
             Button setLimitButton = new Button("Set Limit");
             add(setLimitButton, 4, 1);
             setLimitButton.setOnAction(e -> {
+                String limit=limitField.getText();
+                card.setCreditLimit(Double.parseDouble(limit));
+                ManagerSearchClick(thisCustomer);
             });
             if (card.getMissedPaymentFlag() != 0) {
                 Button removeFlagButton = new Button("Remove Flag");

@@ -11,6 +11,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import DatabaseObjects.CreditCard;
+
+import static ContentPanes.EzItems.TryParse.TryParseDouble;
+import static Master.Main.database;
 
 /**
  * Created by user on 11/28/2016.
@@ -61,7 +65,12 @@ public class CreditCardOpener extends VBox {
             signButton.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
             add(signButton, 0, 10, 4, 1);
             signButton.setOnAction(e -> {
-
+                String interest=interestTextField.getText();
+                String credLimit=CreditLimitTextField.getText();
+                if(TryParseDouble(credLimit)&&TryParseDouble(interest)) {
+                    database.getCreditCards().add(new CreditCard(thisCustomer.getSocial(),socialField.getText(), Double.parseDouble(interest), payDueTextField.getText(), NotificationDateTextField.getText(), Double.parseDouble(credLimit)));
+                    System.out.println("added");
+                }
             });
         }
     }

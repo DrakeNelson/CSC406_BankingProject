@@ -11,6 +11,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import DatabaseObjects.TermLoan;
+
+import static ContentPanes.EzItems.TryParse.TryParseDouble;
+import static Master.Main.database;
 
 /**
  * Created by user on 11/28/2016.
@@ -66,6 +70,12 @@ public class TermLoanOpener extends VBox {
             signButton.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
             add(signButton, 0, 10, 4, 1);
             signButton.setOnAction(e -> {
+                String interest=interestTextField.getText();
+                String loanAmt=CreditLimitTextField.getText();
+                if(TryParseDouble(loanAmt)&&TryParseDouble(interest)){
+                database.getTermLoans().add(new TermLoan(thisCustomer.getSocial(),socialField.getText(),Double.parseDouble(interest),payDueTextField.getText(),NotificationDateTextField.getText(),Double.parseDouble(loanAmt),LoanLengthField.getText()));
+                }
+                System.out.println("added");
 
             });
         }

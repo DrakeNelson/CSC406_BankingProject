@@ -1,17 +1,25 @@
 package ContentPanes.CustomerViews;
 
 import ContentPanes.EzItems.EzText;
+import DatabaseObjects.CreditCard;
+import DatabaseObjects.PurchasesThisMonth;
+import Master.Main;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import static ContentPanes.EzItems.TryParse.TryParseDouble;
+import static Master.Main.database;
+import DatabaseObjects.Database;
+
 
 /**
  * Created by user on 11/28/2016.
  */
 public class CustomerCreditCardPurchase extends GridPane {
+    public CreditCard card;
     public CustomerCreditCardPurchase(){
         setHgap(10);
         setVgap(10);
@@ -43,5 +51,13 @@ public class CustomerCreditCardPurchase extends GridPane {
         Button signButton = new Button("Complete Purchase");
         signButton.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
         add(signButton, 0, 7, 4, 1);
+        signButton.setOnAction(event -> {
+
+            String amount = amtField.getText();
+            card=database.getcardByNum(cardField.getText());
+            String s =card.getCreditCardID()+"1"+card.getPurchasesThisMonth().size()+1;
+            card.getPurchasesThisMonth().add(new PurchasesThisMonth(s,titleField.getText(),locField.getText(),Double.parseDouble(amount)));
+            System.out.println("added");
+        });
     }
 }

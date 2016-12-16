@@ -2,6 +2,7 @@ package DatabaseObjects;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import static Master.Main.database;
 
 public class TermLoan
 {
@@ -42,6 +43,23 @@ public class TermLoan
     @SerializedName("OpenDate")
     @Expose
     String openDate;
+
+    public TermLoan(int social, String account, double interest, String dueDate,String noteDate, double loanAmt, String loanLength ){
+        this.customerSocial=social;
+        this.loanID=account;
+        this.fixedInterestRate=interest;
+        this.datePaymentDue=dueDate;
+        this.dateNotifiedOfPayment=noteDate;
+        this.currentBalance=loanAmt;
+        this.termLoanType=loanLength;
+        dateLastPaymentMade=database.databaseTime;
+        missedPaymentFlag=0;
+        openDate=database.databaseTime;
+        fixedPaymentAmount=(.5*loanAmt)*(interest)/12;
+        currentPaymentDueAmt=fixedPaymentAmount;
+
+    }
+
     public int getMissedPaymentFlag() {
         return this.missedPaymentFlag;
     }
