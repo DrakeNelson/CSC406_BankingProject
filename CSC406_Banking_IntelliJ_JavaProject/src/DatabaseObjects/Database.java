@@ -10,7 +10,7 @@ public class Database
 {
     @SerializedName("GoldInterestRate")
     @Expose
-    private final double GOLDINTERESTRATE =0.01;
+    public double GOLDINTERESTRATE;
     @SerializedName("DiamondInterestRate")
     @Expose
     private final double DIAMONDINTERESTRATE =0.013;
@@ -36,6 +36,9 @@ public class Database
     @SerializedName("Checks")
     @Expose
     public List<Check> checks;
+    @SerializedName("PurchasesThisMonth")
+    @Expose
+    public List<PurchasesThisMonth> purchasesThisMonth;
 
     public List<SavingAccount> getTraditionalSavingsBySSN(String SSN){
         return savingAccounts.stream().filter(account ->
@@ -57,6 +60,15 @@ public class Database
         }
         return result;
     }
+    public CreditCard getcardByNum(String CardNum){
+        CreditCard result = null;
+        for (CreditCard creditCards : creditCards){
+            if(creditCards.getCreditCardID().equals(CardNum)){
+                result = creditCards;
+            }
+        }
+        return result;
+    }
     public List<CheckingAccount> getCheckingAccountsBySSN(String SSN) {
         return checkingAccounts.stream().filter(account -> Integer.toString(account.getCustomerSocial()).equals(SSN)).collect(Collectors.toList());
     }
@@ -66,7 +78,6 @@ public class Database
     public List<CreditCard> getCreditCardsBySSN(String SSN) {
         return creditCards.stream().filter(card -> Integer.toString(card.getCustomerSocial()).equals(SSN)).collect(Collectors.toList());
     }
-
 
     public List<TermLoan> getTermLoans() {
         return this.termLoans;
@@ -92,6 +103,12 @@ public class Database
     public void setChecks(List<Check> checks){
         this.checks= checks;
     }
+    public List<PurchasesThisMonth> getpurchasesThisMonth() {
+        return this.purchasesThisMonth;
+    }
+    public void setPurchasesThisMonth(List<PurchasesThisMonth> purchasesThisMonth){
+        this.purchasesThisMonth= purchasesThisMonth;
+    }
     public List<SavingAccount> getSavingAccounts() {
         return this.savingAccounts;
     }
@@ -104,6 +121,4 @@ public class Database
     public void setCustomers(List<Customer> customers) {
         this.customers = customers;
     }
-
-
 }

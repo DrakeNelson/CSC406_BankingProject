@@ -14,6 +14,7 @@ public class CreditCard
     @SerializedName("CreditCardID")
     @Expose
     String creditCardID;
+
     public int getCustomerSocial() {
         return this.customerSocial;
     }
@@ -59,6 +60,7 @@ public class CreditCard
         dateLastPaymentMade=database.databaseTime;
         purchasesThisMonth=new ArrayList<>();
     }
+    
 
     public void setCustomerSocial(int customerSocial) {
         this.customerSocial = customerSocial;
@@ -123,4 +125,5 @@ public class CreditCard
     public void setCurrentBalance(double currentBalance) {
         this.currentBalance = currentBalance;
     }
+
 }

@@ -1,5 +1,5 @@
 {
-  "GoldInterestRate": 0.01,
+  "GoldInterestRate": 0.032,
   "DiamondInterestRate": 0.013,
   "Customers": [
     {
@@ -686,6 +686,24 @@
           "PurchaseTitle": "Food",
           "PurchaseLocation": "Waffle House",
           "PurchaseAmt": 23.56
+        },
+        {
+          "PurchaseID": "6666666666666666",
+          "PurchaseTitle": "STFU",
+          "PurchaseLocation": "Walmart",
+          "PurchaseAmt": 200.0
+        },
+        {
+          "PurchaseID": "6666666666666666131",
+          "PurchaseTitle": "Yarn",
+          "PurchaseLocation": "Walmart",
+          "PurchaseAmt": 300.0
+        },
+        {
+          "PurchaseID": "6666666666666666141",
+          "PurchaseTitle": "Stuff",
+          "PurchaseLocation": "Walmart",
+          "PurchaseAmt": 200.0
         }
       ]
     },

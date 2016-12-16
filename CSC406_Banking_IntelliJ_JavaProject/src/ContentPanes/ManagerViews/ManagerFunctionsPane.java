@@ -1,17 +1,22 @@
 package ContentPanes.ManagerViews;
 
 import ContentPanes.EzItems.EzText;
+import DatabaseObjects.SavingAccount;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import DatabaseObjects.CheckingAccount;
+import static Master.Main.database;
 
 /**
  * Created by user on 11/28/2016.
  */
 public class ManagerFunctionsPane extends GridPane {
+
+
     public ManagerFunctionsPane(){
         setHgap(10);
         setVgap(10);
@@ -25,6 +30,8 @@ public class ManagerFunctionsPane extends GridPane {
         Button changeGoldButton = new Button("Change Gold Interest Rate");
         add(changeGoldButton, 1, 1);
         changeGoldButton.setOnAction(e -> {
+            database.GOLDINTERESTRATE=Double.parseDouble(goldInterestRate.getText());
+            System.out.println("changed");
         });
         TextField diamondInterestRate = new TextField();
         add(diamondInterestRate, 2, 1);
