@@ -731,7 +731,15 @@
       "DateLastPaymentMade": "12/15/2016",
       "MissedPaymentFlag": 0,
       "CreditLimit": 4500.0,
-      "PurchasesThisMonth": []
+      "PurchasesThisMonth": [
+        {
+          "PurchaseID": "55555555531101",
+          "PurchaseTitle": "Stuff",
+          "PurchaseLocation": "Walmart",
+          "PurchaseAmt": 200.0,
+          "PurchaseDate": "12/15/2016"
+        }
+      ]
     }
   ],
   "TermLoans": [
