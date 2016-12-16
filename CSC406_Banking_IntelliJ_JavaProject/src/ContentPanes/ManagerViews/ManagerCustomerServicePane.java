@@ -15,8 +15,17 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
+import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import static Master.Main.database;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import DatabaseObjects.CreditCard;
 
 import static ContentPanes.EzItems.TryParse.TryParseDouble;
 import static Master.Main.database;
@@ -156,6 +165,27 @@ public class ManagerCustomerServicePane extends GridPane {
                     loan.setCurrentBalance(loan.getCurrentBalance()-Double.parseDouble(payField.getText()));
                     if(Double.parseDouble(payField.getText())>=loan.getCurrentPaymentDueAmt()){
                         loan.setCurrentPaymentDueAmt(0);
+                        String newPayDate;
+                        DateFormat df;
+                        df =new SimpleDateFormat("MM/dd/yyyy");
+                        Date termLoanDueDate;
+                        Date newDueDate;
+                        try {
+                            termLoanDueDate=df.parse(loan.getDatePaymentDue());
+                            newDueDate=df.parse(loan.getDatePaymentDue());
+                            Calendar cal =Calendar.getInstance();
+                            cal.setTime(termLoanDueDate);
+                            cal.add(Calendar.MONTH,1);
+                            newDueDate=cal.getTime();
+                            newPayDate=df.format(newDueDate);
+                            cal.add(Calendar.DATE,-15);
+                            termLoanDueDate=cal.getTime();
+                            loan.setDatePaymentDue(newPayDate);
+                            loan.setDateLastPaymentMade(database.databaseTime);
+                            loan.setDateNotifiedOfPayment(df.format(termLoanDueDate));
+                        } catch (ParseException e1) {
+
+                        }
                     }else{
                         loan.setCurrentPaymentDueAmt(loan.getCurrentPaymentDueAmt()-Double.parseDouble(payField.getText()));
                     }
@@ -176,6 +206,30 @@ public class ManagerCustomerServicePane extends GridPane {
             add(payFixedButton, 6, 0);
             payFixedButton.setOnAction(e -> {
                 loan.setCurrentBalance(loan.getCurrentBalance()-loan.getCurrentPaymentDueAmt());
+                if(loan.getCurrentPaymentDueAmt()>0)
+                {
+                String newPayDate;
+                DateFormat df;
+                df =new SimpleDateFormat("MM/dd/yyyy");
+                Date termLoanDueDate;
+                Date newDueDate;
+                try {
+                    termLoanDueDate=df.parse(loan.getDatePaymentDue());
+                    newDueDate=df.parse(loan.getDatePaymentDue());
+                    Calendar cal =Calendar.getInstance();
+                    cal.setTime(termLoanDueDate);
+                    cal.add(Calendar.MONTH,1);
+                    newDueDate=cal.getTime();
+                    newPayDate=df.format(newDueDate);
+                    cal.add(Calendar.DATE,-15);
+                    termLoanDueDate=cal.getTime();
+                    loan.setDatePaymentDue(newPayDate);
+                    loan.setDateLastPaymentMade(database.databaseTime);
+                    loan.setDateNotifiedOfPayment(df.format(termLoanDueDate));
+                } catch (ParseException e1) {
+
+                }
+                }
                 loan.setCurrentPaymentDueAmt(0);
                 ManagerSearchClick(thisCustomer);
             });
@@ -200,6 +254,27 @@ public class ManagerCustomerServicePane extends GridPane {
                     card.setCurrentBalance(card.getCurrentBalance()-Double.parseDouble(payField.getText()));
                     if(Double.parseDouble(payField.getText())>=card.getCurrentPaymentDueAmt()){
                         card.setCurrentPaymentDueAmt(0.);
+                        String newPayDate;
+                        DateFormat df;
+                        df =new SimpleDateFormat("MM/dd/yyyy");
+                        Date termLoanDueDate;
+                        Date newDueDate;
+                        try {
+                            termLoanDueDate=df.parse(card.getDatePaymentDue());
+                            newDueDate=df.parse(card.getDatePaymentDue());
+                            Calendar cal =Calendar.getInstance();
+                            cal.setTime(termLoanDueDate);
+                            cal.add(Calendar.MONTH,1);
+                            newDueDate=cal.getTime();
+                            newPayDate=df.format(newDueDate);
+                            cal.add(Calendar.DATE,-15);
+                            termLoanDueDate=cal.getTime();
+                            card.setDatePaymentDue(newPayDate);
+                            card.setDateLastPaymentMade(database.databaseTime);
+                            card.setDateNotifiedOfPayment(df.format(termLoanDueDate));
+                        } catch (ParseException e1) {
+
+                        }
                     }else{
                         card.setCurrentPaymentDueAmt(card.getCurrentPaymentDueAmt()-Double.parseDouble(payField.getText()));
                     }
@@ -211,6 +286,29 @@ public class ManagerCustomerServicePane extends GridPane {
             add(payFixedButton, 6, 0);
             payFixedButton.setOnAction(e -> {
                 card.setCurrentBalance(card.getCurrentBalance()-card.getCurrentPaymentDueAmt());
+                if(card.getCurrentPaymentDueAmt()>0) {
+                    String newPayDate;
+                    DateFormat df;
+                    df = new SimpleDateFormat("MM/dd/yyyy");
+                    Date termLoanDueDate;
+                    Date newDueDate;
+                    try {
+                        termLoanDueDate = df.parse(card.getDatePaymentDue());
+                        newDueDate = df.parse(card.getDatePaymentDue());
+                        Calendar cal = Calendar.getInstance();
+                        cal.setTime(termLoanDueDate);
+                        cal.add(Calendar.MONTH, 1);
+                        newDueDate = cal.getTime();
+                        newPayDate = df.format(newDueDate);
+                        cal.add(Calendar.DATE,-15);
+                        termLoanDueDate=cal.getTime();
+                        card.setDatePaymentDue(newPayDate);
+                        card.setDateLastPaymentMade(database.databaseTime);
+                        card.setDateNotifiedOfPayment(df.format(termLoanDueDate));
+                    } catch (ParseException e1) {
+
+                    }
+                }
                 card.setCurrentPaymentDueAmt(0.0);
                 ManagerSearchClick(thisCustomer);
             });
