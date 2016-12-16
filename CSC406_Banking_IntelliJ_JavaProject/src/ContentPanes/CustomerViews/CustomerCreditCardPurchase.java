@@ -59,15 +59,21 @@ public class CustomerCreditCardPurchase extends GridPane {
         signButton.setOnAction(event -> {
             String amount = amtField.getText();
             card=database.getcardByNum(cardField.getText());
-            String s =card.getCreditCardID()+"1"+card.getPurchasesThisMonth().size()+1;
             if(TryParseDouble(amount)){
-                if(card!=null) {
+                if(card!=null&&(Double.parseDouble(amount)+card.getCurrentBalance())<=card.getCreditLimit()) {
+                    String s =card.getCreditCardID()+"1"+card.getPurchasesThisMonth().size()+1;
                     card.getPurchasesThisMonth().add(new PurchasesThisMonth(s, titleField.getText(), locField.getText(), Double.parseDouble(amount)));
+                    card.setCurrentBalance(card.getCurrentBalance()+Double.parseDouble(amount));
                     actionTarget.setFill(Color.FIREBRICK);
                     actionTarget.setText("purchase made");
                 }else{
-                    actionTarget.setFill(Color.FIREBRICK);
-                    actionTarget.setText("Card does not exist in records");
+                    if(card==null) {
+                        actionTarget.setFill(Color.FIREBRICK);
+                        actionTarget.setText("Card does not exist in records");
+                    }else {
+                        actionTarget.setFill(Color.FIREBRICK);
+                        actionTarget.setText("Invalid Purchase amt");
+                    }
                 }
             }else{
                 actionTarget.setFill(Color.FIREBRICK);

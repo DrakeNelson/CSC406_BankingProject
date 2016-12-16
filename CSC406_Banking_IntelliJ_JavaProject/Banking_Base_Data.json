@@ -1,5 +1,5 @@
 {
-  "GoldInterestRate": 0.01,
+  "GoldInterestRate": 0.03,
   "Customers": [
     {
       "Social": 423453245,
@@ -151,11 +151,12 @@
       "AccountID": "113174582281",
       "CustomerSocial": 345653425,
       "SavingsAccountType": "Traditional",
-      "CurrentBalance": 29904.64,
+      "CurrentBalance": 30203.6864,
       "InterestRate": 0.01,
       "OpenDate": "11/24/2016",
       "TermDate": "",
       "BackupAccount": "",
+      "LastInterestPaidDate": "06/06/2017",
       "OverdraftCount": 0,
       "currentBalance": 0.0,
       "overdraftCount": 0
@@ -164,11 +165,12 @@
       "AccountID": "113174582282",
       "CustomerSocial": 345653425,
       "SavingsAccountType": "CD",
-      "CurrentBalance": 56879.2,
+      "CurrentBalance": 57675.508799999996,
       "InterestRate": 0.014,
       "OpenDate": "11/24/2016",
-      "TermDate": "2017-02-19",
+      "TermDate": "11/29/2016",
       "BackupAccount": "",
+      "LastInterestPaidDate": "06/06/2017",
       "OverdraftCount": 0,
       "currentBalance": 0.0,
       "overdraftCount": 0
@@ -177,11 +179,12 @@
       "AccountID": "113174582283",
       "CustomerSocial": 435599870,
       "SavingsAccountType": "Traditional",
-      "CurrentBalance": 453.12,
+      "CurrentBalance": 456.019968,
       "InterestRate": 0.0064,
       "OpenDate": "11/24/2016",
       "TermDate": "",
       "BackupAccount": "",
+      "LastInterestPaidDate": "06/06/2017",
       "OverdraftCount": 0,
       "currentBalance": 0.0,
       "overdraftCount": 0
@@ -190,11 +193,12 @@
       "AccountID": "113174582284",
       "CustomerSocial": 345879912,
       "SavingsAccountType": "CD",
-      "CurrentBalance": 1349.72,
+      "CurrentBalance": 1362.812284,
       "InterestRate": 0.0097,
       "OpenDate": "11/24/2016",
-      "TermDate": "2017-03-22",
+      "TermDate": "11/29/2016",
       "BackupAccount": "",
+      "LastInterestPaidDate": "06/06/2017",
       "OverdraftCount": 0,
       "currentBalance": 0.0,
       "overdraftCount": 0
@@ -203,11 +207,12 @@
       "AccountID": "113174582285",
       "CustomerSocial": 423168945,
       "SavingsAccountType": "CD",
-      "CurrentBalance": 197.26,
+      "CurrentBalance": 198.897258,
       "InterestRate": 0.0083,
       "OpenDate": "11/24/2016",
-      "TermDate": "2017-12-13",
+      "TermDate": "11/29/2016",
       "BackupAccount": "",
+      "LastInterestPaidDate": "06/06/2017",
       "OverdraftCount": 0,
       "currentBalance": 0.0,
       "overdraftCount": 0
@@ -216,11 +221,12 @@
       "AccountID": "113174582286",
       "CustomerSocial": 345653425,
       "SavingsAccountType": "Traditional",
-      "CurrentBalance": 89.11000000000001,
+      "CurrentBalance": 89.55555000000001,
       "InterestRate": 0.005,
       "OpenDate": "11/24/2016",
       "TermDate": "",
       "BackupAccount": "",
+      "LastInterestPaidDate": "06/06/2017",
       "OverdraftCount": 0,
       "currentBalance": 0.0,
       "overdraftCount": 0
@@ -229,11 +235,12 @@
       "AccountID": "113174582287",
       "CustomerSocial": 233435656,
       "SavingsAccountType": "Traditional",
-      "CurrentBalance": 23987.28,
+      "CurrentBalance": 24347.089199999995,
       "InterestRate": 0.015,
       "OpenDate": "11/24/2016",
       "TermDate": "",
       "BackupAccount": "",
+      "LastInterestPaidDate": "06/06/2017",
       "OverdraftCount": 0,
       "currentBalance": 0.0,
       "overdraftCount": 0
@@ -242,11 +249,12 @@
       "AccountID": "113174582288",
       "CustomerSocial": 233435656,
       "SavingsAccountType": "CD",
-      "CurrentBalance": 12734.98,
+      "CurrentBalance": 12989.6796,
       "InterestRate": 0.02,
       "OpenDate": "11/24/2016",
-      "TermDate": "2017-04-16",
+      "TermDate": "11/29/2016",
       "BackupAccount": "",
+      "LastInterestPaidDate": "06/06/2017",
       "OverdraftCount": 0,
       "currentBalance": 0.0,
       "overdraftCount": 0
@@ -255,11 +263,12 @@
       "AccountID": "113174582289",
       "CustomerSocial": 563432913,
       "SavingsAccountType": "CD",
-      "CurrentBalance": 3455.34,
+      "CurrentBalance": 3493.34874,
       "InterestRate": 0.011,
       "OpenDate": "11/24/2016",
-      "TermDate": "2017-02-02",
+      "TermDate": "11/29/2016",
       "BackupAccount": "",
+      "LastInterestPaidDate": "06/06/2017",
       "OverdraftCount": 0,
       "currentBalance": 0.0,
       "overdraftCount": 0
@@ -268,11 +277,12 @@
       "AccountID": "113174582280",
       "CustomerSocial": 345679898,
       "SavingsAccountType": "Traditional",
-      "CurrentBalance": 672.91,
+      "CurrentBalance": 678.7643169999999,
       "InterestRate": 0.0087,
       "OpenDate": "11/24/2016",
       "TermDate": "",
       "BackupAccount": "",
+      "LastInterestPaidDate": "06/06/2017",
       "OverdraftCount": 0,
       "currentBalance": 0.0,
       "overdraftCount": 0
@@ -281,11 +291,12 @@
       "AccountID": "23343565613",
       "CustomerSocial": 233435656,
       "SavingsAccountType": "Traditional",
-      "CurrentBalance": 2000.0,
+      "CurrentBalance": 2017.3999999999999,
       "InterestRate": 0.0087,
       "OpenDate": "11/29/2016",
       "TermDate": "",
       "BackupAccount": "",
+      "LastInterestPaidDate": "06/06/2017",
       "OverdraftCount": 0,
       "currentBalance": 0.0,
       "overdraftCount": 0
@@ -294,11 +305,40 @@
       "AccountID": "50502256811",
       "CustomerSocial": 505022568,
       "SavingsAccountType": "Traditional",
-      "CurrentBalance": 2990.0,
+      "CurrentBalance": 3016.013,
       "InterestRate": 0.0087,
       "OpenDate": "11/29/2016",
       "TermDate": "",
       "BackupAccount": "",
+      "LastInterestPaidDate": "06/06/2017",
+      "OverdraftCount": 0,
+      "currentBalance": 0.0,
+      "overdraftCount": 0
+    },
+    {
+      "AccountID": "55555555511",
+      "CustomerSocial": 555555555,
+      "SavingsAccountType": "Traditional",
+      "CurrentBalance": 1844.9999999999998,
+      "InterestRate": 0.025,
+      "OpenDate": "11/29/2016",
+      "TermDate": "",
+      "BackupAccount": "",
+      "LastInterestPaidDate": "06/06/2017",
+      "OverdraftCount": 0,
+      "currentBalance": 0.0,
+      "overdraftCount": 0
+    },
+    {
+      "AccountID": "55555555561",
+      "CustomerSocial": 555555555,
+      "SavingsAccountType": "CD",
+      "CurrentBalance": 2050.0,
+      "InterestRate": 0.025,
+      "OpenDate": "11/29/2016",
+      "TermDate": "12/18/2016",
+      "BackupAccount": "",
+      "LastInterestPaidDate": "06/06/2017",
       "OverdraftCount": 0,
       "currentBalance": 0.0,
       "overdraftCount": 0
@@ -309,10 +349,11 @@
       "AccountID": "263748593021",
       "CustomerSocial": 345653425,
       "AccountType": "Gold",
-      "CurrentBalance": 1000.0,
+      "CurrentBalance": 364.5,
       "BackupAccount": "",
       "OverdraftCount": 0,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -324,6 +365,7 @@
       "BackupAccount": "",
       "OverdraftCount": 0,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -335,6 +377,7 @@
       "BackupAccount": "",
       "OverdraftCount": 2,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -346,6 +389,7 @@
       "BackupAccount": "",
       "OverdraftCount": 2,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -357,6 +401,7 @@
       "BackupAccount": "",
       "OverdraftCount": 0,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -368,6 +413,7 @@
       "BackupAccount": "",
       "OverdraftCount": 0,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -379,6 +425,7 @@
       "BackupAccount": "",
       "OverdraftCount": 2,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -390,6 +437,7 @@
       "BackupAccount": "",
       "OverdraftCount": 1,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -401,6 +449,7 @@
       "BackupAccount": "",
       "OverdraftCount": 2,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -412,6 +461,7 @@
       "BackupAccount": "",
       "OverdraftCount": 0,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -423,6 +473,7 @@
       "BackupAccount": "",
       "OverdraftCount": 0,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -434,6 +485,7 @@
       "BackupAccount": "",
       "OverdraftCount": 0,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -445,6 +497,7 @@
       "BackupAccount": "",
       "OverdraftCount": 1,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -456,6 +509,7 @@
       "BackupAccount": "",
       "OverdraftCount": 2,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -467,6 +521,7 @@
       "BackupAccount": "",
       "OverdraftCount": 2,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -478,6 +533,7 @@
       "BackupAccount": "",
       "OverdraftCount": 2,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -489,6 +545,7 @@
       "BackupAccount": "",
       "OverdraftCount": 2,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -500,6 +557,7 @@
       "BackupAccount": "",
       "OverdraftCount": 2,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -511,6 +569,7 @@
       "BackupAccount": "2444456565555",
       "OverdraftCount": 2,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -522,6 +581,7 @@
       "BackupAccount": "",
       "OverdraftCount": 3,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -533,6 +593,7 @@
       "BackupAccount": "2331244336666",
       "OverdraftCount": 2,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -544,6 +605,7 @@
       "BackupAccount": "2444456544455",
       "OverdraftCount": 2,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -555,6 +617,7 @@
       "BackupAccount": "2331244442346",
       "OverdraftCount": 2,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -566,6 +629,7 @@
       "BackupAccount": "2444234565555",
       "OverdraftCount": 2,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -577,6 +641,7 @@
       "BackupAccount": "2331241111346",
       "OverdraftCount": 2,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -588,6 +653,7 @@
       "BackupAccount": "244111165555",
       "OverdraftCount": 2,
       "DateAccountOpened": "11/24/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -599,6 +665,7 @@
       "BackupAccount": "564589462154",
       "OverdraftCount": 0,
       "DateAccountOpened": "11/29/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     },
@@ -610,6 +677,19 @@
       "BackupAccount": "",
       "OverdraftCount": 0,
       "DateAccountOpened": "11/29/2016",
+      "LastInterestPaidDate": "11/29/2016",
+      "currentBalance": 0.0,
+      "overdraftCount": 0
+    },
+    {
+      "AccountID": "55555555521",
+      "CustomerSocial": 555555555,
+      "AccountType": "gold",
+      "CurrentBalance": 3000.0,
+      "BackupAccount": "55555555511",
+      "OverdraftCount": 0,
+      "DateAccountOpened": "11/29/2016",
+      "LastInterestPaidDate": "11/29/2016",
       "currentBalance": 0.0,
       "overdraftCount": 0
     }
@@ -620,11 +700,11 @@
       "CustomerSocial": 233435656,
       "CurrentBalance": 2700.0,
       "CurrentInterestRate": 0.15,
-      "DatePaymentDue": "11/29/2016",
+      "DatePaymentDue": "12/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": 405.0,
+      "CurrentPaymentDueAmt": 2733.75,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0,
+      "MissedPaymentFlag": 1,
       "CreditLimit": 15000.0,
       "PurchasesThisMonth": [
         {
@@ -646,11 +726,11 @@
       "CustomerSocial": 233435656,
       "CurrentBalance": 1500.0,
       "CurrentInterestRate": 0.17,
-      "DatePaymentDue": "11/29/2016",
+      "DatePaymentDue": "12/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": 255.0,
+      "CurrentPaymentDueAmt": 1521.25,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0,
+      "MissedPaymentFlag": 1,
       "CreditLimit": 5000.0,
       "PurchasesThisMonth": [
         {
@@ -672,11 +752,11 @@
       "CustomerSocial": 345812332,
       "CurrentBalance": 900.0,
       "CurrentInterestRate": 0.05,
-      "DatePaymentDue": "11/29/2016",
+      "DatePaymentDue": "12/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": 200.0,
+      "CurrentPaymentDueAmt": 903.75,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0,
+      "MissedPaymentFlag": 1,
       "CreditLimit": 15000.0,
       "PurchasesThisMonth": [
         {
@@ -698,11 +778,11 @@
       "CustomerSocial": 345812332,
       "CurrentBalance": 250.0,
       "CurrentInterestRate": 0.012,
-      "DatePaymentDue": "11/29/2016",
+      "DatePaymentDue": "12/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": 75.0,
+      "CurrentPaymentDueAmt": 250.25,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0,
+      "MissedPaymentFlag": 1,
       "CreditLimit": 750.0,
       "PurchasesThisMonth": [
         {
@@ -724,11 +804,11 @@
       "CustomerSocial": 235445789,
       "CurrentBalance": 65.0,
       "CurrentInterestRate": 0.095,
-      "DatePaymentDue": "11/29/2016",
+      "DatePaymentDue": "12/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": 65.0,
+      "CurrentPaymentDueAmt": 65.51458333333333,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0,
+      "MissedPaymentFlag": 1,
       "CreditLimit": 500.0,
       "PurchasesThisMonth": [
         {
@@ -748,13 +828,13 @@
     {
       "CreditCardID": "6666666666666666",
       "CustomerSocial": 423168945,
-      "CurrentBalance": 250.0,
+      "CurrentBalance": 450.0,
       "CurrentInterestRate": 0.08,
-      "DatePaymentDue": "11/29/2016",
+      "DatePaymentDue": "12/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": 200.0,
+      "CurrentPaymentDueAmt": 453.0,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0,
+      "MissedPaymentFlag": 1,
       "CreditLimit": 500.0,
       "PurchasesThisMonth": [
         {
@@ -768,6 +848,41 @@
           "PurchaseTitle": "Food",
           "PurchaseLocation": "Waffle House",
           "PurchaseAmt": 23.56
+        },
+        {
+          "PurchaseID": "6666666666666666121",
+          "PurchaseTitle": "Food",
+          "PurchaseLocation": "Cheddars",
+          "PurchaseAmt": 300.0,
+          "PurchaseDate": "11/29/2016"
+        },
+        {
+          "PurchaseID": "6666666666666666131",
+          "PurchaseTitle": "asdf",
+          "PurchaseLocation": "asdf",
+          "PurchaseAmt": 200.0,
+          "PurchaseDate": "11/29/2016"
+        }
+      ]
+    },
+    {
+      "CreditCardID": "55555555531",
+      "CustomerSocial": 555555555,
+      "CurrentBalance": 200.0,
+      "CurrentInterestRate": 0.025,
+      "DatePaymentDue": "11/12/2016",
+      "DateNotifiedOfPayment": "10/1/2016",
+      "CurrentPaymentDueAmt": 0.0,
+      "DateLastPaymentMade": "11/29/2016",
+      "MissedPaymentFlag": 1,
+      "CreditLimit": 3000.0,
+      "PurchasesThisMonth": [
+        {
+          "PurchaseID": "55555555531101",
+          "PurchaseTitle": "Stuff",
+          "PurchaseLocation": "Walmart",
+          "PurchaseAmt": 200.0,
+          "PurchaseDate": "12/16/2016"
         }
       ]
     }
@@ -780,11 +895,11 @@
       "CurrentBalance": 500.0,
       "FixedInterestRate": 0.06,
       "FixedPaymentAmount": 759.0,
-      "DatePaymentDue": "11/29/2016",
+      "DatePaymentDue": "12/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": 1593.0,
+      "CurrentPaymentDueAmt": 1669.25,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 1,
+      "MissedPaymentFlag": 2,
       "OpenDate": "10/01/2016"
     },
     {
@@ -794,11 +909,11 @@
       "CurrentBalance": 1000.0,
       "FixedInterestRate": 0.07,
       "FixedPaymentAmount": 614.0,
-      "DatePaymentDue": "11/29/2016",
+      "DatePaymentDue": "12/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": 614.0,
+      "CurrentPaymentDueAmt": 691.9166666666666,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0,
+      "MissedPaymentFlag": 1,
       "OpenDate": "10/01/2016"
     },
     {
@@ -808,11 +923,11 @@
       "CurrentBalance": 10000.0,
       "FixedInterestRate": 12.5,
       "FixedPaymentAmount": 200.0,
-      "DatePaymentDue": "11/29/2016",
+      "DatePaymentDue": "12/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": 200.0,
+      "CurrentPaymentDueAmt": 5483.333333333334,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0,
+      "MissedPaymentFlag": 1,
       "OpenDate": "10/01/2016"
     },
     {
@@ -822,11 +937,11 @@
       "CurrentBalance": 12000.0,
       "FixedInterestRate": 10.3,
       "FixedPaymentAmount": 225.0,
-      "DatePaymentDue": "11/29/2016",
+      "DatePaymentDue": "12/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": 225.0,
+      "CurrentPaymentDueAmt": 5450.0,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0,
+      "MissedPaymentFlag": 1,
       "OpenDate": "10/01/2016"
     },
     {
@@ -836,11 +951,11 @@
       "CurrentBalance": 1000.0,
       "FixedInterestRate": 0.07,
       "FixedPaymentAmount": 614.0,
-      "DatePaymentDue": "11/29/2016",
+      "DatePaymentDue": "12/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": 614.0,
+      "CurrentPaymentDueAmt": 691.9166666666666,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0,
+      "MissedPaymentFlag": 1,
       "OpenDate": "10/01/2016"
     },
     {
@@ -850,15 +965,29 @@
       "CurrentBalance": 10000.0,
       "FixedInterestRate": 12.5,
       "FixedPaymentAmount": 200.0,
-      "DatePaymentDue": "11/29/2016",
+      "DatePaymentDue": "12/29/2016",
       "DateNotifiedOfPayment": "11/01/2016",
-      "CurrentPaymentDueAmt": 200.0,
+      "CurrentPaymentDueAmt": 5483.333333333334,
       "DateLastPaymentMade": "10/29/2016",
-      "MissedPaymentFlag": 0,
+      "MissedPaymentFlag": 1,
       "OpenDate": "10/01/2016"
+    },
+    {
+      "LoanID": "55555555542",
+      "TermLoanType": "30",
+      "CustomerSocial": 555555555,
+      "CurrentBalance": 30000.0,
+      "FixedInterestRate": 0.032,
+      "FixedPaymentAmount": 40.0,
+      "DatePaymentDue": "01/16/2017",
+      "DateNotifiedOfPayment": "12/1/2016",
+      "CurrentPaymentDueAmt": 155.0,
+      "DateLastPaymentMade": "11/29/2016",
+      "MissedPaymentFlag": 1,
+      "OpenDate": "11/29/2016"
     }
   ],
-  "DatabaseTime": "11/29/2016",
+  "DatabaseTime": "12/16/2016",
   "Checks": [
     {
       "date": "11/30/2016",
@@ -899,6 +1028,14 @@
       "accountID": "263748593021",
       "checkNum": 14,
       "memo": "all you\u0027re hard work"
+    },
+    {
+      "date": "12/30/2016",
+      "orderOf": "Walmart",
+      "amt": 200.0,
+      "accountID": "55555555521",
+      "checkNum": 123456,
+      "memo": "Stuff"
     }
   ]
 }

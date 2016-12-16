@@ -76,6 +76,7 @@ public class CustomerAtmAccounts extends VBox {
             payButton.setOnAction(e -> {
                 if (TryParseDouble(payField.getText())) {
                     double x = Double.parseDouble(payField.getText());
+                    x = (account.getCurrentBalance() > 1000) ? x : x + .5;
                     account.withdraw(x,account);
                     AtmCloseClick(thisCustomer);
                 }else{
