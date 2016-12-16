@@ -3,7 +3,7 @@ package DatabaseObjects;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
+import static Master.Main.database;
 
 public class PurchasesThisMonth  {
     @SerializedName("PurchaseID")
@@ -18,12 +18,16 @@ public class PurchasesThisMonth  {
     @SerializedName("PurchaseAmt")
     @Expose
     double purchaseAmt;
+    @SerializedName("PurchaseDate")
+    @Expose
+    String purchaseDate;
 
     public PurchasesThisMonth(String purchase, String title, String location, double amt){
         this.purchaseID=purchase;
         this.purchaseTitle=title;
         this.purchaseLocation=location;
         this.purchaseAmt=amt;
+        purchaseDate = database.databaseTime;
     }
 
     public double getPurchaseAmt() {
