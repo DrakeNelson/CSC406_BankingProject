@@ -17,6 +17,7 @@ import static Master.Main.database;
 
 /**
  * Created by user on 11/28/2016.
+ * DONE
  */
 public class CustomerCheckWriterPane extends GridPane {
     public CustomerCheckWriterPane() {

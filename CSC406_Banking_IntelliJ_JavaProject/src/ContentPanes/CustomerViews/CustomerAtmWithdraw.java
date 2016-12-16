@@ -15,10 +15,9 @@ import javafx.scene.text.Text;
 
 /**
  * Created by user on 11/28/2016.
+ * DONE
  */
 public class CustomerAtmWithdraw extends GridPane {
-    Customer thisCustomer;
-
     public CustomerAtmWithdraw(){
 
         setHgap(10);
@@ -28,7 +27,7 @@ public class CustomerAtmWithdraw extends GridPane {
         title1.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
         add(title1, 0, 0, 4, 1);
 
-        EzText cardText = new EzText("Customer #: ");
+        EzText cardText = new EzText("SWIPE CARD (enter Customer #): ");
         add(cardText,0,2);
         TextField cardField = new TextField();
         add(cardField, 1, 2);

@@ -29,12 +29,11 @@ import static Master.MasterController.ManagerSearchClick;
 
 /*
  * Created by drake on 11/24/2016.
- * all of the buttons on this page have no functionality
  */
 public class ManagerCustomerServicePane extends GridPane {
     private static DecimalFormat format = new DecimalFormat(".00");
     private Customer thisCustomer;
-    final Text actionTarget = new Text();
+    private final Text actionTarget = new Text();
 
     public ManagerCustomerServicePane(Customer searchedCustomer) {
         thisCustomer = searchedCustomer;
@@ -111,7 +110,7 @@ public class ManagerCustomerServicePane extends GridPane {
                 if (TryParseDouble(depositTextField.getText())) {
                     account.setCurrentBalance(account.getCurrentBalance() + Double.parseDouble(depositTextField.getText()));
                     ManagerSearchClick(thisCustomer);
-                }else{
+                } else {
                     actionTarget.setFill(Color.FIREBRICK);
                     actionTarget.setText("Invalid amt");
                 }
@@ -141,7 +140,7 @@ public class ManagerCustomerServicePane extends GridPane {
             add(interestButton, 5, 0);
             interestButton.setOnAction(e -> {
                 if (TryParseDouble(interestField.getText())) {
-                    account.setInterestRate(account.getCurrentBalance() + Double.parseDouble(interestField.getText()));
+                    account.setInterestRate(Double.parseDouble(interestField.getText()));
                     ManagerSearchClick(thisCustomer);
                 } else {
                     actionTarget.setFill(Color.FIREBRICK);
@@ -152,10 +151,11 @@ public class ManagerCustomerServicePane extends GridPane {
             Button closeButton = new Button("Close Account");
             add(closeButton, 6, 0);
             closeButton.setOnAction(e -> {
+                System.out.println("Savings Account closed Pay Customer: $" + format.format(account.getCurrentBalance()));
+                database.getCheckingAccounts().stream().filter(acc -> acc.getBackupAccount().equals(account.getAccountID())).forEach(acc -> acc.setBackupAccount(""));
+                database.getSavingAccounts().stream().filter(acc -> acc.getBackupAccount().equals(account.getAccountID())).forEach(acc -> acc.setBackupAccount(""));
                 database.getSavingAccounts().remove(account);
                 ManagerSearchClick(thisCustomer);
-                System.out.println("Savings Account closed Pay Customer: $" + account.getCurrentBalance());
-
             });
 
         }
@@ -173,12 +173,12 @@ public class ManagerCustomerServicePane extends GridPane {
             Button payButton = new Button("Pay Amt");
             add(payButton, 1, 0);
             payButton.setOnAction(e -> {
-                if(TryParseDouble(payField.getText())){
-                    loan.setCurrentBalance(loan.getCurrentBalance()-Double.parseDouble(payField.getText()));
-                    if(Double.parseDouble(payField.getText())>=loan.getCurrentPaymentDueAmt()){
+                if (TryParseDouble(payField.getText())) {
+                    loan.setCurrentBalance(loan.getCurrentBalance() - Double.parseDouble(payField.getText()));
+                    if (Double.parseDouble(payField.getText()) >= loan.getCurrentPaymentDueAmt()) {
                         loan.setCurrentPaymentDueAmt(0);
-                    }else{
-                        loan.setCurrentPaymentDueAmt(loan.getCurrentPaymentDueAmt()-Double.parseDouble(payField.getText()));
+                    } else {
+                        loan.setCurrentPaymentDueAmt(loan.getCurrentPaymentDueAmt() - Double.parseDouble(payField.getText()));
                     }
                     ManagerSearchClick(thisCustomer);
                 }
@@ -188,15 +188,23 @@ public class ManagerCustomerServicePane extends GridPane {
             Button setInterestButton = new Button("Set Interest");
             add(setInterestButton, 3, 0);
             setInterestButton.setOnAction(e -> {
-                String interest=interestField.getText();
+                String interest = interestField.getText();
                 loan.setFixedInterestRate(Double.parseDouble(interest));
-                loan.setFixedPaymentAmount((.5*loan.getCurrentBalance())*(loan.getFixedInterestRate())/12);
+                loan.setFixedPaymentAmount((.5 * loan.getCurrentBalance()) * (loan.getFixedInterestRate()) / 12);
                 ManagerSearchClick(thisCustomer);
             });
+            Button closeButton = new Button("Close Loan");
+            add(closeButton, 4, 0);
+            closeButton.setOnAction(e -> {
+                System.out.println("Loan closed, collect: $" + format.format(loan.getCurrentBalance()) + " from customer.");
+                database.getTermLoans().remove(loan);
+                ManagerSearchClick(thisCustomer);
+            });
+
             Button payFixedButton = new Button("Pay Fixed Amt");
             add(payFixedButton, 6, 0);
             payFixedButton.setOnAction(e -> {
-                loan.setCurrentBalance(loan.getCurrentBalance()-loan.getCurrentPaymentDueAmt());
+                loan.setCurrentBalance(loan.getCurrentBalance() - loan.getCurrentPaymentDueAmt());
                 loan.setCurrentPaymentDueAmt(0);
                 ManagerSearchClick(thisCustomer);
             });
@@ -217,21 +225,29 @@ public class ManagerCustomerServicePane extends GridPane {
             Button payButton = new Button("Pay Amt");
             add(payButton, 1, 0);
             payButton.setOnAction(e -> {
-                if(TryParseDouble(payField.getText())){
-                    card.setCurrentBalance(card.getCurrentBalance()-Double.parseDouble(payField.getText()));
-                    if(Double.parseDouble(payField.getText())>=card.getCurrentPaymentDueAmt()){
+                if (TryParseDouble(payField.getText())) {
+                    card.setCurrentBalance(card.getCurrentBalance() - Double.parseDouble(payField.getText()));
+                    if (Double.parseDouble(payField.getText()) >= card.getCurrentPaymentDueAmt()) {
                         card.setCurrentPaymentDueAmt(0.);
-                    }else{
-                        card.setCurrentPaymentDueAmt(card.getCurrentPaymentDueAmt()-Double.parseDouble(payField.getText()));
+                    } else {
+                        card.setCurrentPaymentDueAmt(card.getCurrentPaymentDueAmt() - Double.parseDouble(payField.getText()));
                     }
                     ManagerSearchClick(thisCustomer);
                 }
             });
 
+            Button closeButton = new Button("Close Account");
+            add(closeButton, 4, 0);
+            closeButton.setOnAction(e -> {
+                System.out.println("Card account closed collect: $" + format.format(card.getCurrentBalance()));
+                database.getCreditCards().remove(card);
+                ManagerSearchClick(thisCustomer);
+            });
+
             Button payFixedButton = new Button("Pay Fixed Amt");
             add(payFixedButton, 6, 0);
             payFixedButton.setOnAction(e -> {
-                card.setCurrentBalance(card.getCurrentBalance()-card.getCurrentPaymentDueAmt());
+                card.setCurrentBalance(card.getCurrentBalance() - card.getCurrentPaymentDueAmt());
                 card.setCurrentPaymentDueAmt(0.0);
                 ManagerSearchClick(thisCustomer);
             });
@@ -241,7 +257,7 @@ public class ManagerCustomerServicePane extends GridPane {
             Button setInterestButton = new Button("Set Interest");
             add(setInterestButton, 1, 1);
             setInterestButton.setOnAction(e -> {
-                String interest=interestField.getText();
+                String interest = interestField.getText();
                 card.setCurrentInterestRate(Double.parseDouble(interest));
                 ManagerSearchClick(thisCustomer);
             });
@@ -250,7 +266,7 @@ public class ManagerCustomerServicePane extends GridPane {
             Button setLimitButton = new Button("Set Limit");
             add(setLimitButton, 4, 1);
             setLimitButton.setOnAction(e -> {
-                String limit=limitField.getText();
+                String limit = limitField.getText();
                 card.setCreditLimit(Double.parseDouble(limit));
                 ManagerSearchClick(thisCustomer);
             });
@@ -287,7 +303,7 @@ public class ManagerCustomerServicePane extends GridPane {
             closeButton.setOnAction(e -> {
                 database.getSavingAccounts().remove(account);
                 ManagerSearchClick(thisCustomer);
-                System.out.println("CD closed Pay Customer: " + (account.getCurrentBalance()-75)+"after $75 penalty.");
+                System.out.println("CD closed Pay Customer: " + format.format(account.getCurrentBalance() - 75) + " after $75 penalty.");
             });
         }
     }
@@ -347,7 +363,10 @@ public class ManagerCustomerServicePane extends GridPane {
             add(closeButton, 6, 3);
             closeButton.setOnAction(e -> {
                 database.getCheckingAccounts().remove(account);
-                System.out.println("Checking Account closed Pay Customer: " + (account.getCurrentBalance()));
+                database.getCheckingAccounts().stream().filter(acc -> acc.getBackupAccount().equals(account.getAccountID())).forEach(acc -> acc.setBackupAccount(""));
+                database.getSavingAccounts().stream().filter(acc -> acc.getBackupAccount().equals(account.getAccountID())).forEach(acc -> acc.setBackupAccount(""));
+                System.out.println("Checking Account closed Pay Customer: " + format.format((account.getCurrentBalance())));
+                ManagerSearchClick(thisCustomer);
             });
         }
     }

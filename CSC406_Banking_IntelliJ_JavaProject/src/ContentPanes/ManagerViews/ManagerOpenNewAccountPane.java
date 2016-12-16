@@ -16,6 +16,7 @@ import javafx.scene.text.Text;
 
 /**
  * Created by user on 11/28/2016.
+ * DONE
  */
 public class ManagerOpenNewAccountPane extends GridPane {
     public ManagerOpenNewAccountPane() {
@@ -98,6 +99,18 @@ public class ManagerOpenNewAccountPane extends GridPane {
             }
         });
 
+        Button cdButton = new Button("Open CD");
+        cdButton.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
+        add(cdButton, 0, 9, 3, 1);
+        cdButton.setOnAction(e -> {
+            Customer cust = Main.database.getCustomerBySSN(ssnField.getText());
+            if (cust == null) {
+                actionTarget.setFill(Color.FIREBRICK);
+                actionTarget.setText("Customer: " + ssnField.getText() + " does not exist in our records.");
+            } else {
+                MasterController.OpenCD(cust);
+            }
+        });
 
     }
 }

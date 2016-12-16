@@ -3,20 +3,22 @@ package ContentPanes.CustomerViews;
 import ContentPanes.EzItems.EzText;
 import DatabaseObjects.CreditCard;
 import DatabaseObjects.PurchasesThisMonth;
-import Master.Main;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+
 import static ContentPanes.EzItems.TryParse.TryParseDouble;
 import static Master.Main.database;
-import DatabaseObjects.Database;
 
 
 /**
  * Created by user on 11/28/2016.
+ * DONE
  */
 public class CustomerCreditCardPurchase extends GridPane {
     public CreditCard card;
@@ -48,16 +50,29 @@ public class CustomerCreditCardPurchase extends GridPane {
         TextField amtField = new TextField();
         add(amtField, 1, 5);
 
+        final Text actionTarget = new Text();
+        add(actionTarget, 1, 6);
+
         Button signButton = new Button("Complete Purchase");
         signButton.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
         add(signButton, 0, 7, 4, 1);
         signButton.setOnAction(event -> {
-
             String amount = amtField.getText();
             card=database.getcardByNum(cardField.getText());
             String s =card.getCreditCardID()+"1"+card.getPurchasesThisMonth().size()+1;
-            card.getPurchasesThisMonth().add(new PurchasesThisMonth(s,titleField.getText(),locField.getText(),Double.parseDouble(amount)));
-            System.out.println("added");
+            if(TryParseDouble(amount)){
+                if(card!=null) {
+                    card.getPurchasesThisMonth().add(new PurchasesThisMonth(s, titleField.getText(), locField.getText(), Double.parseDouble(amount)));
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("purchase made");
+                }else{
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("Card does not exist in records");
+                }
+            }else{
+                actionTarget.setFill(Color.FIREBRICK);
+                actionTarget.setText("Invalid Purchase amt");
+            }
         });
     }
 }

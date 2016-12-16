@@ -34,20 +34,22 @@ public class SavingAccount extends Account
     @SerializedName("LastInterestPaidDate")
     @Expose
     String lastInterestPaidDate;
-
-    @Override
-    public int getOverdraftCount() {
-        return overdraftCount;
-    }
-
-    @Override
-    public void setOverdraftCount(int overdraftCount) {
-        this.overdraftCount = overdraftCount;
-    }
-
     @SerializedName("OverdraftCount")
     @Expose
     int overdraftCount;
+
+    //for traditionals
+    public SavingAccount(int social,String account, double openBal, double interest, String termDate) {
+        customerSocial=social;
+        accountID=account;
+        currentBalance=openBal;
+        interestRate=interest;
+        backupAccount="";
+        savingsAccountType="CD";
+        openDate=database.databaseTime;
+        this.termDate=termDate;
+        lastInterestPaidDate=database.databaseTime;
+    }
 
     //for traditionals
     public SavingAccount(int social,String account, double openBal, double interest, String backup, String lastIntPaidDate) {
@@ -60,6 +62,14 @@ public class SavingAccount extends Account
         openDate=database.databaseTime;
         termDate="";
         lastInterestPaidDate=lastIntPaidDate;
+    }
+    @Override
+    public int getOverdraftCount() {
+        return overdraftCount;
+    }
+    @Override
+    public void setOverdraftCount(int overdraftCount) {
+        this.overdraftCount = overdraftCount;
     }
     @Override
     public String getBackupAccount(){

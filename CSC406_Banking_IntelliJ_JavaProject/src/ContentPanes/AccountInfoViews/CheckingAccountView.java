@@ -21,6 +21,7 @@ import static Master.MasterController.TellerSearchClick;
 
 /**
  * Created by user on 11/26/2016.
+ * DONE
  */
 public class CheckingAccountView extends GridPane {
     private static DecimalFormat format = new DecimalFormat(".00");
@@ -70,13 +71,6 @@ public class CheckingAccountView extends GridPane {
             if (TryParseDouble(withdrawlTextField.getText())) {
                 account.withdraw(Double.parseDouble(withdrawlTextField.getText()), account);
                 TellerSearchClick(TellerCustomerServicePane.customer);
-                if (account.getCurrentBalance() == 0) {
-                    actionTarget.setFill(Color.FIREBRICK);
-                    actionTarget.setText("Overdraft Protection Activated");
-                } else {
-                    actionTarget.setFill(Color.FIREBRICK);
-                    actionTarget.setText("Withdrawn");
-                }
             } else {
                 actionTarget.setFill(Color.FIREBRICK);
                 actionTarget.setText("Invalid amt");
@@ -86,6 +80,9 @@ public class CheckingAccountView extends GridPane {
         Button closeButton = new Button("Close Account");
         add(closeButton, 6, 3);
         closeButton.setOnAction(e -> {
+            System.out.println("Checking account closed pay customer: $" + format.format(account.getCurrentBalance()));
+            database.getCheckingAccounts().stream().filter(acc -> acc.getBackupAccount().equals(account.getAccountID())).forEach(acc -> acc.setBackupAccount(""));
+            database.getSavingAccounts().stream().filter(acc -> acc.getBackupAccount().equals(account.getAccountID())).forEach(acc -> acc.setBackupAccount(""));
             database.getCheckingAccounts().remove(account);
             TellerSearchClick(TellerCustomerServicePane.customer);
         });

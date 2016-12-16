@@ -11,6 +11,7 @@ import javafx.scene.text.FontWeight;
 
 /**
  * Created by user on 11/28/2016.
+ * DONE
  */
 public class CustomerInfoView extends GridPane{
     public CustomerInfoView(Customer customer) {

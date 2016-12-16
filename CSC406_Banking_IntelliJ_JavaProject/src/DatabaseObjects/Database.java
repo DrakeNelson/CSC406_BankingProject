@@ -12,7 +12,6 @@ public class Database
     @Expose
     public double GOLDINTERESTRATE;
 
-
     @SerializedName("Customers")
     @Expose
     public List<Customer> customers;
@@ -60,7 +59,7 @@ public class Database
     }
     public CreditCard getcardByNum(String CardNum){
         CreditCard result = null;
-        for (CreditCard creditCards : creditCards){
+        for (CreditCard creditCards : getCreditCards()){
             if(creditCards.getCreditCardID().equals(CardNum)){
                 result = creditCards;
             }

@@ -3,30 +3,29 @@ package DatabaseObjects;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import static Master.Main.database;
-
 /**
  * Created by user on 12/8/2016.
+ * DONE
  */
 public class Check {
     @SerializedName("date")
     @Expose
-    String date;
+    private String date;
     @SerializedName("orderOf")
     @Expose
-    String orderOf;
+    private String orderOf;
     @SerializedName("amt")
     @Expose
-    double amt;
+    private double amt;
     @SerializedName("accountID")
     @Expose
-    String accountID;
+    private String accountID;
     @SerializedName("checkNum")
     @Expose
-    int checkNum;
+    private int checkNum;
     @SerializedName("memo")
     @Expose
-    String memo;
+    private String memo;
 
     public Check(String Date, String OrderOf, Double Amount, String AccountID, int CheckNumber, String Memo) {
         this.date = Date;

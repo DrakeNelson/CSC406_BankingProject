@@ -12,17 +12,20 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 
 import java.text.DecimalFormat;
 import java.util.List;
 
 import static ContentPanes.EzItems.TryParse.TryParseDouble;
-import static Master.MasterController.AtmSearchClick;
+import static Master.MasterController.AtmCloseClick;
 
 /**
  * Created by user on 12/10/2016.
+ * DONE
  */
 public class CustomerAtmAccounts extends VBox {
     private static Customer thisCustomer;
@@ -52,14 +55,15 @@ public class CustomerAtmAccounts extends VBox {
     }
 
     private class tempGrid extends GridPane {
-        public tempGrid(Account account) {
+        tempGrid(Account account) {
             setHgap(10);
             setVgap(10);
             setPadding(new Insets(25, 25, 25, 25));
             EzText title1 = new EzText("Make An ATM Withdrawal");
             title1.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
             add(title1, 0, 0, 4, 1);
-
+            final Text actionTarget = new Text();
+            add(actionTarget, 0, 1);
             EzText cardText = new EzText("bal: ");
             add(cardText, 0, 2);
             EzText cardField = new EzText(Double.toString(account.getCurrentBalance()));
@@ -72,8 +76,11 @@ public class CustomerAtmAccounts extends VBox {
             payButton.setOnAction(e -> {
                 if (TryParseDouble(payField.getText())) {
                     double x = Double.parseDouble(payField.getText());
-                    account.setCurrentBalance(account.getCurrentBalance() - x);
-                    AtmSearchClick(thisCustomer);
+                    account.withdraw(x,account);
+                    AtmCloseClick(thisCustomer);
+                }else{
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("invalid amt");
                 }
             });
         }
@@ -81,7 +88,7 @@ public class CustomerAtmAccounts extends VBox {
     private static DecimalFormat format = new DecimalFormat(".00");
 
     private class atmCheckingAccountView extends GridPane {
-        public atmCheckingAccountView(CheckingAccount account) {
+        atmCheckingAccountView(CheckingAccount account) {
             setHgap(10);
             setVgap(10);
             setPadding(new Insets(25, 25, 25, 25));

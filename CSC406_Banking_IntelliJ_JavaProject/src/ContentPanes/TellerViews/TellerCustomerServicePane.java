@@ -11,9 +11,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import static ContentPanes.EzItems.TryParse.TryParseDouble;
@@ -22,10 +25,9 @@ import static Master.MasterController.TellerSearchClick;
 
 /*
  * Created by drake on 11/24/2016.
- * all of the buttons on this page have no functionality
  */
 public class TellerCustomerServicePane extends GridPane {
-
+    private static DecimalFormat format = new DecimalFormat(".00");
     public static Customer customer=Main.customer;
 
     public TellerCustomerServicePane(Customer searchedCustomer) {
@@ -85,7 +87,8 @@ public class TellerCustomerServicePane extends GridPane {
             setHgap(10);
             setVgap(10);
             setPadding(new Insets(0, 25, 25, 25));
-
+            final Text actionTarget = new Text();
+            add(actionTarget, 0, 0);
             TextField depositTextField = new TextField();
             add(depositTextField, 0, 2);
             Button depositButton = new Button("Deposit");
@@ -94,6 +97,9 @@ public class TellerCustomerServicePane extends GridPane {
                 if(TryParseDouble(depositTextField.getText())){
                     account.setCurrentBalance(account.getCurrentBalance()+Double.parseDouble(depositTextField.getText()));
                     TellerSearchClick(customer);
+                }else{
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("invalid value");
                 }
             });
 
@@ -105,6 +111,9 @@ public class TellerCustomerServicePane extends GridPane {
                 if(TryParseDouble(withdrawlTextField.getText())){
                     account.withdraw(Double.parseDouble(withdrawlTextField.getText()),account);
                     TellerSearchClick(customer);
+                }else{
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("invalid value");
                 }
             });
 
@@ -112,6 +121,9 @@ public class TellerCustomerServicePane extends GridPane {
             add(closeButton, 6, 2);
             closeButton.setOnAction(e -> {
                 database.getSavingAccounts().remove(account);
+                database.getCheckingAccounts().stream().filter(acc -> acc.getBackupAccount().equals(account.getAccountID())).forEach(acc -> acc.setBackupAccount(""));
+                database.getSavingAccounts().stream().filter(acc -> acc.getBackupAccount().equals(account.getAccountID())).forEach(acc -> acc.setBackupAccount(""));
+                System.out.println("Savings account closed pay customer: $" + format.format(account.getCurrentBalance()));
                 TellerSearchClick(customer);
             });
 

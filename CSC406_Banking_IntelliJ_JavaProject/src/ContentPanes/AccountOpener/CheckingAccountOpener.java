@@ -9,8 +9,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 
 import static ContentPanes.EzItems.TryParse.TryParseDouble;
 import static Master.Main.database;
@@ -59,6 +61,9 @@ public class CheckingAccountOpener extends VBox {
             TextField BackupAccountIDField = new TextField();
             add(BackupAccountIDField, 1, 4);
 
+            final Text actionTarget = new Text();
+            add(actionTarget, 1, 5);
+
             Button signButton = new Button("Create New Checking Account");
             signButton.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
             add(signButton, 0, 10, 4, 1);
@@ -67,7 +72,11 @@ public class CheckingAccountOpener extends VBox {
                 String backupAccount=BackupAccountIDField.getText();
                 if(TryParseDouble(openBal)){
                     database.getCheckingAccounts().add(new CheckingAccount(thisCustomer.getSocial(),Double.parseDouble(openBal),backupAccount,newAccountNumberField.getText()));
-                    System.out.println("added");
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("Checking Account Created");
+                }else{
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("invalid value in openBal");
                 }
             });
         }

@@ -9,15 +9,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import DatabaseObjects.CreditCard;
+import javafx.scene.text.Text;
 
 import static ContentPanes.EzItems.TryParse.TryParseDouble;
 import static Master.Main.database;
 
 /**
  * Created by user on 11/28/2016.
+ * DONE
  */
 public class CreditCardOpener extends VBox {
     private Customer thisCustomer;
@@ -61,6 +64,9 @@ public class CreditCardOpener extends VBox {
             TextField CreditLimitTextField = new TextField();
             add(CreditLimitTextField, 1, 6);
 
+            final Text actionTarget = new Text();
+            add(actionTarget, 1, 7);
+
             Button signButton = new Button("Create New Credit Card");
             signButton.setFont(Font.font("Gabriola", FontWeight.NORMAL, 20));
             add(signButton, 0, 10, 4, 1);
@@ -69,7 +75,11 @@ public class CreditCardOpener extends VBox {
                 String credLimit=CreditLimitTextField.getText();
                 if(TryParseDouble(credLimit)&&TryParseDouble(interest)) {
                     database.getCreditCards().add(new CreditCard(thisCustomer.getSocial(),socialField.getText(), Double.parseDouble(interest), payDueTextField.getText(), NotificationDateTextField.getText(), Double.parseDouble(credLimit)));
-                    System.out.println("added");
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("Credit Card Opened");
+                }else{
+                    actionTarget.setFill(Color.FIREBRICK);
+                    actionTarget.setText("invalid value in limit or interest");
                 }
             });
         }

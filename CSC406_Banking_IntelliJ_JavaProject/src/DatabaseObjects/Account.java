@@ -4,6 +4,7 @@ import Master.Main;
 
 /**
  * Created by user on 12/10/2016.
+ * DONE
  */
 public abstract class Account {
     public double getCurrentBalance() {
@@ -25,18 +26,22 @@ public abstract class Account {
         if (amt < account.getCurrentBalance()) {
             setCurrentBalance(getCurrentBalance() - amt);
         }else{
-
-            if (getBackupAccount().equals("")||getBackupAccount().isEmpty()|| getBackupAccount().equals(null)) {
+            if (getBackupAccount().equals("")||getBackupAccount().isEmpty()) {
                 setCurrentBalance(getCurrentBalance() - amt - 20);
                 setOverdraftCount(getOverdraftCount()+1);
+                System.out.println("charged $20 fee for overdraft");
             }else{
                 double overdraftamt = amt - getCurrentBalance();
                 Account acc = Main.database.getBackupByAccount(account.getBackupAccount());
-                acc.setCurrentBalance(acc.getCurrentBalance() - overdraftamt);
+                if(acc.getCurrentBalance()>overdraftamt){
+                    acc.setCurrentBalance(acc.getCurrentBalance() - overdraftamt);
+                }else{
+                    acc.setCurrentBalance(acc.getCurrentBalance()-overdraftamt-20);
+                    System.out.println("charged $20 fee for overdraft on backup");
+                }
                 setCurrentBalance(0);
             }
         }
-
     }
 
     public int getOverdraftCount() {

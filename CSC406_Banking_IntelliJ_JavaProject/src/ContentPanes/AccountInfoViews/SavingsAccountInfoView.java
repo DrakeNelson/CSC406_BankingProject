@@ -12,6 +12,7 @@ import java.text.DecimalFormat;
 
 /**
  * Created by user on 11/28/2016.
+ * DONE
  */
 public class SavingsAccountInfoView extends GridPane {
     private static DecimalFormat format = new DecimalFormat(".00");
